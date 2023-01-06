@@ -148,57 +148,9 @@ if ( ! function_exists( 'erf_send_form_data' ) ) {
 
 
 		if ( wp_doing_ajax() ) {
-			// import class.
-			if ( ! class_exists( 'ERFGoogleDriveApi' ) ) {
-				$api_file_path = plugin_dir_path( __FILE__ ) . 'lib/class-googledriveapi.php';
-				if ( file_exists( $api_file_path ) ) {
-					require_once $api_file_path;
-				}
-			}
 			$response = 'response...';
 
 			try {
-				$autoload_path = plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
-				if ( file_exists( $autoload_path ) ) {
-					require_once $autoload_path;
-
-					try {
-						$client = new Google\Client();
-						// $client->useApplicationDefaultCredentials();
-						$credentials_file_path = plugin_dir_path( __FILE__ ) . 'config/google-credentials.json';
-						$client->setAuthConfig( $credentials_file_path );
-
-						$client->addScope( Google\Service\Drive::DRIVE );
-
-						$client->setRedirectUri( 'http://localhost/demo/' );
-						$auth_url = $client->createAuthUrl();
-						$client->setAccessType( 'offline' );
-
-						$response = $client->getAccessToken();
-
-						$driveService = new Google\Service\Drive( $client );
-						$fileMetadata = new Google\Service\Drive\DriveFile(
-							array(
-								'name' => 'photo.jpg',
-							)
-						);
-						$content = file_get_contents( './photo.jpg' );
-						$file    = $driveService->files->create(
-							$fileMetadata,
-							array(
-								'data'       => $content,
-								'mimeType'   => 'image/jpeg',
-								'uploadType' => 'multipart',
-								'fields'     => 'id',
-							)
-						);
-						printf("File ID: %s\n", $file->id);
-						$response = $file->id;
-					} catch( Exception $e ) {
-						$response = "$e";
-					}
-				}
-
 				wp_send_json_success( $response );
 			} catch ( Exception $e ) {
 				wp_send_json_error(
