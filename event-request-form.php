@@ -79,3 +79,138 @@ function run_event_request_form() {
 
 }
 run_event_request_form();
+
+/**
+ * Include shortcodes file.
+ */
+$shortcodes_file_path = plugin_dir_path( __FILE__ ) . 'shortcodes.php';
+if ( file_exists( $shortcodes_file_path ) ) {
+	require_once $shortcodes_file_path;
+}
+
+/**
+ * Google client ID.
+ * For more info go to:
+ * https://cloud.google.com/docs/authentication?_ga=2.264139148.-1870061200.1671078708
+ */
+define( 'ERF_GOOGLE_CLIENT_ID', '535548890952-b5h45k7qdapr2binm1bijt4n8rp1mr12.apps.googleusercontent.com' );
+
+/**
+ * Google client secret.
+ * For more info go to:
+ * https://cloud.google.com/docs/authentication?_ga=2.264139148.-1870061200.1671078708
+ */
+define( 'ERF_GOOGLE_CLIENT_SECRET', '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' );
+
+/**
+ * Google OAuth scope.
+ * For more info go to:
+ * https://cloud.google.com/docs/authentication?_ga=2.264139148.-1870061200.1671078708
+ */
+define( 'ERF_GOOGLE_OAUTH_SCOPE', 'https://www.googleapis.com/auth/drive' );
+
+/**
+ * Redirect callback URI.
+ * For more info go to:
+ * https://cloud.google.com/docs/authentication?_ga=2.264139148.-1870061200.1671078708
+ */
+define( 'ERF_REDIRECT_URI', 'http://localhost/demo/' );
+
+/**
+ * Google OAuth URL.
+ * For more info go to:
+ * https://www.codexworld.com/upload-file-to-google-drive-using-php/
+ */
+define(
+	'ERF_GOOGLE_OAUTH_URL',
+	'https://accounts.google.com/o/oauth2/auth?scope=' . urlencode( ERF_GOOGLE_OAUTH_SCOPE ) . '&redirect_uri=' . ERF_REDIRECT_URI . '&response_type=code&client_id=' . ERF_GOOGLE_CLIENT_ID . '&access_type=online'
+);
+
+
+if ( ! function_exists( 'erf_send_form_data' ) ) {
+	/**
+	 * Function to send form row data to drive file.
+	 *
+	 * @since    1.0.0
+	 */
+	function erf_send_form_data() {
+
+		if ( ! isset( $_POST['key'] ) || '' === $_POST['key'] ) {
+			return 'Access forbidden. Key does not exists.';
+		}
+
+		$key = sanitize_text_field( wp_unslash( $_POST['key'] ) );
+		if ( ! wp_verify_nonce( $key, 'key' ) ) {
+			wp_send_json_error(
+				__( 'Invalid request, reload and try again.', 'event-request-form' )
+			);
+		}
+
+
+		if ( wp_doing_ajax() ) {
+			// import class.
+			if ( ! class_exists( 'ERFGoogleDriveApi' ) ) {
+				$api_file_path = plugin_dir_path( __FILE__ ) . 'lib/class-googledriveapi.php';
+				if ( file_exists( $api_file_path ) ) {
+					require_once $api_file_path;
+				}
+			}
+			$response = 'response...';
+
+			try {
+				$autoload_path = plugin_dir_path( __FILE__ ) . 'vendor/autoload.php';
+				if ( file_exists( $autoload_path ) ) {
+					require_once $autoload_path;
+
+					try {
+						$client = new Google\Client();
+						// $client->useApplicationDefaultCredentials();
+						$credentials_file_path = plugin_dir_path( __FILE__ ) . 'config/google-credentials.json';
+						$client->setAuthConfig( $credentials_file_path );
+
+						$client->addScope( Google\Service\Drive::DRIVE );
+
+						$client->setRedirectUri( 'http://localhost/demo/' );
+						$auth_url = $client->createAuthUrl();
+						$client->setAccessType( 'offline' );
+
+						$response = $client->getAccessToken();
+
+						$driveService = new Google\Service\Drive( $client );
+						$fileMetadata = new Google\Service\Drive\DriveFile(
+							array(
+								'name' => 'photo.jpg',
+							)
+						);
+						$content = file_get_contents( './photo.jpg' );
+						$file    = $driveService->files->create(
+							$fileMetadata,
+							array(
+								'data'       => $content,
+								'mimeType'   => 'image/jpeg',
+								'uploadType' => 'multipart',
+								'fields'     => 'id',
+							)
+						);
+						printf("File ID: %s\n", $file->id);
+						$response = $file->id;
+					} catch( Exception $e ) {
+						$response = "$e";
+					}
+				}
+
+				wp_send_json_success( $response );
+			} catch ( Exception $e ) {
+				wp_send_json_error(
+					$e->message
+				);
+			}
+
+		}
+		wp_send_json_error(
+			__( 'This feature can not be used without ajax call.', 'event-request-form' )
+		);
+	}
+}
+add_action( 'wp_ajax_erf_send_form_data', 'erf_send_form_data' );
+add_action( 'wp_ajax_nopriv_erf_send_form_data', 'erf_send_form_data' );

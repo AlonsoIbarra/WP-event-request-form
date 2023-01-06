@@ -112,3 +112,16 @@ Markdown uses email style notation for blockquotes and I've been told:
 > Asterisks for *emphasis*. Double it up  for **strong**.
 
 `<?php code(); // goes in backticks ?>`
+
+# Steps to setup Google drive environment
+
+Note: For more info about how to setup Google cloud API connection go to https://developers.google.com/drive/activity/v2/quickstart/js.
+
+- Ensure that you have a project in google cloud console (https://console.cloud.google.com/projectcreate).
+
+- Go to https://console.cloud.google.com/flows/enableapi?apiid=driveactivity.googleapis.com
+and enable "Drive Activity API" for your project in google cloud console.
+
+
+NOTE:
+this plugin uses google api services(Drive), for more info about add or remove services see [Google API PHP servioces](https://github.com/googleapis/google-api-php-client)
