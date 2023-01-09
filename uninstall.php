@@ -29,3 +29,10 @@
 if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	exit;
 }
+
+$table_name = $wpdb->prefix . EVENT_REQUEST_FORM_DATABASE_NAME;
+
+$sql = "DROP TABLE IF EXISTS $table_name;";
+
+require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+dbDelta( $sql );
