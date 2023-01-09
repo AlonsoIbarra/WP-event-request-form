@@ -98,6 +98,14 @@ class Event_Request_Form_Admin {
 
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/event-request-form-admin.js', array( 'jquery' ), $this->version, false );
 
+		wp_localize_script(
+			$this->plugin_name,
+			'AdminEventRequestFormRequests',
+			array(
+				'url' => admin_url( 'admin-ajax.php' ),
+				'key' => wp_create_nonce( 'key' ),
+			)
+		);
 	}
 
 }

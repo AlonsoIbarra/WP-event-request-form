@@ -29,22 +29,6 @@
 	 * practising this, we should strive to set a better example in our own work.
 	 */
 	 $(document).ready(function() {
-		
-		// validate token for pdf download.
-		$('#erf_request_form').submit( function(event){
-			$.ajax({
-				type: "POST",
-				url: EventRequestFormRequests.url,
-				data: {
-					key: EventRequestFormRequests.key,
-					action: 'erf_send_form_data',
-				},
-				success: function(response){
-					console.log(response);
-				}
-			});
-			return false;
-		});
 	});
 
 })( jQuery );
