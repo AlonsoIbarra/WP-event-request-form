@@ -71,8 +71,8 @@ button:hover {
 
 /* Make circles that indicate the steps of the form: */
 .step {
-	height: 15px;
-	width: 15px;
+	height: 5px;
+	width: 5px;
 	margin: 0 2px;
 	background-color: #bbbbbb;
 	border: none;	
@@ -89,29 +89,91 @@ button:hover {
 .step.finish {
 	background-color: #04AA6D;
 }
+.erf-image-choices-item{
+	width: 32%;
+    display: block;
+    padding: 26px !important;
+	margin: 2px;
+	box-shadow: 0 0 20px 0 rgb(0 0 0 / 10%);
+	float: left;
+	text-align: center;
+}
+.erf-image-choices-item-container{
+	height: 450px;
+}
+
+@media  (min-height: 701px)  and (max-height: 855px) {
+	.erf-image-choices-item-container{
+		height: 0px;
+	}
+}
+@media  (min-height: 640px)  and (max-height: 700px) {
+	.erf-image-choices-item-container{
+		height: 430px;
+	}
+}
+@media  (min-height: 575px)  and (max-height: 639px) {
+	.erf-image-choices-item-container{
+		height: 350px;
+	}
+}
+@media  (min-height: 510px)  and (max-height: 574px) {
+	.erf-image-choices-item-container{
+		height: 300px;
+	}
+}
+@media  (min-height: 480px)  and (max-height: 509px) {
+	.erf-image-choices-item-container{
+		height: 280px;
+	}
+}
+
+@media  (min-height: 50px)  and (max-height: 479px) {
+	.erf-image-choices-item-container{
+		height: 200px;
+	}
+}
 </style>
 
 <form id="erf_request_form">
-	<h1>Información de tu evento:</h1>
 	<!-- One "tab" for each step in the form: -->
 	<div class="tab">Nombre del cliente:
 		<p><input placeholder="Nombre del cliente" oninput="this.className = ''" name="nombre_del_cliente" id="nombre_del_cliente"></p>
 	</div>
 	<div class="tab">Tipo de evento:
-		<section>
-			<div>
-				<input type="radio" class="tipo_de_evento" name="tipo_de_evento" value="weeding" data-class="weeding"/>
-				<label for="weeding">Boda</label>
-			</div>
-			<div>
-				<input type="radio" class="tipo_de_evento" name="tipo_de_evento" value="baptism_communion" data-class="baptism_communion"/>
-				<label for="baptism_communion">XV años | Bautizo | 1ra. Comunión</label>
-			</div>
-			<div>
-				<input type="radio" class="tipo_de_evento" name="tipo_de_evento" value="event_other" data-class="event_other"/>
-				<label for="event_other">Otro</label>
-			</div>
-		</section>
+		<div class="erf-image-choices-item-container">
+				<div class="erf-image-choices-item">
+					<label>
+						<span class="erf-image-choices-image">
+							<img class="checked-choice" decoding="async" src="https://fiesta.lezlynorman.com/wp-content/uploads/2022/05/gallery9.jpg" alt="Boda" title="Boda">
+						</span>
+						<input type="radio" class="tipo_de_evento" name="tipo_de_evento" value="weeding" data-class="weeding" style="display: none;"/>
+						<span>Boda</span>
+					</label>
+				</div>
+				<div class="erf-image-choices-item">
+					<label>
+						<span class="erf-image-choices-image">
+							<img decoding="async" src="https://fiesta.lezlynorman.com/wp-content/uploads/2022/12/de23b88e29579e376838c5175655273c-e1671554308852.jpg" alt="XV años - Bautizo - 1ra. Comunión" title="XV años - Bautizo - 1ra. Comunión">
+						</span>
+						<input type="radio" class="tipo_de_evento" name="tipo_de_evento" value="baptism_communion" data-class="baptism_communion" style="display: none;"/>
+						<span>
+							XV años - Bautizo - 1ra. Comunión
+						</span>
+					</label>
+				</div>
+				<div class="erf-image-choices-item">
+					<label>
+						<span class="erf-image-choices-image">
+							<img decoding="async" src="https://fiesta.lezlynorman.com/wp-content/uploads/2022/12/e52eab94bc55444ef7978bae7abfbce4-e1671554182101.jpg" alt="Otro" title="Otro">
+						</span>
+						<input type="radio" class="tipo_de_evento" name="tipo_de_evento" value="event_other" data-class="event_other" style="display: none;"/>
+						<span>
+							Otro
+						</span>
+					</label>
+				</div>
+		</div>
 	</div>
 	<div class="tab">
 		<p class="weeding custom_field">
@@ -339,7 +401,7 @@ button:hover {
 	</div>
 	</div>
 	<!-- Circles which indicates the steps of the form: -->
-	<div style="text-align:center;margin-top:40px;">
+	<div style="text-align:center;margin-top:20px; width:90%">
 	<span class="step"></span>
 	<span class="step"></span>
 	<span class="step"></span>
