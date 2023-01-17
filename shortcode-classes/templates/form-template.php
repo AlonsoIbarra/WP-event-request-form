@@ -144,6 +144,32 @@ button:hover {
 .tab input{
 	color: #cd3636 !important;
 }
+
+.button-primary {
+
+    display: inline-block;
+    font-weight: 400;
+    color: #c36 !important;
+    text-align: center;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid #c36;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border-radius: 3px;
+    -webkit-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+	}
+.button-primary:hover {
+    color: #fff !important;
+    background-color: #c36;
+    text-decoration: none;
+}
 </style>
 <?php if( isset( $_GET['success'] ) ):?>
 	<h1>Hemos recibido tus datos, gracias por elegirnos!</h1>
@@ -368,6 +394,9 @@ button:hover {
 				<label for="codigo_postal_de_ceremonia_religiosa">Código postal de ceremonia religiosa:</label>
 				<input placeholder="Código postal de ceremonia religiosa" oninput="this.className = ''" name="codigo_postal_de_ceremonia_religiosa" id='codigo_postal_de_ceremonia_religiosa'>
 			</p>
+			<div>
+				<a class="find-address button-primary" value="" data-type="church">Ubicar en el mapa</a>
+			</div>
 			<p>
 				<label for="hora_de_ceremonia_religiosa">Hora de ceremonia religiosa:</label>
 				<input type="time" placeholder="Hora de ceremonia religiosa" oninput="this.className = ''" name="hora_de_ceremonia_religiosa" id='hora_de_ceremonia_religiosa'>
@@ -411,6 +440,9 @@ button:hover {
 				<label for="codigo_postal_de_recepcion">Código postal de recepción:</label>
 				<input class="erf-field-required" placeholder="Código postal de recepción" oninput="this.className = ''" name="codigo_postal_de_recepcion" id='codigo_postal_de_recepcion'>
 			</p>
+			<div>
+				<a class="find-address button-primary" value="" data-type="reception">Ubicar en el mapa</a>
+			</div>
 			<p>
 				<label for="hora_de_recepcion">Hora de recepción:</label>
 				<input class="erf-field-required" type="time" placeholder="Hora de recepción" oninput="this.className = ''" name="hora_de_recepcion" id='hora_de_recepcion'>
@@ -652,7 +684,7 @@ button:hover {
 			marker_reference.setMap(null);
 		}
 
-		function geocode(request, map_reference, marker_reference, geocoder_reference) {
+		function geocode(request, map_reference, marker_reference, geocoder_reference, update_inputs=true) {
 			clear(marker_reference);
 			geocoder_reference
 				.geocode(request)
@@ -662,7 +694,9 @@ button:hover {
 					map_reference.setCenter(results[0].geometry.location);
 					marker_reference.setPosition(results[0].geometry.location);
 					marker_reference.setMap(map_reference);
-
+					if (!update_inputs){
+						return false;
+					}
 					var calle         = result.results[0].address_components.filter(function(item) { return item.types.includes("route"); });
 					var numero        = result.results[0].address_components.filter(function(item) { return item.types.includes("street_number"); });
 					var colonia       = result.results[0].address_components.filter(function(item) { return item.types.includes("sublocality"); });
@@ -765,9 +799,47 @@ button:hover {
 				}
 			);
 		}
+		function mark_on_map(data_type){
+			if (data_type=='church'){
+				var address = jQuery('#direccion_de_ceremonia_religiosa').val()+' '+
+					jQuery('#ciudad_de_ceremonia_religiosa').val()+' '+
+					jQuery('#estado_de_ceremonia_religiosa').val()+' '+
+					jQuery('#pais_de_ceremonia_religiosa').val()+' CP '+
+					jQuery('#codigo_postal_de_ceremonia_religiosa').val();
+				console.log(address);
+				geocode(
+					{ address: address },
+					map_church,
+					marker_church,
+					geocoder_church,
+					false
+				);
+			}
+			if (data_type=='reception'){
+				var address = jQuery('#direccion_de_recepcion').val()+' '+
+					jQuery('#ciudad_de_recepcion').val()+' '+
+					jQuery('#estado_de_recepcion').val()+' '+
+					jQuery('#pais_de_recepcion').val()+' CP '+
+					jQuery('#codigo_postal_de_recepcion').val();
+				console.log(address);
+				geocode(
+					{ address: address },
+					map_reception,
+					marker_reception,
+					geocoder_reception,
+					false
+				);
+			}
+		}
 		jQuery(document).ready(function() {
 
 			initMap();
+
+			jQuery('.find-address').on('click', function(event){
+				let data_type = jQuery(this).data('type');
+				mark_on_map(data_type);
+			});
+
 
 			jQuery('.erf-contact-choices-option').on('click', function(event){
 				jQuery('.erf-contact-choices-option').each(function(index, element){
