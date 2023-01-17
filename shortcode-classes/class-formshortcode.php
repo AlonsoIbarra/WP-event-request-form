@@ -26,10 +26,6 @@ if ( ! class_exists( 'ERF_FormShortcode' ) ) {
 				die( 'Access forbidden. Nonce does not match.' );
 			}
 			$template_path = dirname( __FILE__ ) . '/templates/form-template.php';
-			$options = get_option( 'em_plugin_settings_options' );
-
-			set_query_var( 'show_icon', esc_attr( $options['btn_show_icon'] ) );
-
 			ob_start();
 			load_template( $template_path );
 			$output = ob_get_clean();
