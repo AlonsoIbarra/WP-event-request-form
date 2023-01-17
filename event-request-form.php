@@ -162,6 +162,28 @@ if ( ! function_exists( 'events_request_form_dashboard_page' ) ) {
 	}
 }
 
+/**
+ * Google API Key provided from Google console credential services.
+ * This value is obteined when you create a new API Credential on https://console.cloud.google.com/google/maps-apis/credentials.
+ */
+define( 'GOOGLE_API_KEY_FOR_PLUGIN_ZONES', 'API-KEY' );
+
+if ( ! function_exists( 'erf_enqueue_google_maps_api_js' ) ) {
+	/**
+	 * Enqueuing Google maps API library.
+	 *
+	 * @since    1.0.0
+	 * @param    string $hook The name of the WordPress filter that is being registered.
+	 */
+	function erf_enqueue_google_maps_api_js( $hook ) {
+		if ( defined( 'GOOGLE_API_KEY_FOR_PLUGIN_ZONES' ) && '' !== GOOGLE_API_KEY_FOR_PLUGIN_ZONES ) {
+			wp_register_script( 'googleMaps', 'https://maps.googleapis.com/maps/api/js?key=' . GOOGLE_API_KEY_FOR_PLUGIN_ZONES, array( 'jquery' ), '1.0', true );
+			wp_enqueue_script( 'googleMaps' );
+		}
+	}
+}
+add_action( 'init', 'erf_enqueue_google_maps_api_js' );
+
 if ( ! function_exists( 'erf_send_form_data' ) ) {
 	/**
 	 * Function to send form row data to drive file.
