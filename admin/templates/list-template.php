@@ -11,6 +11,16 @@
 $url = menu_page_url( 'request-detail-view', false );
 $query = ( isset( $_GET['q'] ) ) ? $_GET['q'] : '';
 ?>
+<?php if ( get_option( 'event_request_email_failure' ) ) : ?>
+	<div class="notice notice-error is-dismissible cssfe-review">
+		<div class="row cssfe-review-notice">
+			<div class="col-md-11" style="margin: 0.5rem;">
+				<h5>Al parecer hubo un error en el envio de correo electrónico.</h5>
+				<p>Por favor revisa la configuración del envio de correos electronicos.</p>
+			</div>
+		</div>
+	</div>
+<?php endif; ?>
 <div class="wrap">
 	<h1> <?php echo esc_html( get_admin_page_title() ); ?></h1>
 </div>

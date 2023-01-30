@@ -407,6 +407,7 @@ if ( ! function_exists( 'erf_send_form_data' ) ) {
 					'comentarios_y_sugerencias'            => $comentarios_y_sugerencias,
 				);
 				$id = $db_service->insert_row( $data );
+				event_request_send_email( $data );
 				wp_send_json_success( $id );
 			} catch ( Exception $e ) {
 				wp_send_json_error(
@@ -464,3 +465,23 @@ if ( ! function_exists( 'erf_check_field_row' ) ) {
 	}
 }
 add_action( 'wp_ajax_erf_check_field_row', 'erf_check_field_row' );
+
+if ( ! function_exists( 'event_request_send_email' ) ) {
+	/**
+	 * Send email to notify about new form request row.
+	 *
+	 * @since    1.0.0
+	 * @param    array $data Form fields value.
+	 */
+	function event_request_send_email( $data ) {
+		$settings = get_option( 'event_requests_plugin_settings_options' );
+		$to = $settings['email'];
+		$subject = 'Nueva entrada de formulario';
+		$message = 'Se a guardado un nuevo registro del formulario. ' . implode( ', ', $data );
+		if ( ! wp_mail( $to, $subject, $message ) ) {
+			update_option( 'event_request_email_failure', true );
+		} else {
+			update_option( 'event_request_email_failure', false );
+		}
+	}
+}
