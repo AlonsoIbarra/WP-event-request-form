@@ -130,8 +130,104 @@ if ( ! function_exists( 'create_erf_options_menu' ) ) {
 			'request-detail-view',//page name.
 			'event_request_detail_page'
 		);
+
+		add_submenu_page(
+			'event-requests-entries',
+			__( 'Book Events Settings Page', 'event-request-form' ),
+			__( 'Settings', 'event-request-form' ),
+			'manage_options',
+			'event_requests_plugin_settings',
+			'event_requests_render_plugin_settings_form'
+		);
 	}
 }
+
+if ( ! function_exists( 'event_requests_render_plugin_settings_form' ) ) {
+	/**
+	 * Function for render style input field.
+	 */
+	function event_requests_render_plugin_settings_form() {
+		if ( is_admin() ) {
+			?>
+			<h2><?php echo __( 'Event requests plugin', 'event-request-form' ); ?></h2>
+			<form action="options.php" method="post">
+				<?php settings_fields( 'event_requests_plugin_settings_options' ); ?>
+				<?php do_settings_sections( 'event_requests_plugin_settings' ); ?>
+				<?php submit_button(); ?>
+			</form>
+			<?php
+		}
+	}
+}
+
+/**
+ *  Action to render Plugin settings setup page.
+ */
+add_action( 'admin_init', 'event_requests_setings_setup_page' );
+
+if ( ! function_exists( 'event_requests_setings_setup_page' ) ) {
+	/**
+	 * Function for plugin settings.
+	 */
+	function event_requests_setings_setup_page() {
+
+		register_setting(
+			'em_plugin_settings_options',
+			'em_plugin_settings_options'
+		);
+
+		register_setting(
+			'event_requests_plugin_settings_options',
+			'event_requests_plugin_settings_options'
+		);
+
+		add_settings_section(
+			'event_requests_settings',
+			__( 'Settings', 'event-memories' ),
+			'event_requests_plugin_settings_instructions',
+			'event_requests_plugin_settings'
+		);
+		add_settings_field(
+			'event_requests_plugin_settings_email',
+			__( 'Email form reciber', 'event-request-form' ),
+			'event_requests_plugin_settings_email',
+			'event_requests_plugin_settings',
+			'event_requests_settings'
+		);
+	}
+}
+
+if ( ! function_exists( 'event_requests_plugin_settings_instructions' ) ) {
+	/**
+	 * Function for plugin settings.
+	 */
+	function event_requests_plugin_settings_instructions() {
+		echo sprintf( '<p>%s</p>',  __( 'Here you can update Plug-in settings.', 'event-request-form' ) );
+		echo '<p>Form shortcode: [ERF_FORM]</p>';
+	}
+}
+
+if ( ! function_exists( 'event_requests_plugin_settings_email' ) ) {
+	/**
+	 * Function for render button label input field.
+	 */
+	function event_requests_plugin_settings_email() {
+		$options = get_option( 'event_requests_plugin_settings_options' );
+		echo "<input id='event_requests_plugin_settings_email' name='event_requests_plugin_settings_options[email]' type='text' value='" . esc_attr( $options['email'] ) . "' />";
+		if( ! is_email( $options['email'] ) ) {
+			?>
+			<div class="notice notice-error cssfe-review">
+				<div class="row cssfe-review-notice">
+					<div class="col-md-11" style="margin: 0.5rem;">
+						<small>Revisa que este dato sea un correo electrónico valido.</small>
+					</div>
+				</div>
+			</div>
+			<?php
+		}
+	}
+}
+
 if ( ! function_exists( 'event_request_detail_page' ) ) {
 	/**
 	 * Function to render dashboard request detail page.
