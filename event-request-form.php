@@ -428,7 +428,7 @@ if ( ! function_exists( 'erf_check_field_row' ) ) {
 	/**
 	 * Function to mark/dismark a row field.
 	 */
-	function erf_check_field_row(){
+	function erf_check_field_row() {
 
 		if ( ! isset( $_POST['key'] ) || '' === $_POST['key'] ) {
 			return 'Access forbidden. Key does not exists.';
@@ -485,3 +485,86 @@ if ( ! function_exists( 'event_request_send_email' ) ) {
 		}
 	}
 }
+if ( ! function_exists( 'erf_remove_form_entry' ) ) {
+	/**
+	 * Remove form entry from database by ajax.
+	 */
+	function erf_remove_form_entry() {
+		if ( ! isset( $_POST['key'] ) || '' === $_POST['key'] ) {
+			return 'Access forbidden. Key does not exists.';
+		}
+
+		$key = sanitize_text_field( wp_unslash( $_POST['key'] ) );
+		if ( ! wp_verify_nonce( $key, 'key' ) ) {
+			wp_send_json_error(
+				__( 'Invalid request, reload and try again.', 'event-request-form' )
+			);
+		}
+		$id = sanitize_text_field( wp_unslash( $_POST['id'] ) );
+		if ( wp_doing_ajax() ) {
+			try {
+				if ( ! class_exists( 'ERFDatabaseService' ) ) {
+					require_once plugin_dir_path( __FILE__ ) . 'services/class-erfdatabaseservice.php';
+				}
+				$db_service = new ERFDatabaseService();
+				$response   = $db_service->delete_row( $id );
+				wp_send_json_success( $response );
+			} catch ( Exception $e ) {
+				wp_send_json_error(
+					$e->message
+				);
+			}
+		}
+		wp_send_json_error(
+			__( 'This feature can not be used without ajax call.', 'event-request-form' )
+		);
+	}
+}
+add_action( 'wp_ajax_erf_remove_form_entry', 'erf_remove_form_entry' );
+
+if ( ! function_exists( 'erf_download_excel_file' ) ) {
+	/**
+	 * Remove form entry from database by ajax.
+	 */
+	function erf_download_excel_file() {
+		if ( isset( $_GET['download_xls'] ) ) {
+
+			if ( ! class_exists( 'ERFDatabaseService' ) ) {
+				require_once plugin_dir_path( __FILE__ ) . 'services/class-erfdatabaseservice.php';
+			}
+			$db_service = new ERFDatabaseService();
+
+			if ( isset( $_GET['q'] ) ) {
+				$result = $db_service->filter( $_GET['q'] );
+			} else {
+				$result = $db_service->get_all();
+			}
+
+			// here .xls file is created.
+			header( 'Content-Disposition: attachment; filename=ERF_List.xls' );
+			header( 'Content-type: application/force-download' );
+			header( 'Content-Transfer-Encoding: binary' );
+			header( 'Pragma: public' );
+
+			$flag = false;
+
+			foreach ( $result as $row ) {
+				if ( ! $flag ) {
+					// display field/column names as first row
+					$headers = array_keys( (array) $row );
+					$headers = array_map(
+						function ( $value ) {
+							return ucfirst( str_replace( '_', ' ', $value ) );
+						},
+						$headers
+					);
+					echo implode( "\t", $headers ) . "\r\n";
+					$flag = true;
+				}
+				echo implode( "\t", array_values( ( array ) $row ) ) . "\r\n";
+			}
+			die();
+		}
+	}
+}
+add_action( 'plugins_loaded', 'erf_download_excel_file' );
