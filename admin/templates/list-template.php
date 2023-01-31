@@ -55,6 +55,9 @@ $query = ( isset( $_GET['q'] ) ) ? $_GET['q'] : '';
 				<?php echo esc_attr( __( 'Nombre del cliente', 'event-request-form' ) ); ?>
 			</th>
 			<th>
+				<?php echo esc_attr( __( 'Tipo de formulario', 'event-request-form' ) ); ?>
+			</th>
+			<th>
 				<?php echo esc_attr( __( 'Tipo de evento', 'event-request-form' ) ); ?>
 			</th>
 			<th>
@@ -68,6 +71,9 @@ $query = ( isset( $_GET['q'] ) ) ? $_GET['q'] : '';
 			<tr>
 				<td>
 					<?php echo $row->nombre_del_cliente; ?>
+				</td>
+				<td>
+					<?php echo $row->tipo_de_formulario; ?>
 				</td>
 				<td>
 					<?php echo $row->tipo_de_evento; ?>
@@ -148,6 +154,57 @@ $query = ( isset( $_GET['q'] ) ) ? $_GET['q'] : '';
 						$result,
 						function ( $value ) {
 							return $value->tipo_de_evento == 'event_other';
+						}
+					)
+				);
+				?>
+			</td>
+		</tr>
+		<tr>
+			<th>
+				<?php echo esc_attr( __( 'Oro', 'event-request-form' ) ); ?>
+			</th>
+			<td>
+				<?php
+				echo count(
+					array_filter(
+						$result,
+						function ( $value ) {
+							return $value->tipo_de_formulario == 'gold';
+						}
+					)
+				);
+				?>
+			</td>
+		</tr>
+		<tr>
+			<th>
+				<?php echo esc_attr( __( 'Plata', 'event-request-form' ) ); ?>
+			</th>
+			<td>
+				<?php
+				echo count(
+					array_filter(
+						$result,
+						function ( $value ) {
+							return $value->tipo_de_formulario == 'silver';
+						}
+					)
+				);
+				?>
+			</td>
+		</tr>
+		<tr>
+			<th>
+				<?php echo esc_attr( __( 'Bronce', 'event-request-form' ) ); ?>
+			</th>
+			<td>
+				<?php
+				echo count(
+					array_filter(
+						$result,
+						function ( $value ) {
+							return $value->tipo_de_formulario == 'bronze';
 						}
 					)
 				);

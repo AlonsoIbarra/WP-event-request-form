@@ -113,7 +113,7 @@ if ( ! class_exists( 'ERFDatabaseService' ) ) {
 		public function filter( $query ) {
 			global $wpdb;
 			$table = $this->table_name;
-			$results = $wpdb->get_results( "SELECT * FROM $table WHERE nombre_del_cliente LIKE '%$query%' or tipo_de_evento LIKE '%$query%' ", OBJECT );
+			$results = $wpdb->get_results( "SELECT * FROM $table WHERE nombre_del_cliente LIKE '%$query%' or tipo_de_evento LIKE '%$query%' or tipo_de_formulario LIKE '%$query%' ", OBJECT );
 			return $results;
 		}
 
