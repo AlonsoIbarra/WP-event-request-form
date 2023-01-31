@@ -17,10 +17,19 @@ if ( file_exists( $formshortcode_class_path ) ) {
 if ( ! function_exists( 'render_form_shortcode' ) ) {
 	/**
 	 * Function to render HTML code.
+	 *
+	 * @param  array $atts Shortcode attributes.
+	 * @return string Shortcode output.
 	 */
-	function render_form_shortcode() {
-		$form = new ERF_FormShortcode();
-		echo $form->render_code();
+	function render_form_shortcode( $atts ) {
+		$attributes = shortcode_atts(
+			array(
+				'type' => 'bronze',
+			),
+			$atts
+		);
+		$form = new ERF_FormShortcode( $attributes );
+		return $form->render_code();
 	}
 }
 add_shortcode( 'ERF_FORM', 'render_form_shortcode' );

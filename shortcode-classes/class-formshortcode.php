@@ -14,6 +14,25 @@ if ( ! class_exists( 'ERF_FormShortcode' ) ) {
 	class ERF_FormShortcode {
 
 		/**
+		 * The array of filters registered with WordPress.
+		 *
+		 * @since    1.0.0
+		 * @access   protected
+		 * @var      array $attributes Asociative array.
+		 */
+		protected $attributes;
+
+		/**
+		 * Initialize the class and set its attributes.
+		 *
+		 * @since 1.0.0
+		 * @param array $attributes Asociative array.
+		 */
+		public function __construct( $attributes ) {
+			$this->attributes = $attributes;
+		}
+
+		/**
 		 * Generate html form.
 		 *
 		 * @since    1.0.0
@@ -27,6 +46,7 @@ if ( ! class_exists( 'ERF_FormShortcode' ) ) {
 			}
 			$template_path = dirname( __FILE__ ) . '/templates/form-template.php';
 			ob_start();
+			set_query_var( 'tipo_de_formulario', strtolower( $this->attributes['type'] ) );
 			load_template( $template_path );
 			$output = ob_get_clean();
 

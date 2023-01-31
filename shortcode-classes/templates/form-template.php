@@ -90,30 +90,30 @@ button:hover {
 	background-color: #04AA6D;
 }
 .erf-field-label{
-    display: block;
-    font-weight: 700;
-    font-size: 16px;
-    float: none;
-    line-height: 1.3;
-    margin: 0 0 4px 0;
-    padding: 0;
-    word-break: break-word;
-    word-wrap: break-word;
+	display: block;
+	font-weight: 700;
+	font-size: 16px;
+	float: none;
+	line-height: 1.3;
+	margin: 0 0 4px 0;
+	padding: 0;
+	word-break: break-word;
+	word-wrap: break-word;
 }
 .erf-required-label{
 	color: red;
 }
 .erf-field-description{
 	font-size: 13px;
-    line-height: 1.3;
-    margin: 8px 0 0 0;
-    word-break: break-word;
-    word-wrap: break-word;
+	line-height: 1.3;
+	margin: 8px 0 0 0;
+	word-break: break-word;
+	word-wrap: break-word;
 }
 .erf-image-choices-item{
 	width: 40%;
-    display: block;
-    padding: 26px !important;
+	display: block;
+	padding: 26px !important;
 	margin: 2px;
 	box-shadow: 0 0 20px 0 rgb(0 0 0 / 10%);
 	float: left;
@@ -121,9 +121,9 @@ button:hover {
 }
 .erf-googlemap{
 	width: 100%;
-    height: 30rem;
-    border: 2px solid grey;
-    border-radius: 2rem;
+	height: 30rem;
+	border: 2px solid grey;
+	border-radius: 2rem;
 }
 /* if device has a touch screen */
 @media (any-pointer: coarse) {
@@ -147,34 +147,34 @@ button:hover {
 
 .button-primary {
 
-    display: inline-block;
-    font-weight: 400;
-    color: #c36 !important;
-    text-align: center;
-    white-space: nowrap;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    background-color: transparent;
-    border: 1px solid #c36;
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    border-radius: 3px;
-    -webkit-transition: all .3s;
-    -o-transition: all .3s;
-    transition: all .3s;
+	display: inline-block;
+	font-weight: 400;
+	color: #c36 !important;
+	text-align: center;
+	white-space: nowrap;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	background-color: transparent;
+	border: 1px solid #c36;
+	padding: 0.5rem 1rem;
+	font-size: 1rem;
+	border-radius: 3px;
+	-webkit-transition: all .3s;
+	-o-transition: all .3s;
+	transition: all .3s;
 	}
 .button-primary:hover {
-    color: #fff !important;
-    background-color: #c36;
-    text-decoration: none;
+	color: #fff !important;
+	background-color: #c36;
+	text-decoration: none;
 }
 </style>
-<?php if( isset( $_GET['success'] ) ):?>
+<?php if ( isset( $_GET['success'] ) ) : ?>
 	<?php
-	$url_updated =str_replace(
-		'success' ,
+	$url_updated = str_replace(
+		'success',
 		'',
 		"http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"
 	);
@@ -187,12 +187,13 @@ button:hover {
 	<div style="text-align: center;">
 		<h1>Muchas gracias por llenar este formulario! <?php echo $nombre_del_cliente; ?> te contactaré pronto para trabajar juntos!</h1>
 		<h2>Si tienes algún inconveniente no dudes en escribirme a: hi@lezlynorman.com.</h2>
-		<form action="<?=$url_updated;?>">
+		<form action="<?php echo $url_updated; ?>">
 			<input type="submit" value="Ir al formulario">
 		</form>
 	</div>
-<?php else: ?>
+<?php else : ?>
 	<form id="erf_request_form">
+		<input type="hidden" name="tipo_de_formulario" id="tipo_de_formulario" value="<?php echo $tipo_de_formulario; ?>">
 		<!-- One "tab" for each step in the form: -->
 		<div class="tab">
 			<label class="erf-field-label">
@@ -290,93 +291,97 @@ button:hover {
 				</div>
 			</div>
 		</div>
-		<div class="tab">
-			<p class="weeding custom_field">
-				<label for="madre_de_novia">Madre de la novia:</label>
-				<input placeholder="Madre de la novia" oninput="this.className = ''" name="madre_de_novia" id='madre_de_novia'>
-			</p>
-			<div class="erf-separator"></div>	
-			<p class="weeding custom_field">
-				<label for="padre_de_novia">Padre de la novia:</label>
-				<input placeholder="Padre de la novia" oninput="this.className = ''" name="padre_de_novia" id='padre_de_novia'>
-			</p>
-			<div class="erf-separator"></div>	
-			<p class="weeding custom_field">
-				<label for="madre_de_novio">Madre del novio:</label>
-				<input placeholder="Madre del novio" oninput="this.className = ''" name="madre_de_novio" id='madre_de_novio'>
-			</p>
-			<div class="erf-separator"></div>	
-			<p class="weeding custom_field">
-				<label for="padre_de_novio">Padre del novio:</label>
-				<input placeholder="Padre del novio" oninput="this.className = ''" name="padre_de_novio" id='padre_de_novio'>
-			</p>
-			<p class="baptism_communion event_other custom_field" style="display: none;">
-				<label for="madre_del_festejado">Madre de la/del festejada/o:</label>
-				<input placeholder="Madre de la/del festejada/o" oninput="this.className = ''" name="madre_del_festejado" id='madre_del_festejado'>
-			</p>
-			<div class="erf-separator"></div>	
-			<p class="baptism_communion event_other custom_field" style="display: none;">
-				<label for="padre_del_festejado">Padre de la/del festejada/o:</label>
-				<input placeholder="Padre de la/del festejada/o" oninput="this.className = ''" name="padre_del_festejado" id='padre_del_festejado'>
-			</p>
-		</div>
-		<div class="tab">
-			<div>
-			<div>
-				<h4 class="erf-field-label" style="font-size: 20px; line-height: 28px;">Nombre de los padrinos</h4>
-				<p style="margin: 0 0 20px 0;">Porque agradecemos a aquellas personas que nos apoyan para hacer realidad este grán evento.</p>
+		<?php if ( in_array( $tipo_de_formulario, array( 'gold', 'silver' ) ) ) : ?>
+			<div class="tab">
+				<p class="weeding custom_field">
+					<label for="madre_de_novia">Madre de la novia:</label>
+					<input placeholder="Madre de la novia" oninput="this.className = ''" name="madre_de_novia" id='madre_de_novia'>
+				</p>
+				<div class="erf-separator"></div>	
+				<p class="weeding custom_field">
+					<label for="padre_de_novia">Padre de la novia:</label>
+					<input placeholder="Padre de la novia" oninput="this.className = ''" name="padre_de_novia" id='padre_de_novia'>
+				</p>
+				<div class="erf-separator"></div>	
+				<p class="weeding custom_field">
+					<label for="madre_de_novio">Madre del novio:</label>
+					<input placeholder="Madre del novio" oninput="this.className = ''" name="madre_de_novio" id='madre_de_novio'>
+				</p>
+				<div class="erf-separator"></div>	
+				<p class="weeding custom_field">
+					<label for="padre_de_novio">Padre del novio:</label>
+					<input placeholder="Padre del novio" oninput="this.className = ''" name="padre_de_novio" id='padre_de_novio'>
+				</p>
+				<p class="baptism_communion event_other custom_field" style="display: none;">
+					<label for="madre_del_festejado">Madre de la/del festejada/o:</label>
+					<input placeholder="Madre de la/del festejada/o" oninput="this.className = ''" name="madre_del_festejado" id='madre_del_festejado'>
+				</p>
+				<div class="erf-separator"></div>	
+				<p class="baptism_communion event_other custom_field" style="display: none;">
+					<label for="padre_del_festejado">Padre de la/del festejada/o:</label>
+					<input placeholder="Padre de la/del festejada/o" oninput="this.className = ''" name="padre_del_festejado" id='padre_del_festejado'>
+				</p>
 			</div>
+		<?php endif; ?>
+		<?php if ( in_array( $tipo_de_formulario, array( 'gold' ) ) ) : ?>
+			<div class="tab">
+				<div>
+				<div>
+					<h4 class="erf-field-label" style="font-size: 20px; line-height: 28px;">Nombre de los padrinos</h4>
+					<p style="margin: 0 0 20px 0;">Porque agradecemos a aquellas personas que nos apoyan para hacer realidad este grán evento.</p>
+				</div>
 
+				</div>
+				<p class="weeding custom_field">
+					<label for="nombre_de_madrina_de_arras">Nombre de madrina de aras:</label>
+					<input placeholder="Nombre de madrina de aras" oninput="this.className = ''" name="nombre_de_madrina_de_arras" id='nombre_de_madrina_de_arras'>
+				</p>
+				<div class="erf-separator"></div>	
+				<p class="weeding custom_field">
+					<label for="nombre_de_padrino_de_arras">Nombre de padrino de aras:</label>
+					<input placeholder="Nombre de padrino de aras" oninput="this.className = ''" name="nombre_de_padrino_de_arras" id='nombre_de_padrino_de_arras'>
+				</p>
+				<div class="erf-separator"></div>	
+				<p class="weeding custom_field">
+					<label for="nombre_de_madrina_de_lazo">Nombre de madrina de lazo:</label>
+					<input placeholder="Nombre de madrina de lazo" oninput="this.className = ''" name="nombre_de_madrina_de_lazo" id='nombre_de_madrina_de_lazo'>
+				</p>
+				<div class="erf-separator"></div>	
+				<p class="weeding custom_field">
+					<label for="nombre_de_padrino_de_lazo">Nombre de padrino de lazo:</label>
+					<input placeholder="Nombre de padrino de lazo" oninput="this.className = ''" name="nombre_de_padrino_de_lazo" id='nombre_de_padrino_de_lazo'>
+				</p>
+				<div class="erf-separator"></div>	
+				<p class="weeding custom_field">
+					<label for="nombre_de_madrina_de_anillos">Nombre de madrina de anillos:</label>
+					<input placeholder="Nombre de madrina de anillos" oninput="this.className = ''" name="nombre_de_madrina_de_anillos" id='nombre_de_madrina_de_anillos'>
+				</p>
+				<div class="erf-separator"></div>	
+				<p class="weeding custom_field">
+					<label for="nombre_de_padrino_de_anillos">Nombre de padrino de anillos:</label>
+					<input placeholder="Nombre de padrino de anillos" oninput="this.className = ''" name="nombre_de_padrino_de_anillos" id='nombre_de_padrino_de_anillos'>
+				</p>
+				<div class="erf-separator"></div>	
+				<p class="weeding custom_field">
+					<label for="nombre_de_madrina_de_velacion">Nombre de madrina de velación:</label>
+					<input placeholder="Nombre de madrina de velación" oninput="this.className = ''" name="nombre_de_madrina_de_velacion" id='nombre_de_madrina_de_velacion'>
+				</p>
+				<div class="erf-separator"></div>	
+				<p class="weeding custom_field">
+					<label for="nombre_de_padrino_de_velacion">Nombre de padrino de velación:</label>
+					<input placeholder="Nombre de padrino de velación" oninput="this.className = ''" name="nombre_de_padrino_de_velacion" id='nombre_de_padrino_de_velacion'>
+				</p>
+				<p class="baptism_communion event_other custom_field" style="display: none;">
+					<label for="nombre_de_madrina">Nombre de la madrina:</label>
+					<input placeholder="Nombre de la madrina" oninput="this.className = ''" name="nombre_de_madrina" id='nombre_de_madrina'>
+				</p>
+				<div class="erf-separator"></div>	
+				<p class="baptism_communion event_other custom_field" style="display: none;">
+					<label for="nombre_de_padrino">Nombre del padrino:</label>
+					<input placeholder="Nombre del padrino" oninput="this.className = ''" name="nombre_de_padrino" id='nombre_de_padrino'>
+				</p>
 			</div>
-			<p class="weeding custom_field">
-				<label for="nombre_de_madrina_de_arras">Nombre de madrina de aras:</label>
-				<input placeholder="Nombre de madrina de aras" oninput="this.className = ''" name="nombre_de_madrina_de_arras" id='nombre_de_madrina_de_arras'>
-			</p>
-			<div class="erf-separator"></div>	
-			<p class="weeding custom_field">
-				<label for="nombre_de_padrino_de_arras">Nombre de padrino de aras:</label>
-				<input placeholder="Nombre de padrino de aras" oninput="this.className = ''" name="nombre_de_padrino_de_arras" id='nombre_de_padrino_de_arras'>
-			</p>
-			<div class="erf-separator"></div>	
-			<p class="weeding custom_field">
-				<label for="nombre_de_madrina_de_lazo">Nombre de madrina de lazo:</label>
-				<input placeholder="Nombre de madrina de lazo" oninput="this.className = ''" name="nombre_de_madrina_de_lazo" id='nombre_de_madrina_de_lazo'>
-			</p>
-			<div class="erf-separator"></div>	
-			<p class="weeding custom_field">
-				<label for="nombre_de_padrino_de_lazo">Nombre de padrino de lazo:</label>
-				<input placeholder="Nombre de padrino de lazo" oninput="this.className = ''" name="nombre_de_padrino_de_lazo" id='nombre_de_padrino_de_lazo'>
-			</p>
-			<div class="erf-separator"></div>	
-			<p class="weeding custom_field">
-				<label for="nombre_de_madrina_de_anillos">Nombre de madrina de anillos:</label>
-				<input placeholder="Nombre de madrina de anillos" oninput="this.className = ''" name="nombre_de_madrina_de_anillos" id='nombre_de_madrina_de_anillos'>
-			</p>
-			<div class="erf-separator"></div>	
-			<p class="weeding custom_field">
-				<label for="nombre_de_padrino_de_anillos">Nombre de padrino de anillos:</label>
-				<input placeholder="Nombre de padrino de anillos" oninput="this.className = ''" name="nombre_de_padrino_de_anillos" id='nombre_de_padrino_de_anillos'>
-			</p>
-			<div class="erf-separator"></div>	
-			<p class="weeding custom_field">
-				<label for="nombre_de_madrina_de_velacion">Nombre de madrina de velación:</label>
-				<input placeholder="Nombre de madrina de velación" oninput="this.className = ''" name="nombre_de_madrina_de_velacion" id='nombre_de_madrina_de_velacion'>
-			</p>
-			<div class="erf-separator"></div>	
-			<p class="weeding custom_field">
-				<label for="nombre_de_padrino_de_velacion">Nombre de padrino de velación:</label>
-				<input placeholder="Nombre de padrino de velación" oninput="this.className = ''" name="nombre_de_padrino_de_velacion" id='nombre_de_padrino_de_velacion'>
-			</p>
-			<p class="baptism_communion event_other custom_field" style="display: none;">
-				<label for="nombre_de_madrina">Nombre de la madrina:</label>
-				<input placeholder="Nombre de la madrina" oninput="this.className = ''" name="nombre_de_madrina" id='nombre_de_madrina'>
-			</p>
-			<div class="erf-separator"></div>	
-			<p class="baptism_communion event_other custom_field" style="display: none;">
-				<label for="nombre_de_padrino">Nombre del padrino:</label>
-				<input placeholder="Nombre del padrino" oninput="this.className = ''" name="nombre_de_padrino" id='nombre_de_padrino'>
-			</p>
-		</div>
+		<?php endif; ?>
 		<div class="tab">
 			<div>
 				<p>
@@ -470,48 +475,57 @@ button:hover {
 				<input placeholder="Link de google maps de recepción" oninput="this.className = ''" name="link_de_google_maps_de_recepcion" id='link_de_google_maps_de_recepcion'>
 			</p>
 		</div>
-		<div class="tab">
-			<div>
+		<?php if ( in_array( $tipo_de_formulario, array( 'gold', 'silver' ) ) ) : ?>
+			<div class="tab">
+				<div>
+					<p>
+					<img decoding="async" loading="lazy" alt="" src="https://fiesta.lezlynorman.com/wp-content/uploads/2022/12/regalo_boda-221x300.jpg" class="size-medium wp-image-3838 aligncenter" width="221" height="300">
+					</p>
+				</div>
+				<div class="erf-field-description">Mesa de regalos</div>
 				<p>
-				<img decoding="async" loading="lazy" alt="" src="https://fiesta.lezlynorman.com/wp-content/uploads/2022/12/regalo_boda-221x300.jpg" class="size-medium wp-image-3838 aligncenter" width="221" height="300">
+					<textarea oninput="this.className = ''" name="mesa_de_regalos" id='mesa_de_regalos'></textarea>
 				</p>
-			</div>
-			<div class="erf-field-description">Mesa de regalos</div>
-			<p>
-				<textarea oninput="this.className = ''" name="mesa_de_regalos" id='mesa_de_regalos'></textarea>
-			</p>
-			<div class="erf-field-description">
-				Te recomendamos añadir tu id de Liverpool, Sears o de la tienda que hayas seleccionado, clabe / datos para depositar y tus propias recomendaciones. (omitir si no aplica)
-
-			</div>
-		</div>
-		<div class="tab">
-			<p>
-				<label class="erf-field-label" for="intinerario_de_evento">Intinerario de evento:</label>
-				<textarea oninput="this.className = ''" name="intinerario_de_evento" id='intinerario_de_evento'></textarea>
-			</p>
-			<div class="erf-field-description">
-				Te recomendamos añadir hora y descripción (omitir si no aplica)
-
-			</div>
-		</div>
-		<div class="tab">
-			<p>
-				<label class="erf-field-label" for="recomendaciones">Recomendaciones:</label>
-				<textarea oninput="this.className = ''" name="recomendaciones" id='recomendaciones'></textarea>
 				<div class="erf-field-description">
-					Añade cualquier indicación que gustas que aparezca en tu invitación(tipo de vestimenta, cuidados de salud etc). Omitir si no aplica
-				</div>
-			</p>
-			<p>
-				<label class="erf-field-label" for="hashtag">#Hashtag:</label>
-				<input placeholder="Hastag" oninput="this.className = ''" name="hashtag" id='hashtag'>
-				<div class="erf-field-description">
-					Si quieres crear una galería en Instagram para tu web, crea un hashtag. Omitir si no aplica.
+					Te recomendamos añadir tu id de Liverpool, Sears o de la tienda que hayas seleccionado, clabe / datos para depositar y tus propias recomendaciones. (omitir si no aplica)
 
 				</div>
-			</p>
-		</div>
+			</div>
+		<?php endif; ?>
+		<?php if ( in_array( $tipo_de_formulario, array( 'gold' ) ) ) : ?>
+			<div class="tab">
+				<p>
+					<label class="erf-field-label" for="intinerario_de_evento">Intinerario de evento:</label>
+					<textarea oninput="this.className = ''" name="intinerario_de_evento" id='intinerario_de_evento'></textarea>
+				</p>
+				<div class="erf-field-description">
+					Te recomendamos añadir hora y descripción (omitir si no aplica)
+
+				</div>
+			</div>
+		<?php endif; ?>
+		<?php if ( in_array( $tipo_de_formulario, array( 'silver', 'gold' ) ) ) : ?>
+			<div class="tab">
+				<?php if ( in_array( $tipo_de_formulario, array( 'silver' ) ) ) : ?>
+					<p>
+						<label class="erf-field-label" for="recomendaciones">Recomendaciones generales:</label>
+						<textarea oninput="this.className = ''" name="recomendaciones" id='recomendaciones'></textarea>
+						<div class="erf-field-description">
+							Añade cualquier indicación que gustas que aparezca en tu invitación(tipo de vestimenta, cuidados de salud etc). Omitir si no aplica
+						</div>
+					</p>
+				<?php endif; ?>
+				<?php if ( in_array( $tipo_de_formulario, array( 'silver', 'gold' ) ) ) : ?>
+					<p>
+						<label class="erf-field-label" for="hashtag">#Hashtag:</label>
+						<input placeholder="Hastag" oninput="this.className = ''" name="hashtag" id='hashtag'>
+						<div class="erf-field-description">
+							Si quieres crear una galería en Instagram para tu web, crea un hashtag. Omitir si no aplica.
+						</div>
+					</p>
+				<?php endif; ?>
+			</div>
+		<?php endif; ?>
 		<div class="tab">
 			<label class="erf-field-label" for="galeria_de_fotos">Galeria de fotos:</label>
 			<p>
@@ -934,6 +948,7 @@ button:hover {
 				data: {
 					key: EventRequestFormRequests.key,
 					action: 'erf_send_form_data',
+					tipo_de_formulario: jQuery('#tipo_de_formulario').val(),
 					nombre_del_cliente: jQuery('#nombre_del_cliente').val(),
 					tipo_de_evento: jQuery('input[name=tipo_de_evento]:checked').val(),
 					nombre_de_novia: jQuery('#nombre_de_novia').val(),
