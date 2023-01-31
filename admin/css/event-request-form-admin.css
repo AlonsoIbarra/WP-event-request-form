@@ -18,3 +18,7 @@
   .field-checked{
     color: green;
   }
+  .scrollable {
+    overflow:scroll;
+    width:100%;
+  }

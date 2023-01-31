@@ -48,56 +48,342 @@ $query = ( isset( $_GET['q'] ) ) ? $_GET['q'] : '';
 		</form>
 	</div>
 </div>
-<Table class="table">
-	<thead>
-		<tr>
-			<th>
-				<?php echo esc_attr( __( 'Nombre del cliente', 'event-request-form' ) ); ?>
-			</th>
-			<th>
-				<?php echo esc_attr( __( 'Tipo de formulario', 'event-request-form' ) ); ?>
-			</th>
-			<th>
-				<?php echo esc_attr( __( 'Tipo de evento', 'event-request-form' ) ); ?>
-			</th>
-			<th>
-				<?php echo esc_attr( __( 'Options', 'event-request-form' ) ); ?>
-			</th>
-		</tr>
-	</thead>
-	<tbody>
-		<?php foreach ( $result as $row ) : ?>
-			<?php $post_url = ''; ?>
+
+<div class="scrollable">
+	<Table class="table">
+		<thead>
 			<tr>
-				<td>
-					<?php echo $row->nombre_del_cliente; ?>
-				</td>
-				<td>
-					<?php echo $row->tipo_de_formulario; ?>
-				</td>
-				<td>
-					<?php echo $row->tipo_de_evento; ?>
-				</td>
-				<td>
-					<div>
-						<ul>
-							<li>
-								<a href="<?php echo $url . '&id=' . $row->id; ?>" target="_blank">
-									<span class="dashicons dashicons-visibility"></span>
-								</a>
-							</li>
-							<li>
-								<a href="#">
-									<span data-name="<?php echo $row->nombre_del_cliente; ?>" data-id="<?php echo $row->id; ?>" class="dashicons dashicons-trash event-request-remove-item"></span>
-								</a>
-							</li>
-						</ul>
-					</div>
-				</td>
+				<th>
+					<?php echo esc_attr( __( 'Nombre del cliente', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Tipo de formulario', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Tipo de evento', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Nombre de la novia', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Nombre del novio', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Nombre del festejado', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Fecha del evento', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Frase de bienvenida', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Madre de la novia', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Padre de la novia', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Madre del novio', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Padre del novio', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Madre del festejado', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Padre del festejado', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Nombre de la madrina', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Nombre del padrino', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Nombre de la madrina de arras', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Nombre del padrino de arras', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Nombre de la madrina de lazo', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Nombre del padrino de lazo', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Nombre de la madrina de anillos', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Nombre del padrino de anillos', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Nombre de la madrina de velación', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Nombre del padrino de velación', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Dirección de ceremonia religiosa', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Ciudad de ceremonia religiosa', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Estado de ceremonia religiosa', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Pais de ceremonia religiosa', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Codigo postal de ceremonia religiosa', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Hora de ceremonia religiosa', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Link de google_maps de ceremonia religiosa', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Direccion de recepción', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Ciudad de recepción', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Estado de recepción', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Pais de recepción', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Codigo postal de recepción', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Hora de recepción', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Link de google maps de recepción', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Mesa de regalos', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Intinerario de evento', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Recomendaciones', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Hashtag', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Galeria de fotos', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Whatsapp I de confirmación', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Whatsapp II de confirmación', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Personalizacion escrita', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Personalizacion grafica', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Whatsapp de contacto', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Correo electronico de contacto', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Comentarios y sugerencias', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Options', 'event-request-form' ) ); ?>
+				</th>
 			</tr>
-		<?php endforeach; ?>
-	</tbody>
-</Table>
+		</thead>
+		<tbody>
+			<?php foreach ( $result as $row ) : ?>
+				<?php $post_url = ''; ?>
+				<tr>
+					<td>
+						<?php echo esc_attr( $row->nombre_del_cliente ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->tipo_de_formulario ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->tipo_de_evento ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->nombre_de_novia ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->nombre_de_novio ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->nombre_de_festejado ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->fecha_de_evento ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->frase_de_bienvenida ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->madre_de_novia ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->padre_de_novia ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->madre_de_novio ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->padre_de_novio ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->madre_del_festejado ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->padre_del_festejado ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->nombre_de_madrina ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->nombre_de_padrino ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->nombre_de_madrina_de_arras ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->nombre_de_padrino_de_arras ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->nombre_de_madrina_de_lazo ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->nombre_de_padrino_de_lazo ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->nombre_de_madrina_de_anillos ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->nombre_de_padrino_de_anillos ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->nombre_de_madrina_de_velacion ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->nombre_de_padrino_de_velacion ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->direccion_de_ceremonia_religiosa ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->ciudad_de_ceremonia_religiosa ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->estado_de_ceremonia_religiosa ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->pais_de_ceremonia_religiosa ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->codigo_postal_de_ceremonia_religiosa ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->hora_de_ceremonia_religiosa ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->link_de_google_maps_de_ceremonia_religiosa ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->direccion_de_recepcion ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->ciudad_de_recepcion ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->estado_de_recepcion ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->pais_de_recepcion ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->codigo_postal_de_recepcion ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->hora_de_recepcion ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->link_de_google_maps_de_recepcion ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->mesa_de_regalos ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->intinerario_de_evento ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->recomendaciones ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->hashtag ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->galeria_de_fotos ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->whatsapp_I_de_confirmacion ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->whatsapp_II_de_confirmacion ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->personalizacion_escrita ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->personalizacion_grafica ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->whatsapp_de_contacto ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->correo_electronico_de_contacto ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->comentarios_y_sugerencias ); ?>
+					</td>
+					<td>
+						<div>
+							<ul>
+								<li>
+									<a href="<?php echo $url . '&id=' . $row->id; ?>" target="_blank">
+										<span class="dashicons dashicons-visibility"></span>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<span data-name="<?php echo $row->nombre_del_cliente; ?>" data-id="<?php echo $row->id; ?>" class="dashicons dashicons-trash event-request-remove-item"></span>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</td>
+				</tr>
+			<?php endforeach; ?>
+		</tbody>
+	</Table>
+</div>
+
 <div class="erf-separator"></div>
 <Table class="table">
 	<tbody>
