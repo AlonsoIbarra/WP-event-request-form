@@ -116,5 +116,24 @@ if ( ! class_exists( 'ERFDatabaseService' ) ) {
 			$results = $wpdb->get_results( "SELECT * FROM $table WHERE nombre_del_cliente LIKE '%$query%' or tipo_de_evento LIKE '%$query%' ", OBJECT );
 			return $results;
 		}
+
+		/**
+		 * Remove single row from database.
+		 * https://developer.wordpress.org/reference/classes/wpdb/delete/
+		 *
+		 * @since  1.0.0
+		 * @access public
+		 * @param int $id  Id of the row to delete.
+		 * @return int|false The number of rows deleted, or false on error.
+		 */
+		public function delete_row( $id ) {
+			global $wpdb;
+			$table = $this->table_name;
+			return $wpdb->delete(
+				$table,
+				array( 'id' => $id ),
+				array( '%d' ),
+			);
+		}
 	}
 }
