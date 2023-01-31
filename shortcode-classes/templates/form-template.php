@@ -128,7 +128,9 @@ button:hover {
 /* if device has a touch screen */
 @media (any-pointer: coarse) {
 	.erf-image-choices-item {
+		width: 90%;
 		padding: 10px !important;
+		float: none;
 	}
 }
 .erf-separator{
@@ -187,9 +189,6 @@ button:hover {
 	<div style="text-align: center;">
 		<h1>Muchas gracias por llenar este formulario! <?php echo $nombre_del_cliente; ?> te contactaré pronto para trabajar juntos!</h1>
 		<h2>Si tienes algún inconveniente no dudes en escribirme a: hi@lezlynorman.com.</h2>
-		<form action="<?php echo $url_updated; ?>">
-			<input type="submit" value="Ir al formulario">
-		</form>
 	</div>
 <?php else : ?>
 	<form id="erf_request_form">
@@ -210,7 +209,7 @@ button:hover {
 				<span class="erf-required-label">*</span>
 			</label>
 			</div>
-			<div class="" style="display: flex;">
+			<div class="" style="">
 					<div class="erf-image-choices-item erf-div-selected">
 						<label>
 							<span class="erf-image-choices-image">
@@ -248,6 +247,9 @@ button:hover {
 			</div>
 		</div>
 		<div class="tab">
+			<div style="margin: 1rem 0 1rem  0;">
+				<h4 class="erf-field-label" style="font-size: 20px; line-height: 28px;">Agrega a las estrellas del evento</h4>
+			</div>
 			<label class="erf-field-label">
 				¿A quien vamos a festejar?
 			</label>
@@ -333,13 +335,13 @@ button:hover {
 
 				</div>
 				<p class="weeding custom_field">
-					<label for="nombre_de_madrina_de_arras">Nombre de madrina de aras:</label>
-					<input placeholder="Nombre de madrina de aras" oninput="this.className = ''" name="nombre_de_madrina_de_arras" id='nombre_de_madrina_de_arras'>
+					<label for="nombre_de_madrina_de_arras">Nombre de madrina de arras:</label>
+					<input placeholder="Nombre de madrina de arras" oninput="this.className = ''" name="nombre_de_madrina_de_arras" id='nombre_de_madrina_de_arras'>
 				</p>
 				<div class="erf-separator"></div>	
 				<p class="weeding custom_field">
-					<label for="nombre_de_padrino_de_arras">Nombre de padrino de aras:</label>
-					<input placeholder="Nombre de padrino de aras" oninput="this.className = ''" name="nombre_de_padrino_de_arras" id='nombre_de_padrino_de_arras'>
+					<label for="nombre_de_padrino_de_arras">Nombre de padrino de arras:</label>
+					<input placeholder="Nombre de padrino de arras" oninput="this.className = ''" name="nombre_de_padrino_de_arras" id='nombre_de_padrino_de_arras'>
 				</p>
 				<div class="erf-separator"></div>	
 				<p class="weeding custom_field">
