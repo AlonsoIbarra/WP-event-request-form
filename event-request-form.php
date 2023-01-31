@@ -203,7 +203,7 @@ if ( ! function_exists( 'event_requests_plugin_settings_instructions' ) ) {
 	 */
 	function event_requests_plugin_settings_instructions() {
 		echo sprintf( '<p>%s</p>',  __( 'Here you can update Plug-in settings.', 'event-request-form' ) );
-		echo '<p>Form shortcode: [ERF_FORM]</p>';
+		echo '<p>Form shortcode: [ERF_FORM type="gold|silver|bronze"]</p>';
 	}
 }
 
@@ -299,6 +299,7 @@ if ( ! function_exists( 'erf_send_form_data' ) ) {
 			);
 		}
 
+		$tipo_de_formulario                                  = sanitize_text_field( wp_unslash( $_POST['tipo_de_formulario'] ) );
 		$nombre_del_cliente                         = sanitize_text_field( wp_unslash( $_POST['nombre_del_cliente'] ) );
 		$tipo_de_evento                             = sanitize_text_field( wp_unslash( $_POST['tipo_de_evento'] ) );
 		$nombre_de_novia                            = sanitize_text_field( wp_unslash( $_POST['nombre_de_novia'] ) );
@@ -356,6 +357,7 @@ if ( ! function_exists( 'erf_send_form_data' ) ) {
 				}
 				$db_service = new ERFDatabaseService();
 				$data       = array(
+					'tipo_de_formulario'                   => $tipo_de_formulario,
 					'nombre_del_cliente'                   => $nombre_del_cliente,
 					'tipo_de_evento'                       => $tipo_de_evento,
 					'nombre_de_novia'                      => $nombre_de_novia,
@@ -477,7 +479,17 @@ if ( ! function_exists( 'event_request_send_email' ) ) {
 		$settings = get_option( 'event_requests_plugin_settings_options' );
 		$to = $settings['email'];
 		$subject = 'Nueva entrada de formulario';
-		$message = 'Se a guardado un nuevo registro del formulario. ' . implode( ', ', $data );
+		$message = 'Se a guardado un nuevo registro del formulario. ' ;
+
+		$flattened = $data;
+		array_walk(
+			$flattened,
+			function( &$value, $key ) {
+				$value = "{$key}:{$value}";
+			}
+		);
+		$message .= implode( ', ', $flattened );
+
 		if ( ! wp_mail( $to, $subject, $message ) ) {
 			update_option( 'event_request_email_failure', true );
 		} else {

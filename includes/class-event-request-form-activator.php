@@ -39,6 +39,7 @@ class Event_Request_Form_Activator {
 
 		$sql = "CREATE TABLE $table_name (
 		id int NOT NULL AUTO_INCREMENT,
+		tipo_de_formulario varchar(50) DEFAULT '' NOT NULL,
 		nombre_del_cliente varchar(100) DEFAULT '' NOT NULL,
 		tipo_de_evento varchar(30) DEFAULT '' NOT NULL,
 		nombre_de_novia varchar(100) DEFAULT '' NOT NULL,
