@@ -40,6 +40,13 @@ $query = ( isset( $_GET['q'] ) ) ? $_GET['q'] : '';
 			<input type="submit" value="Buscar">
 		</form>
 	</div>
+	<div>
+		<form action="<?=$_SERVER['PHP_SELF'];?>">
+			<input type="hidden" type="text" name="download_xls" >
+			<input type="hidden" name="q" value="<?php echo $query; ?>" >
+			<input type="submit" value="Descargar XLS">
+		</form>
+	</div>
 </div>
 <Table class="table">
 	<thead>
@@ -66,12 +73,87 @@ $query = ( isset( $_GET['q'] ) ) ? $_GET['q'] : '';
 					<?php echo $row->tipo_de_evento; ?>
 				</td>
 				<td>
-					<a href="<?php echo $url . '&id=' . $row->id; ?>" target="_blank">
-						<span class="dashicons dashicons-visibility"></span>
-					</a>
+					<div>
+						<ul>
+							<li>
+								<a href="<?php echo $url . '&id=' . $row->id; ?>" target="_blank">
+									<span class="dashicons dashicons-visibility"></span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<span data-name="<?php echo $row->nombre_del_cliente; ?>" data-id="<?php echo $row->id; ?>" class="dashicons dashicons-trash event-request-remove-item"></span>
+								</a>
+							</li>
+						</ul>
+					</div>
 				</td>
 			</tr>
 		<?php endforeach; ?>
 	</tbody>
+</Table>
+<div class="erf-separator"></div>
+<Table class="table">
+	<tbody>
+		<tr>
+			<th>
+				<?php echo esc_attr( __( 'Total de registros', 'event-request-form' ) ); ?>
+			</th>
+			<td>
+				<?php  echo count( $result ); ?>
+			</td>
+		</tr>
+		<tr>
+			<th>
+				<?php echo esc_attr( __( 'Bodas', 'event-request-form' ) ); ?>
+			</th>
+			<td>
+				<?php
+				echo count(
+					array_filter(
+						$result,
+						function ( $value ) {
+							return $value->tipo_de_evento == 'weeding';
+						}
+					)
+				);
+				?>
+			</td>
+		</tr>
+		<tr>
+			<th>
+				<?php echo esc_attr( __( 'XV años - Bautizo - 1ra. Comunión', 'event-request-form' ) ); ?>
+			</th>
+			<td>
+				<?php
+				echo count(
+					array_filter(
+						$result,
+						function ( $value ) {
+							return $value->tipo_de_evento == 'baptism_communion';
+						}
+					)
+				);
+				?>
+			</td>
+		</tr>
+		<tr>
+			<th>
+				<?php echo esc_attr( __( 'Otro', 'event-request-form' ) ); ?>
+			</th>
+			<td>
+				<?php
+				echo count(
+					array_filter(
+						$result,
+						function ( $value ) {
+							return $value->tipo_de_evento == 'event_other';
+						}
+					)
+				);
+				?>
+			</td>
+		</tr>
+	</thead>
 </Table>
 <?php wp_reset_postdata(); ?>
