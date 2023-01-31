@@ -479,18 +479,18 @@ if ( ! function_exists( 'event_request_send_email' ) ) {
 		$settings = get_option( 'event_requests_plugin_settings_options' );
 		$to = $settings['email'];
 		$subject = 'Nueva entrada de formulario';
-		$message = 'Se a guardado un nuevo registro del formulario. ' ;
+		$message = 'Se a guardado un nuevo registro del formulario. <br><br>';
 
-		$flattened = $data;
-		array_walk(
-			$flattened,
-			function( &$value, $key ) {
-				$value = "{$key}:{$value}";
-			}
-		);
-		$message .= implode( ', ', $flattened );
+		$message .=  "<table>";
+		foreach ( $data as $key => $value ) {
+			$message .= '<tr><td>' . ucfirst( str_replace( '_', ' ', $key ) ) . "</td><td>$value</td></tr>";
+		}
+		$message .= '</table>';
+		$headers = "From Ahmad \r\n";
+		$headers .= 'MIME-Version: 1.0' . "\r\n";
+		$headers .= 'Content-Type: text/html; charset=ISO-8859-1' . "\r\n";
 
-		if ( ! wp_mail( $to, $subject, $message ) ) {
+		if ( ! wp_mail( $to, $subject, $message, $headers ) ) {
 			update_option( 'event_request_email_failure', true );
 		} else {
 			update_option( 'event_request_email_failure', false );
