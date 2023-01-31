@@ -116,7 +116,7 @@ button:hover {
 	padding: 26px !important;
 	margin: 2px;
 	box-shadow: 0 0 20px 0 rgb(0 0 0 / 10%);
-	float: left;
+	float: none;
 	text-align: center;
 }
 .erf-googlemap{
