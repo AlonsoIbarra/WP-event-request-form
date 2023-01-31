@@ -96,7 +96,7 @@ class Event_Request_Form_Admin {
 		 * class.
 		 */
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/event-request-form-admin.js', array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/event-request-form-admin.js', array( 'jquery' ), null, false );
 
 		wp_localize_script(
 			$this->plugin_name,
