@@ -29,6 +29,26 @@
 	 * practising this, we should strive to set a better example in our own work.
 	 */
 	 $(document).ready(function() {
+		$(".event-request-remove-item").click(function(event){
+			const row_name = $(this).data('name');
+			if (confirm('Está seguro de eliminar la entrada de ' + row_name + '?')) {
+				const row_id = $(this).data('id');
+				$.ajax({
+					type: "POST",
+					url: AdminEventRequestFormRequests.url,
+					data: {
+						key: AdminEventRequestFormRequests.key,
+						action: 'erf_remove_form_entry',
+						id: row_id,
+					},
+					success: function(response){
+						if(response.success){
+							location.reload();
+						}
+					}
+				});	
+			}
+		});
 		$("#erf_single_viev_table tr").click(function(event) {
 			let id = $(event.target).data('id');
 			let field = $(event.target).data('name');
