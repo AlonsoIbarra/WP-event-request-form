@@ -172,7 +172,25 @@ button:hover {
 }
 </style>
 <?php if( isset( $_GET['success'] ) ):?>
-	<h1>Hemos recibido tus datos, gracias por elegirnos!</h1>
+	<?php
+	$url_updated =str_replace(
+		'success' ,
+		'',
+		"http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]"
+	);
+	if ( ! isset( $_GET['client'] ) ) {
+		$nombre_del_cliente = '';
+	} else {
+		$nombre_del_cliente = ucfirst( $_GET['client'] );
+	}
+	?>
+	<div style="text-align: center;">
+		<h1>Muchas gracias por llenar este formulario! <?php echo $nombre_del_cliente; ?> te contactaré pronto para trabajar juntos!</h1>
+		<h2>Si tienes algún inconveniente no dudes en escribirme a: hi@lezlynorman.com.</h2>
+		<form action="<?=$url_updated;?>">
+			<input type="submit" value="Ir al formulario">
+		</form>
+	</div>
 <?php else: ?>
 	<form id="erf_request_form">
 		<!-- One "tab" for each step in the form: -->
@@ -969,6 +987,7 @@ button:hover {
 				success: function(response){
 					var url = new URL(window.location.href);
 					url.searchParams.set('success','');
+					url.searchParams.set('client',jQuery('#nombre_del_cliente').val());
 					window.location.href = url.href;
 				}
 			});
