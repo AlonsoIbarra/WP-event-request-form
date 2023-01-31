@@ -34,9 +34,13 @@ if ( ! class_exists( 'ERFDatabaseService' ) ) {
 }
 $db_service = new ERFDatabaseService();
 
-if ( isset( $_GET['q'] ) ){
-	$result = $db_service->filter( $_GET['q'] );
-} else {
+if ( isset( $_GET['q'] ) ) {
+	$_GET['q'] = trim( $_GET['q'] );
+	if ( '' !== $_GET['q'] ) {
+		$result = $db_service->filter( $_GET['q'] );
+	}
+}
+if ( null === $result ) {
 	$result = $db_service->get_all();
 }
 $template_path = dirname( __FILE__ ) . '/../templates/list-template.php';
