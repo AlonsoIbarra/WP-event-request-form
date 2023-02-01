@@ -947,7 +947,7 @@ button:hover {
 		// if you have reached the end of the form...
 		if (currentTab >= x.length) {
 			// ... the form gets submitted:
-			jQuery('#loading-gif').toggle();
+			jQuery('#loading-gif').fadeIn();
 			jQuery.ajax({
 				type: "POST",
 				url: EventRequestFormRequests.url,
@@ -1006,7 +1006,7 @@ button:hover {
 					comentarios_y_sugerencias: jQuery('#comentarios_y_sugerencias').val(),
 				},
 				success: function(response){
-					jQuery('#loading-gif').toggle();
+					jQuery('#loading-gif').fadeOut();
 					var url = new URL(window.location.href);
 					url.searchParams.set('success','');
 					url.searchParams.set('client',jQuery('#nombre_del_cliente').val());

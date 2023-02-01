@@ -32,7 +32,7 @@
 		$(".event-request-remove-item").click(function(event){
 			const row_name = $(this).data('name');
 			if (confirm('Está seguro de eliminar la entrada de ' + row_name + '?')) {
-				$('#loading-gif').toggle();
+				$('#loading-gif').fadeIn();
 				const row_id = $(this).data('id');
 				$.ajax({
 					type: "POST",
@@ -43,7 +43,7 @@
 						id: row_id,
 					},
 					success: function(response){
-						$('#loading-gif').toggle();
+						$('#loading-gif').fadeOut();
 						if(response.success){
 							location.reload();
 						}
@@ -55,7 +55,7 @@
 			let id = $(this).data('id');
 			let field = $(this).data('name');
 			var value = ($(this).prop('checked'))?1:0;
-			$('#loading-gif').toggle();
+			$('#loading-gif').fadeIn();
 			$.ajax({
 				type: "POST",
 				url: AdminEventRequestFormRequests.url,
@@ -67,7 +67,7 @@
 					value: value,
 				},
 				success: function(response){
-					$('#loading-gif').toggle();
+					$('#loading-gif').fadeOut();
 					if(response.success){
 						$(event.target).attr('data-checked', value);
 						if(value){
@@ -78,6 +78,10 @@
 							$(event.target).removeClass("field-checked");	
 						}
 					}
+				},
+				failure: function(){
+					$('#loading-gif').fadeOut();
+					alert('Ocurrio un error, el campo no fue actualizado en la base de datos');
 				}
 			});
 		});

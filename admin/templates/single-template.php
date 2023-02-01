@@ -13,7 +13,7 @@ if ( ! $row ) {
 }
 ?>
 <div id="loading-gif" style="display:none; position: fixed; width:5%; top: 50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%);">
-	<img src="https://fiesta.lezlynorman.com/wp-content/uploads/2023/02/loading-loading-forever.gif">
+	<img src="https://fiesta.lezlynorman.com/wp-content/uploads/2023/02/loading-loading-forever.gif" style="width: 50%;">
 </div>
 
 <div class="wrap">

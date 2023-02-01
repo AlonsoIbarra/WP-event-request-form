@@ -12,7 +12,7 @@ $url = menu_page_url( 'request-detail-view', false );
 $query = ( isset( $_GET['q'] ) ) ? $_GET['q'] : '';
 ?>
 <div id="loading-gif" style="display:none; position: fixed; width:5%; top: 50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%);">
-	<img src="https://fiesta.lezlynorman.com/wp-content/uploads/2023/02/loading-loading-forever.gif">
+	<img src="https://fiesta.lezlynorman.com/wp-content/uploads/2023/02/loading-loading-forever.gif"  style="width: 50%;">
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 <?php if ( get_option( 'event_request_email_failure' ) ) : ?>
