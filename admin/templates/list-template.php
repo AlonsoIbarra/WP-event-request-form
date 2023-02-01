@@ -11,6 +11,7 @@
 $url = menu_page_url( 'request-detail-view', false );
 $query = ( isset( $_GET['q'] ) ) ? $_GET['q'] : '';
 ?>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 <?php if ( get_option( 'event_request_email_failure' ) ) : ?>
 	<div class="notice notice-error is-dismissible cssfe-review">
 		<div class="row cssfe-review-notice">
@@ -385,6 +386,7 @@ $query = ( isset( $_GET['q'] ) ) ? $_GET['q'] : '';
 </div>
 
 <div class="erf-separator"></div>
+<?php $total = count( $result ); ?>
 <Table class="table">
 	<tbody>
 		<tr>
@@ -392,16 +394,17 @@ $query = ( isset( $_GET['q'] ) ) ? $_GET['q'] : '';
 				<?php echo esc_attr( __( 'Total de registros', 'event-request-form' ) ); ?>
 			</th>
 			<td>
-				<?php  echo count( $result ); ?>
+				<?php echo $total; ?>
 			</td>
 		</tr>
+		<tr><th><div class="erf-separator">Tipo de evento</div></th><th></th></tr>
 		<tr>
-			<th>
+			<td>
 				<?php echo esc_attr( __( 'Bodas', 'event-request-form' ) ); ?>
-			</th>
+			</td>
 			<td>
 				<?php
-				echo count(
+				$weeding_counter = count(
 					array_filter(
 						$result,
 						function ( $value ) {
@@ -409,16 +412,18 @@ $query = ( isset( $_GET['q'] ) ) ? $_GET['q'] : '';
 						}
 					)
 				);
+				$weeding_percent = round( ( $weeding_counter / $total ) * 100, 2 );
+				echo  "$weeding_counter/$total  $weeding_percent%";
 				?>
 			</td>
 		</tr>
 		<tr>
-			<th>
+			<td>
 				<?php echo esc_attr( __( 'XV años - Bautizo - 1ra. Comunión', 'event-request-form' ) ); ?>
-			</th>
+			</td>
 			<td>
 				<?php
-				echo count(
+				$baptism_communion_counter = count(
 					array_filter(
 						$result,
 						function ( $value ) {
@@ -426,16 +431,18 @@ $query = ( isset( $_GET['q'] ) ) ? $_GET['q'] : '';
 						}
 					)
 				);
+				$baptism_communion_percent = round( ( $baptism_communion_counter / $total ) * 100, 2 );
+				echo "$baptism_communion_counter/$total  $baptism_communion_percent%";
 				?>
 			</td>
 		</tr>
 		<tr>
-			<th>
+			<td>
 				<?php echo esc_attr( __( 'Otro', 'event-request-form' ) ); ?>
-			</th>
+			</td>
 			<td>
 				<?php
-				echo count(
+				$event_other_counter = count(
 					array_filter(
 						$result,
 						function ( $value ) {
@@ -443,16 +450,19 @@ $query = ( isset( $_GET['q'] ) ) ? $_GET['q'] : '';
 						}
 					)
 				);
+				$event_other_percent = round( ( $event_other_counter / $total ) * 100, 2 );
+				echo "$event_other_counter/$total  $event_other_percent%";
 				?>
 			</td>
 		</tr>
+		<tr><th><div class="erf-separator">Tipo de servicio</div></th><th></th></tr>
 		<tr>
-			<th>
+			<td>
 				<?php echo esc_attr( __( 'Oro', 'event-request-form' ) ); ?>
-			</th>
+			</td>
 			<td>
 				<?php
-				echo count(
+				$gold_counter = count(
 					array_filter(
 						$result,
 						function ( $value ) {
@@ -460,16 +470,18 @@ $query = ( isset( $_GET['q'] ) ) ? $_GET['q'] : '';
 						}
 					)
 				);
+				$gold_percent = round( ( $gold_counter / $total ) * 100, 2 );
+				echo "$gold_counter/$total  $gold_percent%";
 				?>
 			</td>
 		</tr>
 		<tr>
-			<th>
+			<td>
 				<?php echo esc_attr( __( 'Plata', 'event-request-form' ) ); ?>
-			</th>
+			</td>
 			<td>
 				<?php
-				echo count(
+				$silver_counter = count(
 					array_filter(
 						$result,
 						function ( $value ) {
@@ -477,16 +489,18 @@ $query = ( isset( $_GET['q'] ) ) ? $_GET['q'] : '';
 						}
 					)
 				);
+				$silver_percent = round( ( $silver_counter / $total ) * 100, 2 );
+				echo "$silver_counter/$total  $silver_percent%";
 				?>
 			</td>
 		</tr>
 		<tr>
-			<th>
+			<td>
 				<?php echo esc_attr( __( 'Bronce', 'event-request-form' ) ); ?>
-			</th>
+			</td>
 			<td>
 				<?php
-				echo count(
+				$bronze_counter = count(
 					array_filter(
 						$result,
 						function ( $value ) {
@@ -494,9 +508,65 @@ $query = ( isset( $_GET['q'] ) ) ? $_GET['q'] : '';
 						}
 					)
 				);
+				$bronze_percent = round( ( $bronze_counter / $total ) * 100, 2 );
+				echo "$bronze_counter/$total  $bronze_percent%";
 				?>
 			</td>
 		</tr>
 	</thead>
 </Table>
+<div>
+	<canvas id="form_type_chart" style="width:100%;"></canvas>
+	<script>
+		var xValues = ["Oro", "Plata", "Bronce"];
+		var yValues = [<?php echo $gold_counter; ?>, <?php echo $silver_counter; ?>, <?php echo $bronze_counter; ?>];
+		var barColors = [ "#FFD700", "#C0C0C0", "#CD7F32", ];
+		new Chart(
+			"form_type_chart",
+			{
+				type: "pie",
+				data: {
+					labels: xValues,
+					datasets: [{
+					backgroundColor: barColors,
+					data: yValues
+					}]
+				},
+				options: {
+					title: {
+					display: true,
+					text: "Total por tipo de formulario"
+					}
+				}
+			}
+		);
+	</script>
+</div>
+<div>
+	<canvas id="event_type_chart" style="width:100%;"></canvas>
+	<script>
+		var xValues = ["Boda", "XV años - Bautizo - 1ra. Comunión", "Otro"];
+		var yValues = [<?php echo $weeding_counter; ?>, <?php echo $baptism_communion_counter; ?>, <?php echo $event_other_counter; ?>];
+		var barColors = [ "#f422ed", "#a4d636",	"#77aee5" ];
+		new Chart(
+			"event_type_chart",
+			{
+				type: "pie",
+				data: {
+					labels: xValues,
+					datasets: [{
+					backgroundColor: barColors,
+					data: yValues
+					}]
+				},
+				options: {
+					title: {
+					display: true,
+					text: "Total por tipo de evento"
+					}
+				}
+			}
+		);
+	</script>
+</div>
 <?php wp_reset_postdata(); ?>
