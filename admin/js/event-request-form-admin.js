@@ -32,6 +32,7 @@
 		$(".event-request-remove-item").click(function(event){
 			const row_name = $(this).data('name');
 			if (confirm('Está seguro de eliminar la entrada de ' + row_name + '?')) {
+				$('#loading-gif').toggle();
 				const row_id = $(this).data('id');
 				$.ajax({
 					type: "POST",
@@ -42,6 +43,7 @@
 						id: row_id,
 					},
 					success: function(response){
+						$('#loading-gif').toggle();
 						if(response.success){
 							location.reload();
 						}
