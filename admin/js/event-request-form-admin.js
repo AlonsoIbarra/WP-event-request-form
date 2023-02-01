@@ -51,13 +51,11 @@
 				});	
 			}
 		});
-		$("#erf_single_viev_table tr").click(function(event) {
-			let id = $(event.target).data('id');
-			let field = $(event.target).data('name');
-			var value = 0;
-			if ($(event.target).data('checked') == '0'){
-				value = 1
-			}
+		$(".check-box").click(function(event) {
+			let id = $(this).data('id');
+			let field = $(this).data('name');
+			var value = ($(this).prop('checked'))?1:0;
+			$('#loading-gif').toggle();
 			$.ajax({
 				type: "POST",
 				url: AdminEventRequestFormRequests.url,
@@ -69,6 +67,7 @@
 					value: value,
 				},
 				success: function(response){
+					$('#loading-gif').toggle();
 					if(response.success){
 						$(event.target).attr('data-checked', value);
 						if(value){

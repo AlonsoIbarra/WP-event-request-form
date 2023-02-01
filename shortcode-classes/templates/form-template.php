@@ -193,7 +193,7 @@ button:hover {
 <?php else : ?>
 	<form id="erf_request_form">
 		<div id="loading-gif" style="display:none; width:15%; margin: 0 43%;">
-			<img src="http://localhost/wp-content/uploads/2023/02/loading_1.gif" alt="">
+			<img src="https://fiesta.lezlynorman.com/wp-content/uploads/2023/02/loading_1.gif" alt="">
 		</div>
 		<input type="hidden" name="tipo_de_formulario" id="tipo_de_formulario" value="<?php echo $tipo_de_formulario; ?>">
 		<!-- One "tab" for each step in the form: -->

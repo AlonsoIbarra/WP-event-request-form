@@ -12,6 +12,9 @@ if ( ! $row ) {
 	return;
 }
 ?>
+<div id="loading-gif" style="display:none; position: fixed; width:5%; top: 50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%);">
+	<img src="https://fiesta.lezlynorman.com/wp-content/uploads/2023/02/loading-loading-forever.gif">
+</div>
 
 <div class="wrap">
 	<h1> <?php echo esc_html( get_admin_page_title() ); ?></h1>
@@ -28,8 +31,8 @@ if ( ! $row ) {
 	<tbody>
 			<tr>
 				<td>
-					<?php $class_name = ( $row->nombre_del_cliente_bool ) ? 'field-checked' : 'field-not-checked'; ?>
-					<div id='nombre_del_cliente' data-name="nombre_del_cliente" data-id="<?php echo $row->id; ?>" data-checked="<?php echo $row->nombre_del_cliente_bool; ?>" class="<?php echo $class_name; ?>">
+					<div>
+						<input class="check-box" type="checkbox" id='nombre_del_cliente' data-name="nombre_del_cliente" data-id="<?php echo $row->id; ?>" <?php if ( $row->nombre_del_cliente_bool ) { echo 'checked'; } ?>>
 						<strong>
 							<?php echo esc_attr( __( 'Nombre del cliente', 'event-request-form' ) ); ?>:
 						</strong>	
@@ -39,8 +42,8 @@ if ( ! $row ) {
 			</tr>
 			<tr>
 				<td>
-				<?php $class_name = ( $row->tipo_de_evento_bool ) ? 'field-checked' : 'field-not-checked'; ?>
-					<div id='tipo_de_evento' data-name="tipo_de_evento" data-id="<?php echo $row->id; ?>" data-checked="<?php echo $row->tipo_de_evento_bool; ?>" class="<?php echo $class_name; ?>">
+					<div>
+						<input class="check-box" type="checkbox"   id='tipo_de_evento' data-name="tipo_de_evento" data-id="<?php echo $row->id; ?>" <?php if ( $row->tipo_de_evento_bool ) { echo 'checked'; } ?>>
 						<strong>
 							<?php echo esc_attr( __( 'Tipo de evento', 'event-request-form' ) ); ?>
 						</strong>	
@@ -57,8 +60,8 @@ if ( ! $row ) {
 			?>
 			<tr>
 				<td>
-				<?php $class_name = ( $row->direccion_de_ceremonia_religiosa_bool ) ? 'field-checked' : 'field-not-checked'; ?>
-					<div id='direccion_de_ceremonia_religiosa' data-name="direccion_de_ceremonia_religiosa" data-id="<?php echo $row->id; ?>" data-checked="<?php echo $row->direccion_de_ceremonia_religiosa_bool; ?>" class="<?php echo $class_name; ?>">
+					<div>
+						<input class="check-box" type="checkbox" data-name="direccion_de_ceremonia_religiosa" data-id="<?php echo $row->id; ?>" <?php if ( $row->direccion_de_ceremonia_religiosa_bool ) { echo 'checked'; } ?>>
 						<strong>
 							<?php echo esc_attr( __( 'Dirección de ceremonia religiosa', 'event-request-form' ) ); ?>
 						</strong>	
@@ -67,8 +70,8 @@ if ( ! $row ) {
 			</tr>
 			<tr>
 				<td>
-				<?php $class_name = ( $row->ciudad_de_ceremonia_religiosa_bool ) ? 'field-checked' : 'field-not-checked'; ?>
-					<div id='ciudad_de_ceremonia_religiosa' data-name="ciudad_de_ceremonia_religiosa" data-checked="<?php echo $row->ciudad_de_ceremonia_religiosa_bool; ?>" data-id="<?php echo $row->id; ?>" class="<?php echo $class_name; ?>">
+					<div>
+						<input class="check-box" type="checkbox"   id='tipo_de_evento' data-name="ciudad_de_ceremonia_religiosa" data-id="<?php echo $row->id; ?>" <?php if ( $row->ciudad_de_ceremonia_religiosa_bool ) { echo 'checked'; } ?>>
 						<strong>
 							<?php echo esc_attr( __( 'Ciudad de ceremonia religiosa', 'event-request-form' ) ); ?>
 						</strong>	
@@ -77,8 +80,8 @@ if ( ! $row ) {
 			</tr>
 			<tr>
 				<td>
-				<?php $class_name = ( $row->estado_de_ceremonia_religiosa_bool ) ? 'field-checked' : 'field-not-checked'; ?>
-					<div id='estado_de_ceremonia_religiosa' data-name="estado_de_ceremonia_religiosa" data-checked="<?php echo $row->estado_de_ceremonia_religiosa_bool; ?>" data-id="<?php echo $row->id; ?>" class="<?php echo $class_name; ?>">
+					<div>
+						<input class="check-box" type="checkbox" data-name="estado_de_ceremonia_religiosa" data-id="<?php echo $row->id; ?>" <?php if ( $row->estado_de_ceremonia_religiosa_bool ) { echo 'checked'; } ?>>
 						<strong>
 							<?php echo esc_attr( __( 'Estado de ceremonia religiosa', 'event-request-form' ) ); ?>
 						</strong>	
@@ -87,8 +90,8 @@ if ( ! $row ) {
 			</tr>
 			<tr>
 				<td>
-				<?php $class_name = ( $row->pais_de_ceremonia_religiosa_bool ) ? 'field-checked' : 'field-not-checked'; ?>
-					<div id='pais_de_ceremonia_religiosa' data-name="pais_de_ceremonia_religiosa" data-checked="<?php echo $row->pais_de_ceremonia_religiosa_bool; ?>" data-id="<?php echo $row->id; ?>" class="<?php echo $class_name; ?>">
+					<div>
+						<input class="check-box" type="checkbox" data-name="pais_de_ceremonia_religiosa" data-id="<?php echo $row->id; ?>" <?php if ( $row->pais_de_ceremonia_religiosa_bool ) { echo 'checked'; } ?>>
 						<strong>
 							<?php echo esc_attr( __( 'Pais de ceremonia religiosa', 'event-request-form' ) ); ?>
 						</strong>	
@@ -97,8 +100,8 @@ if ( ! $row ) {
 			</tr>
 			<tr>
 				<td>
-				<?php $class_name = ( $row->codigo_postal_de_ceremonia_religiosa_bool ) ? 'field-checked' : 'field-not-checked'; ?>
-					<div id='codigo_postal_de_ceremonia_religiosa' data-name="codigo_postal_de_ceremonia_religiosa" data-checked="<?php echo $row->codigo_postal_de_ceremonia_religiosa_bool; ?>" data-id="<?php echo $row->id; ?>" class="<?php echo $class_name; ?>">
+					<div>
+						<input class="check-box" type="checkbox" data-name="codigo_postal_de_ceremonia_religiosa" data-id="<?php echo $row->id; ?>" <?php if ( $row->codigo_postal_de_ceremonia_religiosa_bool ) { echo 'checked'; } ?>>
 						<strong>
 							<?php echo esc_attr( __( 'Código postal de ceremonia religiosa', 'event-request-form' ) ); ?>
 						</strong>	
@@ -107,8 +110,8 @@ if ( ! $row ) {
 			</tr>
 			<tr>
 				<td>
-				<?php $class_name = ( $row->hora_de_ceremonia_religiosa_bool ) ? 'field-checked' : 'field-not-checked'; ?>
-					<div id='hora_de_ceremonia_religiosa' data-name="hora_de_ceremonia_religiosa" data-checked="<?php echo $row->hora_de_ceremonia_religiosa_bool; ?>" data-id="<?php echo $row->id; ?>" class="<?php echo $class_name; ?>">
+					<div>
+						<input class="check-box" type="checkbox" data-name="hora_de_ceremonia_religiosa" data-id="<?php echo $row->id; ?>" <?php if ( $row->hora_de_ceremonia_religiosa_bool ) { echo 'checked'; } ?>>
 						<strong>
 							<?php echo esc_attr( __( 'Hora de ceremonia religiosa', 'event-request-form' ) ); ?>
 						</strong>	
@@ -117,8 +120,8 @@ if ( ! $row ) {
 			</tr>
 			<tr>
 				<td>
-				<?php $class_name = ( $row->link_de_google_maps_de_ceremonia_religiosa_bool ) ? 'field-checked' : 'field-not-checked'; ?>
-					<div id='link_de_google_maps_de_ceremonia_religiosa' data-name="link_de_google_maps_de_ceremonia_religiosa" data-checked="<?php echo $row->link_de_google_maps_de_ceremonia_religiosa_bool; ?>" data-id="<?php echo $row->id; ?>" class="<?php echo $class_name; ?>">
+					<div>
+						<input class="check-box" type="checkbox" data-name="link_de_google_maps_de_ceremonia_religiosa" data-id="<?php echo $row->id; ?>" <?php if ( $row->link_de_google_maps_de_ceremonia_religiosa_bool ) { echo 'checked'; } ?>>
 						<strong>
 							<?php echo esc_attr( __( 'Link de ceremonia religiosa', 'event-request-form' ) ); ?>
 						</strong>	
@@ -127,8 +130,8 @@ if ( ! $row ) {
 			</tr>
 			<tr>
 				<td>
-				<?php $class_name = ( $row->direccion_de_recepcion_bool ) ? 'field-checked' : 'field-not-checked'; ?>
-					<div id='direccion_de_recepcion' data-name="direccion_de_recepcion" data-checked="<?php echo $row->direccion_de_recepcion_bool; ?>" data-id="<?php echo $row->id; ?>" class="<?php echo $class_name; ?>">
+					<div>
+						<input class="check-box" type="checkbox" data-name="direccion_de_recepcion" data-id="<?php echo $row->id; ?>" <?php if ( $row->direccion_de_recepcion_bool ) { echo 'checked'; } ?>>
 						<strong>
 							<?php echo esc_attr( __( 'Dirección de recepción', 'event-request-form' ) ); ?>
 						</strong>	
@@ -137,8 +140,8 @@ if ( ! $row ) {
 			</tr>
 			<tr>
 				<td>
-				<?php $class_name = ( $row->ciudad_de_recepcion_bool ) ? 'field-checked' : 'field-not-checked'; ?>
-					<div id='ciudad_de_recepcion' data-name="ciudad_de_recepcion" data-checked="<?php echo $row->ciudad_de_recepcion_bool; ?>" data-id="<?php echo $row->id; ?>" class="<?php echo $class_name; ?>">
+					<div>
+						<input class="check-box" type="checkbox" data-name="ciudad_de_recepcion" data-id="<?php echo $row->id; ?>" <?php if ( $row->ciudad_de_recepcion_bool ) { echo 'checked'; } ?>>
 						<strong>
 							<?php echo esc_attr( __( 'Ciudad de recepción', 'event-request-form' ) ); ?>
 						</strong>	
@@ -147,8 +150,8 @@ if ( ! $row ) {
 			</tr>
 			<tr>
 				<td>
-				<?php $class_name = ( $row->estado_de_recepcion_bool ) ? 'field-checked' : 'field-not-checked'; ?>
-					<div id='estado_de_recepcion' data-name="estado_de_recepcion" data-checked="<?php echo $row->estado_de_recepcion_bool; ?>" data-id="<?php echo $row->id; ?>" class="<?php echo $class_name; ?>">
+					<div>
+						<input class="check-box" type="checkbox" data-name="estado_de_recepcion" data-id="<?php echo $row->id; ?>" <?php if ( $row->estado_de_recepcion_bool ) { echo 'checked'; } ?>>
 						<strong>
 							<?php echo esc_attr( __( 'Estado de recepción', 'event-request-form' ) ); ?>
 						</strong>	
@@ -157,8 +160,8 @@ if ( ! $row ) {
 			</tr>
 			<tr>
 				<td>
-				<?php $class_name = ( $row->pais_de_recepcion_bool ) ? 'field-checked' : 'field-not-checked'; ?>
-					<div id='pais_de_recepcion' data-name="pais_de_recepcion" data-id="<?php echo $row->id; ?>" data-checked="<?php echo $row->pais_de_recepcion_bool; ?>" class="<?php echo $class_name; ?>">
+					<div>
+						<input class="check-box" type="checkbox" data-name="pais_de_recepcion" data-id="<?php echo $row->id; ?>" <?php if ( $row->pais_de_recepcion_bool ) { echo 'checked'; } ?>>
 						<strong>
 							<?php echo esc_attr( __( 'Pais de recepción', 'event-request-form' ) ); ?>
 						</strong>	
@@ -167,8 +170,8 @@ if ( ! $row ) {
 			</tr>
 			<tr>
 				<td>
-				<?php $class_name = ( $row->codigo_postal_de_recepcion_bool ) ? 'field-checked' : 'field-not-checked'; ?>
-					<div id='codigo_postal_de_recepcion' data-name="codigo_postal_de_recepcion" data-checked="<?php echo $row->codigo_postal_de_recepcion_bool; ?>" data-id="<?php echo $row->id; ?>" class="<?php echo $class_name; ?>">
+					<div>
+						<input class="check-box" type="checkbox" data-name="codigo_postal_de_recepcion" data-id="<?php echo $row->id; ?>" <?php if ( $row->codigo_postal_de_recepcion_bool ) { echo 'checked'; } ?>>
 						<strong>
 							<?php echo esc_attr( __( 'Código postal de recepción', 'event-request-form' ) ); ?>
 						</strong>	
@@ -177,8 +180,8 @@ if ( ! $row ) {
 			</tr>
 			<tr>
 				<td>
-				<?php $class_name = ( $row->hora_de_recepcion_bool ) ? 'field-checked' : 'field-not-checked'; ?>
-					<div id='hora_de_recepcion' data-name="hora_de_recepcion" data-checked="<?php echo $row->hora_de_recepcion_bool; ?>" data-id="<?php echo $row->id; ?>" class="<?php echo $class_name; ?>">
+					<div>
+						<input class="check-box" type="checkbox" data-name="hora_de_recepcion" data-id="<?php echo $row->id; ?>" <?php if ( $row->hora_de_recepcion_bool ) { echo 'checked'; } ?>>
 						<strong>
 							<?php echo esc_attr( __( 'Hora de recepción', 'event-request-form' ) ); ?>
 						</strong>	
@@ -187,8 +190,8 @@ if ( ! $row ) {
 			</tr>
 			<tr>
 				<td>
-				<?php $class_name = ( $row->link_de_google_maps_de_recepcion_bool ) ? 'field-checked' : 'field-not-checked'; ?>
-					<div id='link_de_google_maps_de_recepcion' data-name="link_de_google_maps_de_recepcion" data-checked="<?php echo $row->link_de_google_maps_de_recepcion_bool; ?>" data-id="<?php echo $row->id; ?>" class="<?php echo $class_name; ?>">
+					<div>
+						<input class="check-box" type="checkbox" data-name="link_de_google_maps_de_recepcion" data-id="<?php echo $row->id; ?>" <?php if ( $row->link_de_google_maps_de_recepcion_bool ) { echo 'checked'; } ?>>
 						<strong>
 							<?php echo esc_attr( __( 'Link de google maps de recepción', 'event-request-form' ) ); ?>
 						</strong>	
@@ -197,8 +200,8 @@ if ( ! $row ) {
 			</tr>
 			<tr>
 				<td>
-				<?php $class_name = ( $row->mesa_de_regalos_bool ) ? 'field-checked' : 'field-not-checked'; ?>
-					<div id='mesa_de_regalos' data-name="mesa_de_regalos" data-checked="<?php echo $row->mesa_de_regalos_bool; ?>" data-id="<?php echo $row->id; ?>" class="<?php echo $class_name; ?>">
+					<div>
+						<input class="check-box" type="checkbox" data-name="mesa_de_regalos" data-id="<?php echo $row->id; ?>" <?php if ( $row->mesa_de_regalos_bool ) { echo 'checked'; } ?>>
 						<strong>
 							<?php echo esc_attr( __( 'Mesa de regalos', 'event-request-form' ) ); ?>
 						</strong>	
@@ -207,8 +210,8 @@ if ( ! $row ) {
 			</tr>
 			<tr>
 				<td>
-				<?php $class_name = ( $row->intinerario_de_evento_bool ) ? 'field-checked' : 'field-not-checked'; ?>
-					<div id='intinerario_de_evento' data-name="intinerario_de_evento" data-checked="<?php echo $row->intinerario_de_evento_bool; ?>" data-id="<?php echo $row->id; ?>" class="<?php echo $class_name; ?>">
+					<div>
+						<input class="check-box" type="checkbox" data-name="intinerario_de_evento" data-id="<?php echo $row->id; ?>" <?php if ( $row->intinerario_de_evento_bool ) { echo 'checked'; } ?>>
 						<strong>
 							<?php echo esc_attr( __( 'Intinerario de evento', 'event-request-form' ) ); ?>
 						</strong>	
@@ -217,8 +220,8 @@ if ( ! $row ) {
 			</tr>
 			<tr>
 				<td>
-				<?php $class_name = ( $row->recomendaciones_bool ) ? 'field-checked' : 'field-not-checked'; ?>
-					<div id='recomendaciones' data-name="recomendaciones" data-id="<?php echo $row->id; ?>" class="<?php echo $class_name; ?>">
+					<div>
+						<input class="check-box" type="checkbox" data-name="recomendaciones" data-id="<?php echo $row->id; ?>" <?php if ( $row->recomendaciones_bool ) { echo 'checked'; } ?>>
 						<strong>
 							<?php echo esc_attr( __( 'Recomendaciones', 'event-request-form' ) ); ?>
 						</strong>	
@@ -227,8 +230,8 @@ if ( ! $row ) {
 			</tr>
 			<tr>
 				<td>
-				<?php $class_name = ( $row->hashtag_bool ) ? 'field-checked' : 'field-not-checked'; ?>
-					<div id='hashtag' data-name="hashtag" data-id="<?php echo $row->id; ?>" class="<?php echo $class_name; ?>">
+					<div>
+						<input class="check-box" type="checkbox" data-name="hashtag" data-id="<?php echo $row->id; ?>" <?php if ( $row->hashtag_bool ) { echo 'checked'; } ?>>
 						<strong>
 							<?php echo esc_attr( __( 'Hashtag', 'event-request-form' ) ); ?>
 						</strong>	
@@ -237,8 +240,8 @@ if ( ! $row ) {
 			</tr>
 			<tr>
 				<td>
-				<?php $class_name = ( $row->galeria_de_fotos_bool ) ? 'field-checked' : 'field-not-checked'; ?>
-					<div id='galeria_de_fotos' data-name="galeria_de_fotos" data-id="<?php echo $row->id; ?>" class="<?php echo $class_name; ?>">
+					<div>
+						<input class="check-box" type="checkbox" data-name="galeria_de_fotos" data-id="<?php echo $row->id; ?>" <?php if ( $row->galeria_de_fotos_bool ) { echo 'checked'; } ?>>
 						<strong>
 							<?php echo esc_attr( __( 'Galeria de fotos', 'event-request-form' ) ); ?>
 						</strong>	
@@ -247,8 +250,8 @@ if ( ! $row ) {
 			</tr>
 			<tr>
 				<td>
-				<?php $class_name = ( $row->whatsapp_I_de_confirmacion_bool ) ? 'field-checked' : 'field-not-checked'; ?>
-					<div id='whatsapp_I_de_confirmacion' data-name="whatsapp_I_de_confirmacion" data-id="<?php echo $row->id; ?>" class="<?php echo $class_name; ?>">
+					<div>
+						<input class="check-box" type="checkbox" data-name="whatsapp_I_de_confirmacion" data-id="<?php echo $row->id; ?>" <?php if ( $row->whatsapp_I_de_confirmacion_bool ) { echo 'checked'; } ?>>
 						<strong>
 							<?php echo esc_attr( __( 'Whatsapp de confirmación', 'event-request-form' ) ); ?>
 						</strong>	
@@ -257,8 +260,8 @@ if ( ! $row ) {
 			</tr>
 			<tr>
 				<td>
-				<?php $class_name = ( $row->whatsapp_II_de_confirmacion_bool ) ? 'field-checked' : 'field-not-checked'; ?>
-					<div id='whatsapp_II_de_confirmacion' data-name="whatsapp_II_de_confirmacion" data-id="<?php echo $row->id; ?>" class="<?php echo $class_name; ?>">
+					<div>
+						<input class="check-box" type="checkbox" data-name="whatsapp_II_de_confirmacion" data-id="<?php echo $row->id; ?>" <?php if ( $row->whatsapp_II_de_confirmacion_bool ) { echo 'checked'; } ?>>
 						<strong>
 							<?php echo esc_attr( __( 'Whatsapp II de confirmación', 'event-request-form' ) ); ?>
 						</strong>	
@@ -267,8 +270,8 @@ if ( ! $row ) {
 			</tr>
 			<tr>
 				<td>
-				<?php $class_name = ( $row->personalizacion_escrita_bool ) ? 'field-checked' : 'field-not-checked'; ?>
-					<div id='personalizacion_escrita' data-name="personalizacion_escrita" data-id="<?php echo $row->id; ?>" class="<?php echo $class_name; ?>">
+					<div>
+						<input class="check-box" type="checkbox" data-name="personalizacion_escrita" data-id="<?php echo $row->id; ?>" <?php if ( $row->personalizacion_escrita_bool ) { echo 'checked'; } ?>>
 						<strong>
 							<?php echo esc_attr( __( 'Personalización escrita', 'event-request-form' ) ); ?>
 						</strong>	
@@ -277,8 +280,8 @@ if ( ! $row ) {
 			</tr>
 			<tr>
 				<td>
-				<?php $class_name = ( $row->personalizacion_grafica_bool ) ? 'field-checked' : 'field-not-checked'; ?>
-					<div id='personalizacion_grafica' data-name="personalizacion_grafica" data-id="<?php echo $row->id; ?>" class="<?php echo $class_name; ?>">
+					<div>
+						<input class="check-box" type="checkbox" data-name="personalizacion_grafica" data-id="<?php echo $row->id; ?>" <?php if ( $row->personalizacion_grafica_bool ) { echo 'checked'; } ?>>
 						<strong>
 							<?php echo esc_attr( __( 'Personalización gráfica', 'event-request-form' ) ); ?>
 						</strong>	
@@ -287,8 +290,8 @@ if ( ! $row ) {
 			</tr>
 			<tr>
 				<td>
-				<?php $class_name = ( $row->whatsapp_de_contacto_bool ) ? 'field-checked' : 'field-not-checked'; ?>
-					<div id='whatsapp_de_contacto' data-name="whatsapp_de_contacto" data-id="<?php echo $row->id; ?>" class="<?php echo $class_name; ?>">
+					<div>
+						<input class="check-box" type="checkbox" data-name="whatsapp_de_contacto" data-id="<?php echo $row->id; ?>" <?php if ( $row->whatsapp_de_contacto_bool ) { echo 'checked'; } ?>>
 						<strong>
 							<?php echo esc_attr( __( 'Whatsapp de contacto', 'event-request-form' ) ); ?>
 						</strong>	
@@ -297,8 +300,8 @@ if ( ! $row ) {
 			</tr>
 			<tr>
 				<td>
-				<?php $class_name = ( $row->correo_electronico_de_contacto_bool ) ? 'field-checked' : 'field-not-checked'; ?>
-					<div id='correo_electronico_de_contacto' data-name="correo_electronico_de_contacto" data-id="<?php echo $row->id; ?>" class="<?php echo $class_name; ?>">
+					<div>
+						<input class="check-box" type="checkbox" data-name="correo_electronico_de_contacto" data-id="<?php echo $row->id; ?>" <?php if ( $row->correo_electronico_de_contacto_bool ) { echo 'checked'; } ?>>
 						<strong>
 							<?php echo esc_attr( __( 'Correo electrónico de contacto', 'event-request-form' ) ); ?>
 						</strong>	
@@ -307,8 +310,8 @@ if ( ! $row ) {
 			</tr>
 			<tr>
 				<td>
-				<?php $class_name = ( $row->comentarios_y_sugerencias_bool ) ? 'field-checked' : 'field-not-checked'; ?>
-					<div id='comentarios_y_sugerencias' data-name="comentarios_y_sugerencias" data-id="<?php echo $row->id; ?>" class="<?php echo $class_name; ?>">
+					<div>
+						<input class="check-box" type="checkbox" data-name="comentarios_y_sugerencias" data-id="<?php echo $row->id; ?>" <?php if ( $row->comentarios_y_sugerencias_bool ) { echo 'checked'; } ?>>
 						<strong>
 							<?php echo esc_attr( __( 'Comentarios y sugerencias', 'event-request-form' ) ); ?>
 						</strong>	
