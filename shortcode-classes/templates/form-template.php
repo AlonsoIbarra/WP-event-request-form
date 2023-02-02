@@ -89,13 +89,17 @@ button:hover {
 .step.finish {
 	background-color: #04AA6D;
 }
+.tab p{
+	margin: 0.7rem !important;
+}
 .erf-field-label{
 	display: block;
 	font-weight: 700;
 	font-size: 16px;
 	float: none;
 	line-height: 1.3;
-	margin: 0 0 4px 0;
+	margin: 0.7rem;
+	margin-bottom: 1rem;
 	padding: 0;
 	word-break: break-word;
 	word-wrap: break-word;
@@ -106,22 +110,29 @@ button:hover {
 .erf-field-description{
 	font-size: 13px;
 	line-height: 1.3;
-	margin: 8px 0 0 0;
+	margin: 0.5rem;
 	word-break: break-word;
 	word-wrap: break-word;
 }
 .erf-image-choices-item{
 	width: 40%;
+	max-width: 280px !important;
 	display: block;
 	padding: 26px !important;
-	margin: 2px;
+	margin: auto;
+	margin-top: 0.5rem !important;
+	margin-bottom: 0.5rem !important;
 	box-shadow: 0 0 20px 0 rgb(0 0 0 / 10%);
 	float: none;
 	text-align: center;
 }
+.erf-contact-choices-option{
+	margin:0.3rem;
+	max-width: 280px !important;
+}
 .erf-googlemap{
 	width: 100%;
-	height: 30rem;
+	height: 35rem;
 	border: 2px solid grey;
 	border-radius: 2rem;
 }
@@ -138,7 +149,7 @@ button:hover {
 }
 .erf-div-selected{
 	border: 1px solid grey;
-	background-color: #F7F7F7;
+	background-color: #BECCEF;
 }
 .erf-div-error{
 	background-color: #FADBDB;
@@ -186,14 +197,19 @@ button:hover {
 		$nombre_del_cliente = ucfirst( $_GET['client'] );
 	}
 	?>
-	<div style="text-align: center;">
-		<h1>Muchas gracias por llenar este formulario! <?php echo $nombre_del_cliente; ?> te contactaré pronto para trabajar juntos!</h1>
-		<h2>Si tienes algún inconveniente no dudes en escribirme a: hi@lezlynorman.com.</h2>
+	<div style="text-align: center; margin:0 1.5rem 0 1.5rem;">
+		<br>
+		<h5>Muchas gracias por llenar este formulario! <?php echo $nombre_del_cliente; ?> te contactaré pronto para trabajar juntos!</h5>
+		<br>
+		<p>Si tienes algún inconveniente no dudes en escribirme a: hi@lezlynorman.com.</p>
 	</div>
 <?php else : ?>
 	<form id="erf_request_form">
-		<div id="loading-gif" style="display:none; width:15%; margin: 0 43%;">
-			<img src="https://fiesta.lezlynorman.com/wp-content/uploads/2023/02/loading_1.gif" alt="">
+		<div id="loading-gif" style="display:none; width:90%; text-align: center; margin: auto;" >
+			<div style="width:15%; margin: 0 43%;">
+				<img src="https://fiesta.lezlynorman.com/wp-content/uploads/2023/02/344-loader-15-flat.gif" alt="">
+			</div>
+			<h3>Guardando datos, espera mientras guardamos tu información.</h3>
 		</div>
 		<input type="hidden" name="tipo_de_formulario" id="tipo_de_formulario" value="<?php echo $tipo_de_formulario; ?>">
 		<!-- One "tab" for each step in the form: -->
@@ -202,7 +218,7 @@ button:hover {
 				Nombre del cliente
 				<span class="erf-required-label">*</span>
 			</label>
-			<p><input placeholder="Nombre del cliente" class="erf-field-required" oninput="this.className = ''" name="nombre_del_cliente" id="nombre_del_cliente"></p>
+			<p><input class="erf-field-required" oninput="this.className = ''" name="nombre_del_cliente" id="nombre_del_cliente"></p>
 			<div class="erf-field-description">Escribe tu nombre para ánotarlo en mi agenda de pedidos</div>
 		</div>
 		<div class="tab">
@@ -218,7 +234,7 @@ button:hover {
 							<span class="erf-image-choices-image">
 								<img class="checked-choice" decoding="async" src="https://fiesta.lezlynorman.com/wp-content/uploads/2022/05/gallery9.jpg" alt="Boda" title="Boda">
 							</span>
-							<input type="radio" class="tipo_de_evento" name="tipo_de_evento" value="weeding" data-class="weeding" style="display: none;" checked/>
+							<input type="radio" class="tipo_de_evento" name="tipo_de_evento" value="wedding" data-class="wedding" style="display: none;" checked/>
 							<div class="erf-separator"></div>	
 							<span>Boda</span>
 						</label>
@@ -256,26 +272,26 @@ button:hover {
 			<label class="erf-field-label">
 				¿A quien vamos a festejar?
 			</label>
-			<p class="weeding custom_field">
+			<p class="wedding custom_field">
 				<label for="nombre_de_novia">Nombre de la novia:</label>
 				<span class="erf-required-label">*</span>
-				<input class="erf-field-required" placeholder="Nombre de la novia" oninput="this.className = ''" name="nombre_de_novia" id='nombre_de_novia'>
+				<input class="erf-field-required" oninput="this.className = ''" name="nombre_de_novia" id='nombre_de_novia'>
 			</p>
-			<p class="weeding custom_field">
+			<p class="wedding custom_field">
 				<label for="nombre_de_novio">Nombre del novio:</label>
 				<span class="erf-required-label">*</span>
-				<input class="erf-field-required" placeholder="Nombre del novio" oninput="this.className = ''" name="nombre_de_novio" id='nombre_de_novio'>
+				<input class="erf-field-required" oninput="this.className = ''" name="nombre_de_novio" id='nombre_de_novio'>
 			</p>
 			<p class="baptism_communion event_other custom_field" style="display: none;">
 				<label for="nombre_de_festejado">Nombre de la/del festejada/o:</label>
 				<span class="erf-required-label">*</span>
-				<input class="erf-field-required" placeholder="Nombre de la/del festejada/o" oninput="this.className = ''" name="nombre_de_festejado" id='nombre_de_festejado'>
+				<input class="erf-field-required" oninput="this.className = ''" name="nombre_de_festejado" id='nombre_de_festejado'>
 			</p>
 		</div>
 		<div class="tab">
 			<p>
 				<label class="erf-field-label" for="nombre_de_festejado">Fecha del evento:</label>
-				<input type="date" placeholder="Fecha del evento" oninput="this.className = ''" name="fecha_de_evento" id="fecha_de_evento">
+				<input class="erf-field-required" type="date" oninput="this.className = ''" name="fecha_de_evento" id="fecha_de_evento">
 			</p>
 			<div>
 			<div class="erf-field-description">¿Cuándo es la fecha de tu evento? </div>
@@ -289,7 +305,7 @@ button:hover {
 			<div>
 				<label class="erf-field-label" for="frase_de_bienvenida">¡Dale a tus invitados una cálida bienvenida!</label>
 				<p>
-					<textarea placeholder="Frase de bienvenida" oninput="this.className = ''" name="frase_de_bienvenida" id="frase_de_bienvenida"></textarea>
+					<textarea oninput="this.className = ''" name="frase_de_bienvenida" id="frase_de_bienvenida"></textarea>
 				</p>
 				<div class="erf-field-description">
 					Escribe una frase inspiradora que te gustaría añadir en tu invitación
@@ -298,33 +314,33 @@ button:hover {
 		</div>
 		<?php if ( in_array( $tipo_de_formulario, array( 'gold', 'silver' ) ) ) : ?>
 			<div class="tab">
-				<p class="weeding custom_field">
+				<p class="wedding custom_field">
 					<label for="madre_de_novia">Madre de la novia:</label>
-					<input placeholder="Madre de la novia" oninput="this.className = ''" name="madre_de_novia" id='madre_de_novia'>
+					<input oninput="this.className = ''" name="madre_de_novia" id='madre_de_novia'>
 				</p>
 				<div class="erf-separator"></div>	
-				<p class="weeding custom_field">
+				<p class="wedding custom_field">
 					<label for="padre_de_novia">Padre de la novia:</label>
-					<input placeholder="Padre de la novia" oninput="this.className = ''" name="padre_de_novia" id='padre_de_novia'>
+					<input oninput="this.className = ''" name="padre_de_novia" id='padre_de_novia'>
 				</p>
 				<div class="erf-separator"></div>	
-				<p class="weeding custom_field">
+				<p class="wedding custom_field">
 					<label for="madre_de_novio">Madre del novio:</label>
-					<input placeholder="Madre del novio" oninput="this.className = ''" name="madre_de_novio" id='madre_de_novio'>
+					<input oninput="this.className = ''" name="madre_de_novio" id='madre_de_novio'>
 				</p>
 				<div class="erf-separator"></div>	
-				<p class="weeding custom_field">
+				<p class="wedding custom_field">
 					<label for="padre_de_novio">Padre del novio:</label>
-					<input placeholder="Padre del novio" oninput="this.className = ''" name="padre_de_novio" id='padre_de_novio'>
+					<input oninput="this.className = ''" name="padre_de_novio" id='padre_de_novio'>
 				</p>
 				<p class="baptism_communion event_other custom_field" style="display: none;">
 					<label for="madre_del_festejado">Madre de la/del festejada/o:</label>
-					<input placeholder="Madre de la/del festejada/o" oninput="this.className = ''" name="madre_del_festejado" id='madre_del_festejado'>
+					<input oninput="this.className = ''" name="madre_del_festejado" id='madre_del_festejado'>
 				</p>
 				<div class="erf-separator"></div>	
 				<p class="baptism_communion event_other custom_field" style="display: none;">
 					<label for="padre_del_festejado">Padre de la/del festejada/o:</label>
-					<input placeholder="Padre de la/del festejada/o" oninput="this.className = ''" name="padre_del_festejado" id='padre_del_festejado'>
+					<input oninput="this.className = ''" name="padre_del_festejado" id='padre_del_festejado'>
 				</p>
 			</div>
 		<?php endif; ?>
@@ -337,53 +353,53 @@ button:hover {
 				</div>
 
 				</div>
-				<p class="weeding custom_field">
+				<p class="wedding custom_field">
 					<label for="nombre_de_madrina_de_arras">Nombre de madrina de arras:</label>
-					<input placeholder="Nombre de madrina de arras" oninput="this.className = ''" name="nombre_de_madrina_de_arras" id='nombre_de_madrina_de_arras'>
+					<input oninput="this.className = ''" name="nombre_de_madrina_de_arras" id='nombre_de_madrina_de_arras'>
 				</p>
 				<div class="erf-separator"></div>	
-				<p class="weeding custom_field">
+				<p class="wedding custom_field">
 					<label for="nombre_de_padrino_de_arras">Nombre de padrino de arras:</label>
-					<input placeholder="Nombre de padrino de arras" oninput="this.className = ''" name="nombre_de_padrino_de_arras" id='nombre_de_padrino_de_arras'>
+					<input oninput="this.className = ''" name="nombre_de_padrino_de_arras" id='nombre_de_padrino_de_arras'>
 				</p>
 				<div class="erf-separator"></div>	
-				<p class="weeding custom_field">
+				<p class="wedding custom_field">
 					<label for="nombre_de_madrina_de_lazo">Nombre de madrina de lazo:</label>
-					<input placeholder="Nombre de madrina de lazo" oninput="this.className = ''" name="nombre_de_madrina_de_lazo" id='nombre_de_madrina_de_lazo'>
+					<input oninput="this.className = ''" name="nombre_de_madrina_de_lazo" id='nombre_de_madrina_de_lazo'>
 				</p>
 				<div class="erf-separator"></div>	
-				<p class="weeding custom_field">
+				<p class="wedding custom_field">
 					<label for="nombre_de_padrino_de_lazo">Nombre de padrino de lazo:</label>
-					<input placeholder="Nombre de padrino de lazo" oninput="this.className = ''" name="nombre_de_padrino_de_lazo" id='nombre_de_padrino_de_lazo'>
+					<input oninput="this.className = ''" name="nombre_de_padrino_de_lazo" id='nombre_de_padrino_de_lazo'>
 				</p>
 				<div class="erf-separator"></div>	
-				<p class="weeding custom_field">
+				<p class="wedding custom_field">
 					<label for="nombre_de_madrina_de_anillos">Nombre de madrina de anillos:</label>
-					<input placeholder="Nombre de madrina de anillos" oninput="this.className = ''" name="nombre_de_madrina_de_anillos" id='nombre_de_madrina_de_anillos'>
+					<input oninput="this.className = ''" name="nombre_de_madrina_de_anillos" id='nombre_de_madrina_de_anillos'>
 				</p>
 				<div class="erf-separator"></div>	
-				<p class="weeding custom_field">
+				<p class="wedding custom_field">
 					<label for="nombre_de_padrino_de_anillos">Nombre de padrino de anillos:</label>
-					<input placeholder="Nombre de padrino de anillos" oninput="this.className = ''" name="nombre_de_padrino_de_anillos" id='nombre_de_padrino_de_anillos'>
+					<input oninput="this.className = ''" name="nombre_de_padrino_de_anillos" id='nombre_de_padrino_de_anillos'>
 				</p>
 				<div class="erf-separator"></div>	
-				<p class="weeding custom_field">
+				<p class="wedding custom_field">
 					<label for="nombre_de_madrina_de_velacion">Nombre de madrina de velación:</label>
-					<input placeholder="Nombre de madrina de velación" oninput="this.className = ''" name="nombre_de_madrina_de_velacion" id='nombre_de_madrina_de_velacion'>
+					<input oninput="this.className = ''" name="nombre_de_madrina_de_velacion" id='nombre_de_madrina_de_velacion'>
 				</p>
 				<div class="erf-separator"></div>	
-				<p class="weeding custom_field">
+				<p class="wedding custom_field">
 					<label for="nombre_de_padrino_de_velacion">Nombre de padrino de velación:</label>
-					<input placeholder="Nombre de padrino de velación" oninput="this.className = ''" name="nombre_de_padrino_de_velacion" id='nombre_de_padrino_de_velacion'>
+					<input oninput="this.className = ''" name="nombre_de_padrino_de_velacion" id='nombre_de_padrino_de_velacion'>
 				</p>
 				<p class="baptism_communion event_other custom_field" style="display: none;">
 					<label for="nombre_de_madrina">Nombre de la madrina:</label>
-					<input placeholder="Nombre de la madrina" oninput="this.className = ''" name="nombre_de_madrina" id='nombre_de_madrina'>
+					<input oninput="this.className = ''" name="nombre_de_madrina" id='nombre_de_madrina'>
 				</p>
 				<div class="erf-separator"></div>	
 				<p class="baptism_communion event_other custom_field" style="display: none;">
 					<label for="nombre_de_padrino">Nombre del padrino:</label>
-					<input placeholder="Nombre del padrino" oninput="this.className = ''" name="nombre_de_padrino" id='nombre_de_padrino'>
+					<input oninput="this.className = ''" name="nombre_de_padrino" id='nombre_de_padrino'>
 				</p>
 			</div>
 		<?php endif; ?>
@@ -404,34 +420,34 @@ button:hover {
 			<div class="erf-separator"></div>	
 			<p>
 				<label for="direccion_de_ceremonia_religiosa">Dirección de ceremonia religiosa:</label>
-				<input placeholder="Dirección de ceremonia religiosa" oninput="this.className = ''" name="direccion_de_ceremonia_religiosa" id='direccion_de_ceremonia_religiosa'>
+				<input oninput="this.className = ''" name="direccion_de_ceremonia_religiosa" id='direccion_de_ceremonia_religiosa'>
 			</p>
 			<p>
 				<label for="ciudad_de_ceremonia_religiosa">Ciudad de ceremonia religiosa:</label>
-				<input placeholder="Ciudad de ceremonia religiosa" oninput="this.className = ''" name="ciudad_de_ceremonia_religiosa" id='ciudad_de_ceremonia_religiosa'>
+				<input oninput="this.className = ''" name="ciudad_de_ceremonia_religiosa" id='ciudad_de_ceremonia_religiosa'>
 			</p>
 			<p>
 				<label for="estado_de_ceremonia_religiosa">Estado de ceremonia religiosa:</label>
-				<input placeholder="Estado de ceremonia religiosa" oninput="this.className = ''" name="estado_de_ceremonia_religiosa" id='estado_de_ceremonia_religiosa'>
+				<input oninput="this.className = ''" name="estado_de_ceremonia_religiosa" id='estado_de_ceremonia_religiosa'>
 			</p>
 			<p>
 				<label for="pais_de_ceremonia_religiosa">Pais de ceremonia religiosa:</label>
-				<input placeholder="Pais de ceremonia religiosa" oninput="this.className = ''" name="pais_de_ceremonia_religiosa" id='pais_de_ceremonia_religiosa'>
+				<input oninput="this.className = ''" name="pais_de_ceremonia_religiosa" id='pais_de_ceremonia_religiosa'>
 			</p>
 			<p>
 				<label for="codigo_postal_de_ceremonia_religiosa">Código postal de ceremonia religiosa:</label>
-				<input placeholder="Código postal de ceremonia religiosa" oninput="this.className = ''" name="codigo_postal_de_ceremonia_religiosa" id='codigo_postal_de_ceremonia_religiosa'>
+				<input oninput="this.className = ''" name="codigo_postal_de_ceremonia_religiosa" id='codigo_postal_de_ceremonia_religiosa'>
 			</p>
 			<div>
 				<a class="find-address button-primary" value="" data-type="church">Ubicar en el mapa</a>
 			</div>
 			<p>
 				<label for="hora_de_ceremonia_religiosa">Hora de ceremonia religiosa:</label>
-				<input type="time" placeholder="Hora de ceremonia religiosa" oninput="this.className = ''" name="hora_de_ceremonia_religiosa" id='hora_de_ceremonia_religiosa'>
+				<input type="time" oninput="this.className = ''" name="hora_de_ceremonia_religiosa" id='hora_de_ceremonia_religiosa'>
 			</p>
 			<p>
 				<label for="link_de_google_maps_de_ceremonia_religiosa">Link de google maps de ceremonia religiosa:</label>
-				<input placeholder="Link de google maps de ceremonia religiosa" oninput="this.className = ''" name="link_de_google_maps_de_ceremonia_religiosa" id='link_de_google_maps_de_ceremonia_religiosa'>
+				<input oninput="this.className = ''" name="link_de_google_maps_de_ceremonia_religiosa" id='link_de_google_maps_de_ceremonia_religiosa'>
 			</p>
 		</div>
 		<div class="tab">
@@ -450,34 +466,34 @@ button:hover {
 			<div class="erf-separator"></div>	
 			<p>
 				<label for="direccion_de_recepcion">Dirección de recepción:</label>
-				<input class="erf-field-required" placeholder="Dirección de recepción" oninput="this.className = ''" name="direccion_de_recepcion" id='direccion_de_recepcion'>
+				<input class="erf-field-required" oninput="this.className = ''" name="direccion_de_recepcion" id='direccion_de_recepcion'>
 			</p>
 			<p>
 				<label for="ciudad_de_recepcion">Ciudad de recepción:</label>
-				<input class="erf-field-required" placeholder="Ciudad de recepción" oninput="this.className = ''" name="ciudad_de_recepcion" id='ciudad_de_recepcion'>
+				<input class="erf-field-required" oninput="this.className = ''" name="ciudad_de_recepcion" id='ciudad_de_recepcion'>
 			</p>
 			<p>
 				<label for="estado_de_recepcion">Estado de recepción:</label>
-				<input class="erf-field-required" placeholder="Estado de recepción" oninput="this.className = ''" name="estado_de_recepcion" id='estado_de_recepcion'>
+				<input class="erf-field-required" oninput="this.className = ''" name="estado_de_recepcion" id='estado_de_recepcion'>
 			</p>
 			<p>
 				<label for="pais_de_recepcion">Pais de recepción:</label>
-				<input class="erf-field-required" placeholder="Pais de recepción" oninput="this.className = ''" name="pais_de_recepcion" id='pais_de_recepcion'>
+				<input class="erf-field-required" oninput="this.className = ''" name="pais_de_recepcion" id='pais_de_recepcion'>
 			</p>
 			<p>
 				<label for="codigo_postal_de_recepcion">Código postal de recepción:</label>
-				<input class="erf-field-required" placeholder="Código postal de recepción" oninput="this.className = ''" name="codigo_postal_de_recepcion" id='codigo_postal_de_recepcion'>
+				<input class="erf-field-required" oninput="this.className = ''" name="codigo_postal_de_recepcion" id='codigo_postal_de_recepcion'>
 			</p>
 			<div>
 				<a class="find-address button-primary" value="" data-type="reception">Ubicar en el mapa</a>
 			</div>
 			<p>
 				<label for="hora_de_recepcion">Hora de recepción:</label>
-				<input class="erf-field-required" type="time" placeholder="Hora de recepción" oninput="this.className = ''" name="hora_de_recepcion" id='hora_de_recepcion'>
+				<input class="erf-field-required" type="time" oninput="this.className = ''" name="hora_de_recepcion" id='hora_de_recepcion'>
 			</p>
 			<p>
 				<label for="link_de_google_maps_de_recepcion">Link de google maps de recepción:</label>
-				<input placeholder="Link de google maps de recepción" oninput="this.className = ''" name="link_de_google_maps_de_recepcion" id='link_de_google_maps_de_recepcion'>
+				<input oninput="this.className = ''" name="link_de_google_maps_de_recepcion" id='link_de_google_maps_de_recepcion'>
 			</p>
 		</div>
 		<?php if ( in_array( $tipo_de_formulario, array( 'gold', 'silver' ) ) ) : ?>
@@ -523,7 +539,7 @@ button:hover {
 				<?php if ( in_array( $tipo_de_formulario, array( 'silver', 'gold' ) ) ) : ?>
 					<p>
 						<label class="erf-field-label" for="hashtag">#Hashtag:</label>
-						<input placeholder="Hastag" oninput="this.className = ''" name="hashtag" id='hashtag'>
+						<input oninput="this.className = ''" name="hashtag" id='hashtag'>
 						<div class="erf-field-description">
 							Si quieres crear una galería en Instagram para tu web, crea un hashtag. Omitir si no aplica.
 						</div>
@@ -539,7 +555,7 @@ button:hover {
 			<p>
 				Subir fotos
 			</p>
-			<input placeholder="Link de galeria de fotos" oninput="this.className = ''" name="galeria_de_fotos" id='galeria_de_fotos'>
+			<input oninput="this.className = ''" name="galeria_de_fotos" id='galeria_de_fotos'>
 			<div class="erf-field-description">
 				Sube las fotos que mas te gusten para que aparezcan en tu invitación (mínimo 4 máximo 15).
 			</div>
@@ -554,11 +570,11 @@ button:hover {
 			</p>
 			<p>
 				<label for="whatsapp_I_de_confirmacion">Whatsapp:</label>
-				<input placeholder="Whatsapp de confirmación" oninput="this.className = ''" name="whatsapp_I_de_confirmacion" id='whatsapp_I_de_confirmacion'>
+				<input oninput="this.className = ''" name="whatsapp_I_de_confirmacion" id='whatsapp_I_de_confirmacion'>
 			</p>
 			<p>
 				<label for="whatsapp_II_de_confirmacion">Whatsapp II:</label>
-				<input placeholder="Whatsapp de confirmación II" oninput="this.className = ''" name="whatsapp_II_de_confirmacion" id='whatsapp_II_de_confirmacion'>
+				<input oninput="this.className = ''" name="whatsapp_II_de_confirmacion" id='whatsapp_II_de_confirmacion'>
 			</p>
 		</div>
 		<div class="tab">
@@ -574,7 +590,7 @@ button:hover {
 			</p>
 			<p>
 				<label for="personalizacion_grafica">Descripción gráfica:</label>
-				<input placeholder="Descripción gráfica" oninput="this.className = ''" name="personalizacion_grafica" id='personalizacion_grafica'>
+				<input oninput="this.className = ''" name="personalizacion_grafica" id='personalizacion_grafica'>
 				<div class="erf-field-description">
 					Tienes ejemplos visuales como fotos, diseños o imágenes que quieres usar como referencia? subelas en tu liga de wetransfer.
 				</div>
@@ -610,13 +626,13 @@ button:hover {
 					<label>
 						Escribe tu número de Whatsapp
 					</label>
-					<input placeholder="Whatsapp de contacto" oninput="this.className = ''" name="whatsapp_de_contacto" id='whatsapp_de_contacto'/>
+					<input oninput="this.className = ''" name="whatsapp_de_contacto" id='whatsapp_de_contacto'/>
 				</p>
 			</div>
 			<div>
 				<p id='email-contact-container' style="display: none;">
 					<label>Escribre tu correo eléctronico</label>
-					<input placeholder="Correo electrónico de contacto" oninput="this.className = ''" name="correo_electronico_de_contacto" id='correo_electronico_de_contacto'/>
+					<input oninput="this.className = ''" name="correo_electronico_de_contacto" id='correo_electronico_de_contacto'/>
 				</p>
 			</div>
 			<div class="erf-field-description">
@@ -634,8 +650,8 @@ button:hover {
 		</div>
 		<div style="overflow:auto; margin: 1%;">
 			<div style="text-align: center;">
-				<button type="button" id="prevBtn" onclick="nextPrev(-1)">Anterior</button>
-				<button type="button" id="nextBtn" onclick="nextPrev(1)">Siguiente</button>
+				<button style="margin:0.5rem;" type="button" id="prevBtn" onclick="nextPrev(-1)">Anterior</button>
+				<button style="margin:0.5rem;" type="button" id="nextBtn" onclick="nextPrev(1)">Siguiente</button>
 			</div>
 		</div>
 		<!-- Circles which indicates the steps of the form: -->
@@ -1010,7 +1026,7 @@ button:hover {
 					var url = new URL(window.location.href);
 					url.searchParams.set('success','');
 					url.searchParams.set('client',jQuery('#nombre_del_cliente').val());
-					window.location.href = url.href;
+					// window.location.href = url.href;
 				}
 			});
 			return false;
