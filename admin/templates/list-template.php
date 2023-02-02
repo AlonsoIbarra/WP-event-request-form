@@ -407,16 +407,16 @@ $query = ( isset( $_GET['q'] ) ) ? $_GET['q'] : '';
 			</td>
 			<td>
 				<?php
-				$weeding_counter = count(
+				$wedding_counter = count(
 					array_filter(
 						$result,
 						function ( $value ) {
-							return $value->tipo_de_evento == 'weeding';
+							return $value->tipo_de_evento == 'wedding';
 						}
 					)
 				);
-				$weeding_percent = round( ( $weeding_counter / $total ) * 100, 2 );
-				echo  "$weeding_counter/$total  $weeding_percent%";
+				$wedding_percent = round( ( $wedding_counter / $total ) * 100, 2 );
+				echo  "$wedding_counter/$total  $wedding_percent%";
 				?>
 			</td>
 		</tr>
@@ -549,7 +549,7 @@ $query = ( isset( $_GET['q'] ) ) ? $_GET['q'] : '';
 	<canvas id="event_type_chart" style="width:100%;"></canvas>
 	<script>
 		var xValues = ["Boda", "XV años - Bautizo - 1ra. Comunión", "Otro"];
-		var yValues = [<?php echo $weeding_counter; ?>, <?php echo $baptism_communion_counter; ?>, <?php echo $event_other_counter; ?>];
+		var yValues = [<?php echo $wedding_counter; ?>, <?php echo $baptism_communion_counter; ?>, <?php echo $event_other_counter; ?>];
 		var barColors = [ "#f422ed", "#a4d636",	"#77aee5" ];
 		new Chart(
 			"event_type_chart",

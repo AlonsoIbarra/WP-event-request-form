@@ -36,7 +36,7 @@ $db_service  = new ERFDatabaseService();
 $row         = null;
 $event_types = array(
 	'baptism_communion' => 'Bautismo o primera comunion',
-	'weeding'           => 'Boda',
+	'wedding'           => 'Boda',
 	'event_other'       => 'Otro',
 );
 
