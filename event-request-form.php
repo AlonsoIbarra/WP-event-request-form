@@ -113,8 +113,8 @@ if ( ! function_exists( 'create_erf_options_menu' ) ) {
 	function create_erf_options_menu() {
 
 		add_menu_page(
-			__( 'Requests list', 'event-request-form' ),
-			__( 'Requests list', 'event-request-form' ),
+			__( 'Event request form', 'event-request-form' ),
+			__( 'Event request form', 'event-request-form' ),
 			'manage_options',
 			'event-requests-entries',
 			'events_request_form_dashboard_page',
