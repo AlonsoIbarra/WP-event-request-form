@@ -58,6 +58,9 @@ $query = ( isset( $_GET['q'] ) ) ? $_GET['q'] : '';
 		<thead>
 			<tr>
 				<th>
+					<?php echo esc_attr( __( 'Total de campos marcados', 'event-request-form' ) ); ?>
+				</th>
+				<th>
 					<?php echo esc_attr( __( 'Nombre del cliente', 'event-request-form' ) ); ?>
 				</th>
 				<th>
@@ -216,6 +219,21 @@ $query = ( isset( $_GET['q'] ) ) ? $_GET['q'] : '';
 			<?php foreach ( $result as $row ) : ?>
 				<?php $post_url = ''; ?>
 				<tr>
+					<td>
+						<?php
+						$counter = 0;
+						$counter = array_filter(
+							(array) $row,
+							function( $item ) {
+								if ( '1' === $item ) {
+									return $item;
+								}
+								return;
+							}
+						);
+						echo count( $counter );
+						?>
+					</td>
 					<td>
 						<?php echo esc_attr( $row->nombre_del_cliente ); ?>
 					</td>

@@ -7,17 +7,17 @@
  * registers the activation and deactivation functions, and defines a function
  * that starts the plugin.
  *
- * @link              https://https://https://www.linkedin.com/in/saulalonsoibarra-software-engineer/
+ * @link              https://www.linkedin.com/in/saulalonsoibarra-software-engineer/
  * @since             1.0.0
  * @package           Event_Request_Form
  *
  * @wordpress-plugin
  * Plugin Name:       Event request form
- * Plugin URI:        https://https://https://github.com/AlonsoIbarra/WP-event-request-form
- * Description:       Plugin to save event data in drive.
+ * Plugin URI:        https://github.com/AlonsoIbarra/WP-event-request-form
+ * Description:       Plugin for recibint data request to generate digital invitation event.
  * Version:           1.0.0
- * Author:            Saul Alonso Ibarra Luevano
- * Author URI:        https://https://https://www.linkedin.com/in/saulalonsoibarra-software-engineer/
+ * Author:            Saul Alonso Ibarra
+ * Author URI:        https://www.linkedin.com/in/saulalonsoibarra-software-engineer/
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       event-request-form
