@@ -215,8 +215,13 @@ button:hover {
 		<!-- One "tab" for each step in the form: -->
 		<div class="tab">
 			<label class="erf-field-label">
-				Nombre del cliente
-				<span class="erf-required-label">*</span>
+				<p>
+					Nombre del cliente
+					<br>
+					<small>
+						Obligatorio*
+					</small>
+				</p>
 			</label>
 			<p><input class="erf-field-required" oninput="this.className = ''" name="nombre_del_cliente" id="nombre_del_cliente"></p>
 			<div class="erf-field-description">Escribe tu nombre para ánotarlo en mi agenda de pedidos</div>
@@ -224,8 +229,13 @@ button:hover {
 		<div class="tab">
 			<div>
 			<label class="erf-field-label">
-				¿Que tipo de evento se va a realizar?
-				<span class="erf-required-label">*</span>
+				<p>
+					¿Que tipo de evento se va a realizar?
+					<br>
+					<small>
+						Obligatorio*
+					</small>
+				</p>
 			</label>
 			</div>
 			<div class="" style="">
@@ -267,34 +277,51 @@ button:hover {
 		</div>
 		<div class="tab">
 			<div style="margin: 1rem 0 1rem  0;">
-				<h4 class="erf-field-label" style="font-size: 20px; line-height: 28px;">Agrega a las estrellas del evento</h4>
+				<h4 class="erf-field-label" style="font-size: 20px; line-height: 28px;">
+					<p>
+						Agrega a las estrellas del evento
+						<br>
+						<small>
+							Obligatorio*
+						</small>
+					</p>
+				</h4>
 			</div>
 			<label class="erf-field-label">
 				¿A quien vamos a festejar?
 			</label>
 			<p class="wedding custom_field">
 				<label for="nombre_de_novia">Nombre de la novia:</label>
-				<span class="erf-required-label">*</span>
 				<input class="erf-field-required" oninput="this.className = ''" name="nombre_de_novia" id='nombre_de_novia'>
 			</p>
 			<p class="wedding custom_field">
 				<label for="nombre_de_novio">Nombre del novio:</label>
-				<span class="erf-required-label">*</span>
 				<input class="erf-field-required" oninput="this.className = ''" name="nombre_de_novio" id='nombre_de_novio'>
 			</p>
 			<p class="baptism_communion event_other custom_field" style="display: none;">
 				<label for="nombre_de_festejado">Nombre de la/del festejada/o:</label>
-				<span class="erf-required-label">*</span>
 				<input class="erf-field-required" oninput="this.className = ''" name="nombre_de_festejado" id='nombre_de_festejado'>
 			</p>
 		</div>
 		<div class="tab">
 			<p>
-				<label class="erf-field-label" for="nombre_de_festejado">Fecha del evento:</label>
+				<label class="erf-field-label" for="nombre_de_festejado">
+					<p>
+						Fecha del evento:
+						<br>
+						<small>
+							Obligatorio*
+						</small>
+					</p>
+				</label>
 				<input class="erf-field-required" type="date" oninput="this.className = ''" name="fecha_de_evento" id="fecha_de_evento">
 			</p>
 			<div>
-			<div class="erf-field-description">¿Cuándo es la fecha de tu evento? </div>
+				<div class="erf-field-description">
+					<p>
+						¿Cuándo es la fecha de tu evento?
+					</p>
+				</div>
 			</div>
 		</div>
 		<div class="tab">
@@ -303,7 +330,15 @@ button:hover {
 			</div>
 			<div class="erf-separator"></div>	
 			<div>
-				<label class="erf-field-label" for="frase_de_bienvenida">¡Dale a tus invitados una cálida bienvenida!</label>
+				<label class="erf-field-label" for="frase_de_bienvenida">
+					<p>
+						¡Dale a tus invitados una cálida bienvenida!
+						<br>
+						<small>
+							Opcional
+						</small>
+					</p>
+				</label>
 				<p>
 					<textarea oninput="this.className = ''" name="frase_de_bienvenida" id="frase_de_bienvenida"></textarea>
 				</p>
@@ -314,32 +349,63 @@ button:hover {
 		</div>
 		<?php if ( in_array( $tipo_de_formulario, array( 'gold', 'silver' ) ) ) : ?>
 			<div class="tab">
+				<p>
+					<h4>
+						<small>
+							Opcional
+						</small>
+					</h4>
+				</p>
 				<p class="wedding custom_field">
-					<label for="madre_de_novia">Madre de la novia:</label>
+					<label for="madre_de_novia">
+						<p>
+							Madre de la novia:
+						</p>
+					</label>
 					<input oninput="this.className = ''" name="madre_de_novia" id='madre_de_novia'>
 				</p>
 				<div class="erf-separator"></div>	
 				<p class="wedding custom_field">
-					<label for="padre_de_novia">Padre de la novia:</label>
+					<label for="padre_de_novia">
+						<p>
+							Padre de la novia:
+						</p>
+					</label>
 					<input oninput="this.className = ''" name="padre_de_novia" id='padre_de_novia'>
 				</p>
 				<div class="erf-separator"></div>	
 				<p class="wedding custom_field">
-					<label for="madre_de_novio">Madre del novio:</label>
+					<label for="madre_de_novio">
+						<p>
+							Madre del novio:
+						</p>
+					</label>
 					<input oninput="this.className = ''" name="madre_de_novio" id='madre_de_novio'>
 				</p>
 				<div class="erf-separator"></div>	
 				<p class="wedding custom_field">
-					<label for="padre_de_novio">Padre del novio:</label>
+					<label for="padre_de_novio">
+						<p>
+							Padre del novio:
+						</p>
+					</label>
 					<input oninput="this.className = ''" name="padre_de_novio" id='padre_de_novio'>
 				</p>
 				<p class="baptism_communion event_other custom_field" style="display: none;">
-					<label for="madre_del_festejado">Madre de la/del festejada/o:</label>
+					<label for="madre_del_festejado">
+						<p>
+							Madre de la/del festejada/o:
+						</p>
+					</label>
 					<input oninput="this.className = ''" name="madre_del_festejado" id='madre_del_festejado'>
 				</p>
 				<div class="erf-separator"></div>	
 				<p class="baptism_communion event_other custom_field" style="display: none;">
-					<label for="padre_del_festejado">Padre de la/del festejada/o:</label>
+					<label for="padre_del_festejado">
+						<p>
+							Padre de la/del festejada/o:
+						</p>
+					</label>
 					<input oninput="this.className = ''" name="padre_del_festejado" id='padre_del_festejado'>
 				</p>
 			</div>
@@ -348,10 +414,17 @@ button:hover {
 			<div class="tab">
 				<div>
 				<div>
-					<h4 class="erf-field-label" style="font-size: 20px; line-height: 28px;">Nombre de los padrinos</h4>
+					<h4 class="erf-field-label" style="font-size: 20px; line-height: 28px;">
+						<p>
+							Nombre de los padrinos
+							<br>
+							<small>
+								Opcional
+							</small>
+						</p>
+					</h4>
 					<p style="margin: 0 0 20px 0;">Porque agradecemos a aquellas personas que nos apoyan para hacer realidad este grán evento.</p>
 				</div>
-
 				</div>
 				<p class="wedding custom_field">
 					<label for="nombre_de_madrina_de_arras">Nombre de madrina de arras:</label>
@@ -410,7 +483,14 @@ button:hover {
 				</p>
 			</div>
 			<div>
-				<h4>Ceremonia religiosa</h4>
+				<p>
+					<h4>
+						Ceremonia religiosa
+					</h4>
+					<small>
+						Opcional
+					</small>
+				</p>
 				<p>Selecciona en el mapa la ubicación donde se llevara a cabo la ceremonia o ingresa los datos manualmente.</p>
 				<p>Si solo manejas una ubicación, omitir.</p>
 			</div>
@@ -457,7 +537,14 @@ button:hover {
 				</p>
 			</div>
 			<div>
-				<h4>Recepción</h4>
+				<p>
+					<h4>
+						Recepción
+					</h4>
+					<small>
+						Obligatorio*
+					</small>
+				</p>	
 				<p>Selecciona en el mapa la ubicación donde se llevara a cabo la recepción o ingresa los datos manualmente.</p>
 			</div>
 			<div style="text-align: center;">
@@ -503,7 +590,15 @@ button:hover {
 					<img decoding="async" loading="lazy" alt="" src="https://fiesta.lezlynorman.com/wp-content/uploads/2022/12/regalo_boda-221x300.jpg" class="size-medium wp-image-3838 aligncenter" width="221" height="300">
 					</p>
 				</div>
-				<div class="erf-field-description">Mesa de regalos</div>
+				<div class="erf-field-description">
+					<p>
+						Mesa de regalos
+						<br>
+						<small>
+							Opcional
+						</small>
+					</p>
+				</div>
 				<p>
 					<textarea oninput="this.className = ''" name="mesa_de_regalos" id='mesa_de_regalos'></textarea>
 				</p>
@@ -516,7 +611,15 @@ button:hover {
 		<?php if ( in_array( $tipo_de_formulario, array( 'gold' ) ) ) : ?>
 			<div class="tab">
 				<p>
-					<label class="erf-field-label" for="intinerario_de_evento">Intinerario de evento:</label>
+					<label class="erf-field-label" for="intinerario_de_evento">
+						<p>
+							Intinerario de evento:
+							<br>
+							<small>
+								Opcional
+							</small>
+						</p>
+					</label>
 					<textarea oninput="this.className = ''" name="intinerario_de_evento" id='intinerario_de_evento'></textarea>
 				</p>
 				<div class="erf-field-description">
@@ -529,7 +632,15 @@ button:hover {
 			<div class="tab">
 				<?php if ( in_array( $tipo_de_formulario, array( 'silver' ) ) ) : ?>
 					<p>
-						<label class="erf-field-label" for="recomendaciones">Recomendaciones generales:</label>
+						<label class="erf-field-label" for="recomendaciones">
+							<p>
+								Recomendaciones generales:
+								<br>
+								<small>
+									Opcional
+								</small>
+							</p>
+						</label>
 						<textarea oninput="this.className = ''" name="recomendaciones" id='recomendaciones'></textarea>
 						<div class="erf-field-description">
 							Añade cualquier indicación que gustas que aparezca en tu invitación(tipo de vestimenta, cuidados de salud etc). Omitir si no aplica
@@ -538,7 +649,15 @@ button:hover {
 				<?php endif; ?>
 				<?php if ( in_array( $tipo_de_formulario, array( 'silver', 'gold' ) ) ) : ?>
 					<p>
-						<label class="erf-field-label" for="hashtag">#Hashtag:</label>
+						<label class="erf-field-label" for="hashtag">
+							<p>
+								#Hashtag:
+								<br>
+								<small>
+									Opcional
+								</small>
+							</p>
+						</label>
 						<input oninput="this.className = ''" name="hashtag" id='hashtag'>
 						<div class="erf-field-description">
 							Si quieres crear una galería en Instagram para tu web, crea un hashtag. Omitir si no aplica.
@@ -548,8 +667,14 @@ button:hover {
 			</div>
 		<?php endif; ?>
 		<div class="tab">
-			<label class="erf-field-label" for="galeria_de_fotos">Galeria de fotos:</label>
 			<p>
+				<label class="erf-field-label" for="galeria_de_fotos">
+					Galeria de fotos:
+					<br>
+					<small>
+						Opcional
+					</small>
+				</label>
 				Sube las fotografías en <a rel="noopener" target="_blank" href="https://wetransfer.com/">https://wetransfer.com/</a> o en cualquier almacenamiento en la nube de tu preferencia y comparte la liga en el siguiente campo:
 			</p>
 			<p>
@@ -562,7 +687,13 @@ button:hover {
 		</div>
 		<div class="tab">
 			<label class="erf-field-label">
-				Confirmación de invitados
+				<p>
+					Confirmación de invitados
+					<br>
+					<small>
+						Opcional
+					</small>
+				</p>
 			</label>
 			<p>
 				¿A que número de whatsapp tus invitados pueden confirmar?<br>
@@ -578,7 +709,14 @@ button:hover {
 			</p>
 		</div>
 		<div class="tab">
-			<h4>Diseño y personalización</h4>
+			<p>
+				<h4>
+					Diseño y personalización
+				</h4>
+				<small>
+					Opcional
+				</small>
+			</p>
 			<p>Añade los colores, elementos o estilos que te gustarían ver en tu invitación.</p>
 			<p>Si tienes ejemplos visuales no olvides en compartirlos subiendolos a: <a href="https://wetransfer.com/">https://wetransfer.com/</a></p>
 			<p>
@@ -597,9 +735,17 @@ button:hover {
 			</p>
 		</div>
 		<div class="tab">
-			<h4>¿Porque medio me puedo contactar contigo para entregarte y aclarar detalles para la creación de tu invitación?</h4>
+			<p>
+				<h4>
+					¿Porque medio me puedo contactar contigo para entregarte y aclarar detalles para la creación de tu invitación?
+				</h4>
+				<br>
+				<small>
+					Obligatorio*
+				</small>
+			</p>
 			<div class="" style="display: flex;">
-				<div class="erf-image-choices-item erf-contact-choices-option" data-id="whatsapp-contact-container">
+				<div class="erf-image-choices-item erf-contact-choices-option erf-div-selected" data-id="whatsapp-contact-container">
 					<label>
 						<span>
 							<img class="checked-choice" decoding="async" src="https://fiesta.lezlynorman.com/wp-content/uploads/2022/12/124034.png" alt="Whatsapp" title="Whatsapp">
@@ -622,17 +768,17 @@ button:hover {
 			</div>
 			<div class="erf-separator"></div>	
 			<div>
-				<p id='whatsapp-contact-container' style="display: none;">
+				<p id='whatsapp-contact-container' style="">
 					<label>
 						Escribe tu número de Whatsapp
 					</label>
-					<input oninput="this.className = ''" name="whatsapp_de_contacto" id='whatsapp_de_contacto'/>
+					<input type="number" class="erf-field-required" oninput="this.className = ''" name="whatsapp_de_contacto" id='whatsapp_de_contacto'/>
 				</p>
 			</div>
 			<div>
 				<p id='email-contact-container' style="display: none;">
 					<label>Escribre tu correo eléctronico</label>
-					<input oninput="this.className = ''" name="correo_electronico_de_contacto" id='correo_electronico_de_contacto'/>
+					<input type="email" class="erf-field-required" oninput="this.className = ''" name="correo_electronico_de_contacto" id='correo_electronico_de_contacto'/>
 				</p>
 			</div>
 			<div class="erf-field-description">
@@ -641,7 +787,15 @@ button:hover {
 		</div>
 		<div class="tab">
 			<p>
-				<label class="erf-field-label" for="comentarios_y_sugerencias">Comentarios y sugerencias:</label>
+				<label class="erf-field-label" for="comentarios_y_sugerencias">
+					<p>
+						Comentarios y sugerencias:
+						<br>
+						<small>
+							Opcional
+						</small>
+					</p>
+				</label>
 				<textarea oninput="this.className = ''" name="comentarios_y_sugerencias" id='comentarios_y_sugerencias'></textarea>
 				<div class="erf-field-description">
 					Siente libre de escribir en este campo cualquier cosa que quieras añadir y que no estuvo en este formulario.
@@ -687,8 +841,8 @@ button:hover {
 			map_church = new google.maps.Map(document.getElementById("erf-map-church"), {
 				zoom: 5,
 				center: {
-					lat: 22.7493334,
-					lng: -102.5415697
+					lat: 22.775989,
+					lng: -102.571668
 				},
 				mapTypeControl: false,
 			});
@@ -710,8 +864,8 @@ button:hover {
 			map_reception = new google.maps.Map(document.getElementById("erf-map-reception"), {
 				zoom: 5,
 				center: {
-					lat: 22.7493334,
-					lng: -102.5415697
+					lat: 22.775989,
+					lng: -102.571668
 				},
 				mapTypeControl: false,
 			});
@@ -728,9 +882,6 @@ button:hover {
 				);
 			});
 			clear(marker_reception);
-
-			
-
 		}
 
 		function clear(marker_reference) {
@@ -859,7 +1010,6 @@ button:hover {
 					jQuery('#estado_de_ceremonia_religiosa').val()+' '+
 					jQuery('#pais_de_ceremonia_religiosa').val()+' CP '+
 					jQuery('#codigo_postal_de_ceremonia_religiosa').val();
-				console.log(address);
 				geocode(
 					{ address: address },
 					map_church,
@@ -874,7 +1024,6 @@ button:hover {
 					jQuery('#estado_de_recepcion').val()+' '+
 					jQuery('#pais_de_recepcion').val()+' CP '+
 					jQuery('#codigo_postal_de_recepcion').val();
-				console.log(address);
 				geocode(
 					{ address: address },
 					map_reception,
@@ -882,6 +1031,14 @@ button:hover {
 					geocoder_reception,
 					false
 				);
+			}
+		}
+		function isEmail(email) {
+			var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+			if (!regex.test(email)) {
+				return false;
+			} else {
+				return true;
 			}
 		}
 		jQuery(document).ready(function() {
@@ -1042,16 +1199,29 @@ button:hover {
 		y = x[currentTab].getElementsByClassName("erf-field-required");
 		// A loop that checks every input field in the current tab:
 		for (i = 0; i < y.length; i++) {
-		// If a field is empty...
-		let paragraph = y[i].closest('p');
-		if (y[i].value == "" && ! isHidden(paragraph)) {
-			// add an "invalid" class to the field:
-			y[i].className += " invalid";
-			// and set the current valid status to false
-			valid = false;
-			// valid = true;
+			// If a field is empty...
+			let paragraph = y[i].closest('p');
+			if (y[i].value == "" && ! isHidden(paragraph)) {
+				// add an "invalid" class to the field:
+				y[i].className += " invalid";
+				// and set the current valid status to false
+				valid = false;
+				// valid = true;
+			}
 		}
+		// ******************** HARD CODE ************************* //
+		//hack to validate email contact field.
+		const email_input = document.getElementById("correo_electronico_de_contacto");
+		let email_input_paragraph = email_input.closest('p');
+		const email_input_paragraph_style = window.getComputedStyle(email_input_paragraph);
+		if (email_input_paragraph_style.display === 'block'){
+			const value = email_input.value;
+			if(! isEmail(value)){
+				email_input.className += " invalid";
+				valid = false;
+			}
 		}
+
 		// If the valid status is true, mark the step as finished and valid:
 		if (valid) {
 		document.getElementsByClassName("step")[currentTab].className += " finish";
