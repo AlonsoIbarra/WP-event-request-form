@@ -583,6 +583,68 @@ button:hover {
 				<input oninput="this.className = ''" name="link_de_google_maps_de_recepcion" id='link_de_google_maps_de_recepcion'>
 			</p>
 		</div>
+		<?php if ( in_array( $tipo_de_formulario, array( 'gold' ) ) ) : ?>
+			<div class="tab">
+				<div>
+					<p>
+						<img decoding="async" loading="lazy" alt="" src="https://floralunar.com/wp-content/uploads/2022/12/7532d187d8a17fc549b702ce4a7230d5.jpg" class="size-medium wp-image-3839 aligncenter" width="300" height="230" srcset="https://floralunar.com/wp-content/uploads/2022/12/7532d187d8a17fc549b702ce4a7230d5.jpg 564w, https://floralunar.com/wp-content/uploads/2022/12/7532d187d8a17fc549b702ce4a7230d5-200x300.jpg 200w" sizes="(max-width: 300px) 100vw, 300px">
+					</p>
+				</div>
+				<div>
+					<p>
+						<h4>
+							Hospedaje
+						</h4>
+						<small>
+							Obligatorio*
+						</small>
+					</p>
+					<p>
+						Sí tus invitados vienen de fuera, agrega el hotel con el cual haz hecho convenio.
+					</p>
+					<p>
+						Para navegar en el mapa desliza tus dedos y presiona la ubicación que deseas etiquetar, o agrega la ubicación manualmente.
+					</p>
+				</div>
+				<div style="text-align: center;">
+					<div id="erf-map-hotel" class="erf-googlemap" ></div>
+				</div>
+				<div class="erf-separator"></div>
+				<p>
+					<label for="direccion_de_hotel">Dirección de hotel:</label>
+					<input oninput="this.className = ''" name="direccion_de_hotel" id='direccion_de_hotel'>
+				</p>
+				<p>
+					<label for="ciudad_de_hotel">Ciudad de hotel:</label>
+					<input oninput="this.className = ''" name="ciudad_de_hotel" id='ciudad_de_hotel'>
+				</p>
+				<p>
+					<label for="estado_de_hotel">Estado de hotel:</label>
+					<input oninput="this.className = ''" name="estado_de_hotel" id='estado_de_hotel'>
+				</p>
+				<p>
+					<label for="pais_de_hotel">Pais de hotel:</label>
+					<input oninput="this.className = ''" name="pais_de_hotel" id='pais_de_hotel'>
+				</p>
+				<p>
+					<label for="codigo_postal_de_hotel">Código postal de hotel:</label>
+					<input oninput="this.className = ''" name="codigo_postal_de_hotel" id='codigo_postal_de_hotel'>
+				</p>
+				<div>
+					<a class="find-address button-primary" value="" data-type="hotel">Ubicar en el mapa</a>
+				</div>
+				<p>
+					<label for="link_de_google_maps_de_hotel">Link de google maps de hotel:</label>
+					<input oninput="this.className = ''" name="link_de_google_maps_de_hotel" id='link_de_google_maps_de_hotel'>
+				</p>
+				<p>
+					<label for="">
+						Ingresa la liga o el codigo de descuento del convenio de tu hospedaje:
+					</label>
+					<input oninput="this.className = ''" name="codigo_de_descuento_de_hotel" id='codigo_de_descuento_de_hotel'>
+				</p>
+			</div>
+		<?php endif;?>
 		<?php if ( in_array( $tipo_de_formulario, array( 'gold', 'silver' ) ) ) : ?>
 			<div class="tab">
 				<div>
@@ -789,7 +851,7 @@ button:hover {
 			<p>
 				<label class="erf-field-label" for="comentarios_y_sugerencias">
 					<p>
-						Comentarios y sugerencias:
+						Información adicional:
 						<br>
 						<small>
 							Opcional
@@ -798,7 +860,12 @@ button:hover {
 				</label>
 				<textarea oninput="this.className = ''" name="comentarios_y_sugerencias" id='comentarios_y_sugerencias'></textarea>
 				<div class="erf-field-description">
-					Siente libre de escribir en este campo cualquier cosa que quieras añadir y que no estuvo en este formulario.
+					<p>
+						¿Hay algo más en este formulario que te gustaria añadir? (vuelos, recomendacion de maquillistas, despedida de soltero(a), brunch del dia despues).
+					</p>
+					<p>
+						Cualquier dato que no este en el siguiente formulario y deses añadirlo a tu invitación puedes agregarlo en el siguiente campo.
+					</p>
 				</div>
 			</p>
 		</div>
@@ -827,9 +894,13 @@ button:hover {
 		<span class="step"></span>
 		<span class="step"></span>
 		<span class="step"></span>
+		<span class="step"></span>
 		</div>
 	</form>
 	<script>
+		let map_hotel;
+		let marker_hotel;
+		let geocoder_hotel;
 		let map_church;
 		let marker_church;
 		let geocoder_church;
@@ -882,6 +953,29 @@ button:hover {
 				);
 			});
 			clear(marker_reception);
+
+			// *********
+			map_hotel = new google.maps.Map(document.getElementById("erf-map-hotel"), {
+				zoom: 5,
+				center: {
+					lat: 22.775989,
+					lng: -102.571668
+				},
+				mapTypeControl: false,
+			});
+			geocoder_hotel = new google.maps.Geocoder();
+			marker_hotel = new google.maps.Marker({
+				map_hotel,
+			});
+			map_hotel.addListener("click", (e) => {
+				geocode(
+					{ location: e.latLng },
+					map_hotel,
+					marker_hotel,
+					geocoder_hotel
+				);
+			});
+			clear(marker_hotel);
 		}
 
 		function clear(marker_reference) {
@@ -996,6 +1090,49 @@ button:hover {
 							jQuery('#link_de_google_maps_de_recepcion').val('');
 						}
 					}
+					if(jQuery("#direccion_de_hotel").is(":visible")){
+						try {
+							jQuery('#direccion_de_hotel').val(
+								[
+									calle[0].long_name,
+									numero[0].long_name,
+									colonia[0].long_name
+								].join(' ')
+							);
+						} catch (error) {
+							jQuery('#direccion_de_hotel').val('');
+						}
+
+						try {
+							jQuery('#ciudad_de_hotel').val( ciudad[0].long_name  );
+						} catch (error) {
+							jQuery('#ciudad_de_hotel').val('');
+						}
+
+						try {
+							jQuery('#estado_de_hotel').val( estado[0].long_name );
+						} catch (error) {
+							jQuery('#estado_de_hotel').val('');
+						}
+
+						try {
+							jQuery('#pais_de_hotel').val( pais[0].long_name );
+						} catch (error) {
+							jQuery('#pais_de_hotel').val('');
+						}
+
+						try {
+							jQuery('#codigo_postal_de_hotel').val( codigo_postal[0].long_name );
+						} catch (error) {
+							jQuery('#codigo_postal_de_hotel').val('');
+						}
+
+						try {
+							jQuery('#link_de_google_maps_de_hotel').val( 'https://search.google.com/local/writereview?placeid=' + place_id );
+						} catch (error) {
+							jQuery('#link_de_google_maps_de_hotel').val('');
+						}
+					}
 					return results;
 					})
 				.catch((e) => {
@@ -1029,6 +1166,20 @@ button:hover {
 					map_reception,
 					marker_reception,
 					geocoder_reception,
+					false
+				);
+			}
+			if (data_type=='hotel'){
+				var address = jQuery('#direccion_de_hotel').val()+' '+
+					jQuery('#ciudad_de_hotel').val()+' '+
+					jQuery('#estado_de_hotel').val()+' '+
+					jQuery('#pais_de_hotel').val()+' CP '+
+					jQuery('#codigo_postal_de_hotel').val();
+				geocode(
+					{ address: address },
+					map_hotel,
+					marker_hotel,
+					geocoder_hotel,
 					false
 				);
 			}
@@ -1121,6 +1272,9 @@ button:hover {
 		if (currentTab >= x.length) {
 			// ... the form gets submitted:
 			jQuery('#loading-gif').fadeIn();
+			jQuery('#prevBtn').fadeOut();
+			jQuery('#nextBtn').fadeOut();
+
 			jQuery.ajax({
 				type: "POST",
 				url: EventRequestFormRequests.url,
@@ -1165,6 +1319,13 @@ button:hover {
 					codigo_postal_de_recepcion: jQuery('#codigo_postal_de_recepcion').val(),
 					hora_de_recepcion: jQuery('#hora_de_recepcion').val(),
 					link_de_google_maps_de_recepcion: jQuery('#link_de_google_maps_de_recepcion').val(),
+					direccion_de_hotel: jQuery('#direccion_de_hotel').val(),
+					ciudad_de_hotel: jQuery('#ciudad_de_hotel').val(),
+					estado_de_hotel: jQuery('#estado_de_hotel').val(),
+					pais_de_hotel: jQuery('#pais_de_hotel').val(),
+					codigo_postal_de_hotel: jQuery('#codigo_postal_de_hotel').val(),
+					link_de_google_maps_de_hotel: jQuery('#link_de_google_maps_de_hotel').val(),
+					codigo_de_descuento_de_hotel: jQuery('#codigo_de_descuento_de_hotel').val(),
 					mesa_de_regalos: jQuery('#mesa_de_regalos').val(),
 					intinerario_de_evento: jQuery('#intinerario_de_evento').val(),
 					recomendaciones: jQuery('#recomendaciones').val(),
@@ -1183,7 +1344,7 @@ button:hover {
 					var url = new URL(window.location.href);
 					url.searchParams.set('success','');
 					url.searchParams.set('client',jQuery('#nombre_del_cliente').val());
-					// window.location.href = url.href;
+					window.location.href = url.href;
 				}
 			});
 			return false;
