@@ -174,6 +174,28 @@ $query = ( isset( $_GET['q'] ) ) ? $_GET['q'] : '';
 				<th>
 					<?php echo esc_attr( __( 'Link de google maps de recepción', 'event-request-form' ) ); ?>
 				</th>
+
+				<th>
+					<?php echo esc_attr( __( 'Direccion de hotel', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Ciudad de hotel', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Estado de hotel', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Pais de hotel', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Codigo postal de hotel', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Link de google maps de hotel', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Liga o el codigo de descuento del convenio de hospedaje', 'event-request-form' ) ); ?>
+				</th>
 				<th>
 					<?php echo esc_attr( __( 'Mesa de regalos', 'event-request-form' ) ); ?>
 				</th>
@@ -347,6 +369,28 @@ $query = ( isset( $_GET['q'] ) ) ? $_GET['q'] : '';
 					</td>
 					<td>
 						<?php echo esc_attr( $row->link_de_google_maps_de_recepcion ); ?>
+					</td>
+
+					<td>
+						<?php echo esc_attr( $row->direccion_de_hotel ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->ciudad_de_hotel ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->estado_de_hotel ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->pais_de_hotel ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->codigo_postal_de_hotel ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->link_de_google_maps_de_hotel ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->codigo_de_descuento_de_hotel ); ?>
 					</td>
 					<td>
 						<?php echo esc_attr( $row->mesa_de_regalos ); ?>

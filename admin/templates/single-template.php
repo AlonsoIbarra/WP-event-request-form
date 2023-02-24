@@ -198,6 +198,77 @@ if ( ! $row ) {
 					<?php echo $row->link_de_google_maps_de_recepcion; ?>
 				</td>
 			</tr>
+
+			<tr>
+				<td>
+					<div>
+						<input class="check-box" type="checkbox" data-name="direccion_de_hotel" data-id="<?php echo $row->id; ?>" <?php if ( $row->direccion_de_hotel_bool ) { echo 'checked'; } ?>>
+						<strong>
+							<?php echo esc_attr( __( 'Dirección de hotel', 'event-request-form' ) ); ?>
+						</strong>	
+					<?php echo $row->direccion_de_hotel; ?>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div>
+						<input class="check-box" type="checkbox" data-name="ciudad_de_hotel" data-id="<?php echo $row->id; ?>" <?php if ( $row->ciudad_de_hotel_bool ) { echo 'checked'; } ?>>
+						<strong>
+							<?php echo esc_attr( __( 'Ciudad de hotel', 'event-request-form' ) ); ?>
+						</strong>	
+					<?php echo $row->ciudad_de_hotel; ?>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div>
+						<input class="check-box" type="checkbox" data-name="estado_de_hotel" data-id="<?php echo $row->id; ?>" <?php if ( $row->estado_de_hotel_bool ) { echo 'checked'; } ?>>
+						<strong>
+							<?php echo esc_attr( __( 'Estado de hotel', 'event-request-form' ) ); ?>
+						</strong>	
+					<?php echo $row->estado_de_hotel; ?>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div>
+						<input class="check-box" type="checkbox" data-name="pais_de_hotel" data-id="<?php echo $row->id; ?>" <?php if ( $row->pais_de_hotel_bool ) { echo 'checked'; } ?>>
+						<strong>
+							<?php echo esc_attr( __( 'Pais de hotel', 'event-request-form' ) ); ?>
+						</strong>	
+					<?php echo $row->pais_de_hotel; ?>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div>
+						<input class="check-box" type="checkbox" data-name="codigo_postal_de_hotel" data-id="<?php echo $row->id; ?>" <?php if ( $row->codigo_postal_de_hotel_bool ) { echo 'checked'; } ?>>
+						<strong>
+							<?php echo esc_attr( __( 'Código postal de hotel', 'event-request-form' ) ); ?>
+						</strong>	
+					<?php echo $row->codigo_postal_de_hotel; ?>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div>
+						<input class="check-box" type="checkbox" data-name="link_de_google_maps_de_hotel" data-id="<?php echo $row->id; ?>" <?php if ( $row->link_de_google_maps_de_hotel_bool ) { echo 'checked'; } ?>>
+						<strong>
+							<?php echo esc_attr( __( 'Link de google maps de hotel', 'event-request-form' ) ); ?>
+						</strong>	
+					<?php echo $row->link_de_google_maps_de_hotel; ?>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div>
+						<input class="check-box" type="checkbox" data-name="codigo_de_descuento_de_hotel" data-id="<?php echo $row->id; ?>" <?php if ( $row->codigo_de_descuento_de_hotel_bool ) { echo 'checked'; } ?>>
+						<strong>
+							<?php echo esc_attr( __( 'Código de descuento de hotel', 'event-request-form' ) ); ?>
+						</strong>	
+					<?php echo $row->codigo_de_descuento_de_hotel; ?>
+				</td>
+			</tr>
 			<tr>
 				<td>
 					<div>
