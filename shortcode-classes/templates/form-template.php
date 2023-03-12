@@ -927,7 +927,11 @@ button:hover {
 					}
 					console.log(result.results[0]);
 					console.log(result.results[0].formatted_address);
-					var place_id      = result.results[0].place_id;
+					const formatted_address = result.results[0].formatted_address.replace(
+						' ',
+						'+',
+					);
+					const maps_link = 'https://www.google.com/maps/dir/?api=1&destination='+formatted_address;
 
 					if(jQuery("#direccion_de_ceremonia_religiosa").is(":visible")){
 						try {
@@ -940,7 +944,7 @@ button:hover {
 
 						try {
 							jQuery('#link_de_google_maps_de_ceremonia_religiosa').val(
-								'https://search.google.com/local/writereview?placeid=' + place_id
+								maps_link
 							);
 						} catch (error) {
 							jQuery('#link_de_google_maps_de_ceremonia_religiosa').val('');
@@ -956,7 +960,9 @@ button:hover {
 						}
 
 						try {
-							jQuery('#link_de_google_maps_de_recepcion').val( 'https://search.google.com/local/writereview?placeid=' + place_id );
+							jQuery('#link_de_google_maps_de_recepcion').val(
+								maps_link
+							);
 						} catch (error) {
 							jQuery('#link_de_google_maps_de_recepcion').val('');
 						}
@@ -971,7 +977,9 @@ button:hover {
 						}
 
 						try {
-							jQuery('#link_de_google_maps_de_hotel').val( 'https://search.google.com/local/writereview?placeid=' + place_id );
+							jQuery('#link_de_google_maps_de_hotel').val(
+								maps_link
+							);
 						} catch (error) {
 							jQuery('#link_de_google_maps_de_hotel').val('');
 						}
