@@ -287,8 +287,10 @@ if ( ! function_exists( 'erf_enqueue_google_maps_api_js' ) ) {
 	 * @param    string $hook The name of the WordPress filter that is being registered.
 	 */
 	function erf_enqueue_google_maps_api_js( $hook ) {
-		if ( defined( 'GOOGLE_API_KEY_FOR_PLUGIN_ZONES' ) && '' !== GOOGLE_API_KEY_FOR_PLUGIN_ZONES ) {
-			wp_register_script( 'googleMaps', 'https://maps.googleapis.com/maps/api/js?key=' . GOOGLE_API_KEY_FOR_PLUGIN_ZONES, array( 'jquery' ), '1.0', true );
+		$settings = get_option( 'event_requests_plugin_settings_options' );
+		$maps_key = $settings['maps_key'];
+		if ( $maps_key && '' !== $maps_key ) {
+			wp_register_script( 'googleMaps', 'https://maps.googleapis.com/maps/api/js?key=' . $maps_key, array( 'jquery' ), '1.0', true );
 			wp_enqueue_script( 'googleMaps' );
 		}
 	}
