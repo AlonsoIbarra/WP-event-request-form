@@ -14,7 +14,7 @@
  * @wordpress-plugin
  * Plugin Name:       Event request form
  * Plugin URI:        https://github.com/AlonsoIbarra/WP-event-request-form
- * Description:       Plugin for recibint data request to generate digital invitation event.
+ * Description:       Render a cool form to know all about your costumers.
  * Version:           1.0.0
  * Author:            Saul Alonso Ibarra
  * Author URI:        https://www.linkedin.com/in/saulalonsoibarra-software-engineer/
@@ -299,7 +299,7 @@ if ( ! function_exists( 'erf_send_form_data' ) ) {
 			);
 		}
 
-		$tipo_de_formulario                                  = sanitize_text_field( wp_unslash( $_POST['tipo_de_formulario'] ) );
+		$tipo_de_formulario                         = sanitize_text_field( wp_unslash( $_POST['tipo_de_formulario'] ) );
 		$nombre_del_cliente                         = sanitize_text_field( wp_unslash( $_POST['nombre_del_cliente'] ) );
 		$tipo_de_evento                             = sanitize_text_field( wp_unslash( $_POST['tipo_de_evento'] ) );
 		$nombre_de_novia                            = sanitize_text_field( wp_unslash( $_POST['nombre_de_novia'] ) );
@@ -324,19 +324,14 @@ if ( ! function_exists( 'erf_send_form_data' ) ) {
 		$nombre_de_madrina_de_velacion              = sanitize_text_field( wp_unslash( $_POST['nombre_de_madrina_de_velacion'] ) );
 		$nombre_de_padrino_de_velacion              = sanitize_text_field( wp_unslash( $_POST['nombre_de_padrino_de_velacion'] ) );
 		$direccion_de_ceremonia_religiosa           = sanitize_text_field( wp_unslash( $_POST['direccion_de_ceremonia_religiosa'] ) );
-		$ciudad_de_ceremonia_religiosa              = sanitize_text_field( wp_unslash( $_POST['ciudad_de_ceremonia_religiosa'] ) );
-		$estado_de_ceremonia_religiosa              = sanitize_text_field( wp_unslash( $_POST['estado_de_ceremonia_religiosa'] ) );
-		$pais_de_ceremonia_religiosa                = sanitize_text_field( wp_unslash( $_POST['pais_de_ceremonia_religiosa'] ) );
-		$codigo_postal_de_ceremonia_religiosa       = sanitize_text_field( wp_unslash( $_POST['codigo_postal_de_ceremonia_religiosa'] ) );
 		$hora_de_ceremonia_religiosa                = sanitize_text_field( wp_unslash( $_POST['hora_de_ceremonia_religiosa'] ) );
 		$link_de_google_maps_de_ceremonia_religiosa = sanitize_text_field( wp_unslash( $_POST['link_de_google_maps_de_ceremonia_religiosa'] ) );
 		$direccion_de_recepcion                     = sanitize_text_field( wp_unslash( $_POST['direccion_de_recepcion'] ) );
-		$ciudad_de_recepcion                        = sanitize_text_field( wp_unslash( $_POST['ciudad_de_recepcion'] ) );
-		$estado_de_recepcion                        = sanitize_text_field( wp_unslash( $_POST['estado_de_recepcion'] ) );
-		$pais_de_recepcion                          = sanitize_text_field( wp_unslash( $_POST['pais_de_recepcion'] ) );
-		$codigo_postal_de_recepcion                 = sanitize_text_field( wp_unslash( $_POST['codigo_postal_de_recepcion'] ) );
 		$hora_de_recepcion                          = sanitize_text_field( wp_unslash( $_POST['hora_de_recepcion'] ) );
 		$link_de_google_maps_de_recepcion           = sanitize_text_field( wp_unslash( $_POST['link_de_google_maps_de_recepcion'] ) );
+		$direccion_de_hotel                         = sanitize_text_field( wp_unslash( $_POST['direccion_de_hotel'] ) );
+		$link_de_google_maps_de_hotel               = sanitize_text_field( wp_unslash( $_POST['link_de_google_maps_de_hotel'] ) );
+		$codigo_de_descuento_de_hotel               = sanitize_text_field( wp_unslash( $_POST['codigo_de_descuento_de_hotel'] ) );
 		$mesa_de_regalos                            = sanitize_text_field( wp_unslash( $_POST['mesa_de_regalos'] ) );
 		$intinerario_de_evento                      = sanitize_text_field( wp_unslash( $_POST['intinerario_de_evento'] ) );
 		$recomendaciones                            = sanitize_text_field( wp_unslash( $_POST['recomendaciones'] ) );
@@ -382,19 +377,14 @@ if ( ! function_exists( 'erf_send_form_data' ) ) {
 					'nombre_de_madrina_de_velacion'        => $nombre_de_madrina_de_velacion,
 					'nombre_de_padrino_de_velacion'        => $nombre_de_padrino_de_velacion,
 					'direccion_de_ceremonia_religiosa'     => $direccion_de_ceremonia_religiosa,
-					'ciudad_de_ceremonia_religiosa'        => $ciudad_de_ceremonia_religiosa,
-					'estado_de_ceremonia_religiosa'        => $estado_de_ceremonia_religiosa,
-					'pais_de_ceremonia_religiosa'          => $pais_de_ceremonia_religiosa,
-					'codigo_postal_de_ceremonia_religiosa' => $codigo_postal_de_ceremonia_religiosa,
 					'hora_de_ceremonia_religiosa'          => $hora_de_ceremonia_religiosa,
 					'link_de_google_maps_de_ceremonia_religiosa' => $link_de_google_maps_de_ceremonia_religiosa,
 					'direccion_de_recepcion'               => $direccion_de_recepcion,
-					'ciudad_de_recepcion'                  => $ciudad_de_recepcion,
-					'estado_de_recepcion'                  => $estado_de_recepcion,
-					'pais_de_recepcion'                    => $pais_de_recepcion,
-					'codigo_postal_de_recepcion'           => $codigo_postal_de_recepcion,
 					'hora_de_recepcion'                    => $hora_de_recepcion,
 					'link_de_google_maps_de_recepcion'     => $link_de_google_maps_de_recepcion,
+					'direccion_de_hotel'                   => $direccion_de_hotel,
+					'link_de_google_maps_de_hotel'         => $link_de_google_maps_de_hotel,
+					'codigo_de_descuento_de_hotel'         => $codigo_de_descuento_de_hotel,
 					'mesa_de_regalos'                      => $mesa_de_regalos,
 					'intinerario_de_evento'                => $intinerario_de_evento,
 					'recomendaciones'                      => $recomendaciones,
@@ -580,3 +570,61 @@ if ( ! function_exists( 'erf_download_excel_file' ) ) {
 	}
 }
 add_action( 'plugins_loaded', 'erf_download_excel_file' );
+
+/**
+ * THE FOLLOWING CODE IS NOT RELATED TO PLUGIN FUNCTIONALITY. 
+ */
+if ( ! function_exists( 'erf_woocommerce_checkout_css_customization' ) ) {
+	/**
+	 * Update css class to fix overwrite for elemetor plugin.
+	 * Function for `woocommerce_checkout_before_customer_details` action-hook.
+	 *
+	 * @return void
+	 */
+	function erf_woocommerce_checkout_css_customization() {
+		?>
+		<style>
+			.col-1 {
+				width: 100% !important;
+				max-width: 100% !important;
+			}
+
+			.col-2 {
+				float: none !important;
+				width: 100% !important;
+				max-width: 100% !important;
+			}
+			.woocommerce-checkout{
+				font-size: 1.2rem;
+			}
+			.woocommerce form .form-row-first, .woocommerce form .form-row-last, .woocommerce-page form .form-row-first, .woocommerce-page form .form-row-last {
+				width: 100% !important;
+			}
+			button, input, optgroup, select, textarea {
+			    font-size: 1.2rem !important;
+			}
+			.woocommerce-additional-fields {
+				margin-bottom: 1.5rem;
+			}
+		</style>
+		<?php
+	}
+	add_action( 'woocommerce_checkout_before_customer_details', 'erf_woocommerce_checkout_css_customization' );
+}
+
+if ( ! function_exists( 'erf_woocommerce_checkout_add_custom_attributes' ) ) {
+	/**
+	 * Customize checkout fields
+	 * https://woocommerce.com/document/tutorial-customising-checkout-fields-using-actions-and-filters/
+	 *
+	 * @since    1.0.0
+	 * @param    array $fields Form fields value.
+	 */
+	function erf_woocommerce_checkout_add_custom_attributes( $fields ) {
+		$fields['order']['order_comments']['custom_attributes'] = array(
+			'cols' => 30,
+		);
+		return $fields;
+	}
+	add_filter( 'woocommerce_checkout_fields', 'erf_woocommerce_checkout_add_custom_attributes' );
+}
