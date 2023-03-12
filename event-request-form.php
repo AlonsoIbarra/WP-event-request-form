@@ -194,6 +194,13 @@ if ( ! function_exists( 'event_requests_setings_setup_page' ) ) {
 			'event_requests_plugin_settings',
 			'event_requests_settings'
 		);
+		add_settings_field(
+			'event_requests_plugin_settings_maps_key',
+			__( 'Google maps key', 'event-request-form' ),
+			'event_requests_plugin_settings_maps_key',
+			'event_requests_plugin_settings',
+			'event_requests_settings'
+		);
 	}
 }
 
@@ -228,6 +235,20 @@ if ( ! function_exists( 'event_requests_plugin_settings_email' ) ) {
 	}
 }
 
+if ( ! function_exists( 'event_requests_plugin_settings_maps_key' ) ) {
+	/**
+	 * Function for render input field for google maps key.
+	 */
+	function event_requests_plugin_settings_maps_key() {
+		$options = get_option( 'event_requests_plugin_settings_options' );
+		echo "<input id='event_requests_plugin_settings_maps_key' name='event_requests_plugin_settings_options[maps_key]' type='text' value='" . esc_attr( $options['maps_key'] ) . "' />";
+		?>
+		<p><small>Google API Key provided from Google console credential services.</small></p>
+		<p><small>This value is obteined when you create a new API Credential on <a href="https://console.cloud.google.com/google/maps-apis/credentials">https://console.cloud.google.com/google/maps-apis/credentials.</a></small></p>
+		<?php
+	}
+}
+
 if ( ! function_exists( 'event_request_detail_page' ) ) {
 	/**
 	 * Function to render dashboard request detail page.
@@ -257,12 +278,6 @@ if ( ! function_exists( 'events_request_form_dashboard_page' ) ) {
 		}
 	}
 }
-
-/**
- * Google API Key provided from Google console credential services.
- * This value is obteined when you create a new API Credential on https://console.cloud.google.com/google/maps-apis/credentials.
- */
-define( 'GOOGLE_API_KEY_FOR_PLUGIN_ZONES', 'API-KEY' );
 
 if ( ! function_exists( 'erf_enqueue_google_maps_api_js' ) ) {
 	/**
