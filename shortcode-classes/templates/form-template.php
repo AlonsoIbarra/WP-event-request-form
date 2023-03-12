@@ -201,7 +201,7 @@ button:hover {
 		<br>
 		<h5>Muchas gracias por llenar este formulario! <?php echo $nombre_del_cliente; ?> te contactaré pronto para trabajar juntos!</h5>
 		<br>
-		<p>Si tienes algún inconveniente no dudes en escribirme a: hi@lezlynorman.com.</p>
+		<p>Si tienes algún inconveniente no dudes en escribirme a: hello@lezlynorman.com.</p>
 	</div>
 <?php else : ?>
 	<form id="erf_request_form">
@@ -550,7 +550,7 @@ button:hover {
 							Hospedaje
 						</h4>
 						<small>
-							Obligatorio*
+							Opcional
 						</small>
 					</p>
 					<p>
@@ -590,7 +590,7 @@ button:hover {
 					<img decoding="async" loading="lazy" alt="" src="https://fiesta.lezlynorman.com/wp-content/uploads/2022/12/regalo_boda-221x300.jpg" class="size-medium wp-image-3838 aligncenter" width="221" height="300">
 					</p>
 				</div>
-				<div class="erf-field-description">
+				<div class="erf-field-label">
 					<p>
 						Mesa de regalos
 						<br>
@@ -603,8 +603,7 @@ button:hover {
 					<textarea oninput="this.className = ''" name="mesa_de_regalos" id='mesa_de_regalos'></textarea>
 				</p>
 				<div class="erf-field-description">
-					Te recomendamos añadir tu id de Liverpool, Sears o de la tienda que hayas seleccionado, clabe / datos para depositar y tus propias recomendaciones. (omitir si no aplica)
-
+					Te recomendamos añadir tu id de Liverpool, Sears o de la tienda que hayas seleccionado, clabe / datos para depositar y tus propias recomendaciones.
 				</div>
 			</div>
 		<?php endif; ?>

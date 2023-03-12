@@ -46,8 +46,9 @@ if ( ! $row ) {
 						<input class="check-box" type="checkbox"   id='tipo_de_evento' data-name="tipo_de_evento" data-id="<?php echo $row->id; ?>" <?php if ( $row->tipo_de_evento_bool ) { echo 'checked'; } ?>>
 						<strong>
 							<?php echo esc_attr( __( 'Tipo de evento', 'event-request-form' ) ); ?>
-						</strong>	
-					<?php echo esc_attr( $event_types[ $row->tipo_de_evento ] ); ?>
+						</strong>
+						<?php echo esc_attr( $event_types[ $row->tipo_de_evento ] ); ?>
+					</div>
 				</td>
 			</tr>
 			<?php
@@ -65,7 +66,8 @@ if ( ! $row ) {
 						<strong>
 							<?php echo esc_attr( __( 'Dirección de ceremonia religiosa', 'event-request-form' ) ); ?>
 						</strong>	
-					<?php echo $row->direccion_de_ceremonia_religiosa; ?>
+						<?php echo $row->direccion_de_ceremonia_religiosa; ?>
+					</div>
 				</td>
 			</tr>
 			<tr>
@@ -75,7 +77,8 @@ if ( ! $row ) {
 						<strong>
 							<?php echo esc_attr( __( 'Hora de ceremonia religiosa', 'event-request-form' ) ); ?>
 						</strong>	
-					<?php echo $row->hora_de_ceremonia_religiosa; ?>
+						<?php echo $row->hora_de_ceremonia_religiosa; ?>
+					</div>
 				</td>
 			</tr>
 			<tr>
@@ -84,8 +87,11 @@ if ( ! $row ) {
 						<input class="check-box" type="checkbox" data-name="link_de_google_maps_de_ceremonia_religiosa" data-id="<?php echo $row->id; ?>" <?php if ( $row->link_de_google_maps_de_ceremonia_religiosa_bool ) { echo 'checked'; } ?>>
 						<strong>
 							<?php echo esc_attr( __( 'Link de ceremonia religiosa', 'event-request-form' ) ); ?>
-						</strong>	
-					<?php echo $row->link_de_google_maps_de_ceremonia_religiosa; ?>
+						</strong>
+						<a href="<?php echo $row->link_de_google_maps_de_ceremonia_religiosa; ?>" target="_blank">
+							<?php echo $row->link_de_google_maps_de_ceremonia_religiosa; ?>
+						</a>
+					</div>
 				</td>
 			</tr>
 			<tr>
@@ -95,7 +101,8 @@ if ( ! $row ) {
 						<strong>
 							<?php echo esc_attr( __( 'Dirección de recepción', 'event-request-form' ) ); ?>
 						</strong>	
-					<?php echo $row->direccion_de_recepcion; ?>
+						<?php echo $row->direccion_de_recepcion; ?>
+					</div>
 				</td>
 			</tr>
 			<tr>
@@ -105,7 +112,8 @@ if ( ! $row ) {
 						<strong>
 							<?php echo esc_attr( __( 'Hora de recepción', 'event-request-form' ) ); ?>
 						</strong>	
-					<?php echo $row->hora_de_recepcion; ?>
+						<?php echo $row->hora_de_recepcion; ?>
+					</div>
 				</td>
 			</tr>
 			<tr>
@@ -114,8 +122,11 @@ if ( ! $row ) {
 						<input class="check-box" type="checkbox" data-name="link_de_google_maps_de_recepcion" data-id="<?php echo $row->id; ?>" <?php if ( $row->link_de_google_maps_de_recepcion_bool ) { echo 'checked'; } ?>>
 						<strong>
 							<?php echo esc_attr( __( 'Link de google maps de recepción', 'event-request-form' ) ); ?>
-						</strong>	
-					<?php echo $row->link_de_google_maps_de_recepcion; ?>
+						</strong>
+						<a href="<?php echo $row->link_de_google_maps_de_recepcion; ?>" target="_blank">
+							<?php echo $row->link_de_google_maps_de_recepcion; ?>
+						</a>
+					</div>
 				</td>
 			</tr>
 
@@ -126,7 +137,8 @@ if ( ! $row ) {
 						<strong>
 							<?php echo esc_attr( __( 'Dirección de hotel', 'event-request-form' ) ); ?>
 						</strong>	
-					<?php echo $row->direccion_de_hotel; ?>
+						<?php echo $row->direccion_de_hotel; ?>
+					</div>
 				</td>
 			</tr>
 			<tr>
@@ -135,8 +147,11 @@ if ( ! $row ) {
 						<input class="check-box" type="checkbox" data-name="link_de_google_maps_de_hotel" data-id="<?php echo $row->id; ?>" <?php if ( $row->link_de_google_maps_de_hotel_bool ) { echo 'checked'; } ?>>
 						<strong>
 							<?php echo esc_attr( __( 'Link de google maps de hotel', 'event-request-form' ) ); ?>
-						</strong>	
-					<?php echo $row->link_de_google_maps_de_hotel; ?>
+						</strong>
+						<a href="<?php echo $row->link_de_google_maps_de_hotel; ?>" target="_blank">
+							<?php echo $row->link_de_google_maps_de_hotel; ?>
+						</a>
+					</div>
 				</td>
 			</tr>
 			<tr>
@@ -146,7 +161,8 @@ if ( ! $row ) {
 						<strong>
 							<?php echo esc_attr( __( 'Código de descuento de hotel', 'event-request-form' ) ); ?>
 						</strong>	
-					<?php echo $row->codigo_de_descuento_de_hotel; ?>
+						<?php echo $row->codigo_de_descuento_de_hotel; ?>
+					</div>
 				</td>
 			</tr>
 			<tr>
@@ -156,7 +172,8 @@ if ( ! $row ) {
 						<strong>
 							<?php echo esc_attr( __( 'Mesa de regalos', 'event-request-form' ) ); ?>
 						</strong>	
-					<?php echo $row->mesa_de_regalos; ?>
+						<?php echo $row->mesa_de_regalos; ?>
+					</div>
 				</td>
 			</tr>
 			<tr>
@@ -166,7 +183,8 @@ if ( ! $row ) {
 						<strong>
 							<?php echo esc_attr( __( 'Intinerario de evento', 'event-request-form' ) ); ?>
 						</strong>	
-					<?php echo $row->intinerario_de_evento; ?>
+						<?php echo $row->intinerario_de_evento; ?>
+					</div>
 				</td>
 			</tr>
 			<tr>
@@ -176,7 +194,8 @@ if ( ! $row ) {
 						<strong>
 							<?php echo esc_attr( __( 'Recomendaciones', 'event-request-form' ) ); ?>
 						</strong>	
-					<?php echo $row->recomendaciones; ?>
+						<?php echo $row->recomendaciones; ?>
+					</div>
 				</td>
 			</tr>
 			<tr>
@@ -186,7 +205,8 @@ if ( ! $row ) {
 						<strong>
 							<?php echo esc_attr( __( 'Hashtag', 'event-request-form' ) ); ?>
 						</strong>	
-					<?php echo $row->hashtag; ?>
+						<?php echo $row->hashtag; ?>
+					</div>
 				</td>
 			</tr>
 			<tr>
@@ -196,7 +216,8 @@ if ( ! $row ) {
 						<strong>
 							<?php echo esc_attr( __( 'Galeria de fotos', 'event-request-form' ) ); ?>
 						</strong>	
-					<?php echo $row->galeria_de_fotos; ?>
+						<?php echo $row->galeria_de_fotos; ?>
+					</div>
 				</td>
 			</tr>
 			<tr>
@@ -206,7 +227,8 @@ if ( ! $row ) {
 						<strong>
 							<?php echo esc_attr( __( 'Whatsapp de confirmación', 'event-request-form' ) ); ?>
 						</strong>	
-					<?php echo $row->whatsapp_I_de_confirmacion; ?>
+						<?php echo $row->whatsapp_I_de_confirmacion; ?>
+					</div>
 				</td>
 			</tr>
 			<tr>
@@ -216,7 +238,8 @@ if ( ! $row ) {
 						<strong>
 							<?php echo esc_attr( __( 'Whatsapp II de confirmación', 'event-request-form' ) ); ?>
 						</strong>	
-					<?php echo $row->whatsapp_II_de_confirmacion; ?>
+						<?php echo $row->whatsapp_II_de_confirmacion; ?>
+					</div>
 				</td>
 			</tr>
 			<tr>
@@ -226,7 +249,8 @@ if ( ! $row ) {
 						<strong>
 							<?php echo esc_attr( __( 'Personalización escrita', 'event-request-form' ) ); ?>
 						</strong>	
-					<?php echo $row->personalizacion_escrita; ?>
+						<?php echo $row->personalizacion_escrita; ?>
+					</div>
 				</td>
 			</tr>
 			<tr>
@@ -236,7 +260,8 @@ if ( ! $row ) {
 						<strong>
 							<?php echo esc_attr( __( 'Personalización gráfica', 'event-request-form' ) ); ?>
 						</strong>	
-					<?php echo $row->personalizacion_grafica; ?>
+						<?php echo $row->personalizacion_grafica; ?>
+					</div>
 				</td>
 			</tr>
 			<tr>
@@ -246,7 +271,8 @@ if ( ! $row ) {
 						<strong>
 							<?php echo esc_attr( __( 'Whatsapp de contacto', 'event-request-form' ) ); ?>
 						</strong>	
-					<?php echo $row->whatsapp_de_contacto; ?>
+						<?php echo $row->whatsapp_de_contacto; ?>
+					</div>
 				</td>
 			</tr>
 			<tr>
@@ -256,7 +282,8 @@ if ( ! $row ) {
 						<strong>
 							<?php echo esc_attr( __( 'Correo electrónico de contacto', 'event-request-form' ) ); ?>
 						</strong>	
-					<?php echo $row->correo_electronico_de_contacto; ?>
+						<?php echo $row->correo_electronico_de_contacto; ?>
+					</div>
 				</td>
 			</tr>
 			<tr>
@@ -266,7 +293,8 @@ if ( ! $row ) {
 						<strong>
 							<?php echo esc_attr( __( 'Comentarios y sugerencias', 'event-request-form' ) ); ?>
 						</strong>	
-					<?php echo $row->comentarios_y_sugerencias; ?>
+						<?php echo $row->comentarios_y_sugerencias; ?>
+					</div>
 				</td>
 			</tr>
 	</tbody>

@@ -298,7 +298,9 @@ $query = ( isset( $_GET['q'] ) ) ? $_GET['q'] : '';
 						<?php echo esc_attr( $row->hora_de_ceremonia_religiosa ); ?>
 					</td>
 					<td>
-						<?php echo esc_attr( $row->link_de_google_maps_de_ceremonia_religiosa ); ?>
+						<a href="<?php echo esc_attr( $row->link_de_google_maps_de_ceremonia_religiosa ); ?>" target="_blank">
+							<?php echo esc_attr( $row->link_de_google_maps_de_ceremonia_religiosa ); ?>
+						</a>
 					</td>
 					<td>
 						<?php echo esc_attr( $row->direccion_de_recepcion ); ?>
@@ -307,14 +309,19 @@ $query = ( isset( $_GET['q'] ) ) ? $_GET['q'] : '';
 						<?php echo esc_attr( $row->hora_de_recepcion ); ?>
 					</td>
 					<td>
-						<?php echo esc_attr( $row->link_de_google_maps_de_recepcion ); ?>
+						<a href="<?php echo esc_attr( $row->link_de_google_maps_de_recepcion ); ?>" target="_blank">
+							<?php echo esc_attr( $row->link_de_google_maps_de_recepcion ); ?>
+						</a>
 					</td>
 
 					<td>
 						<?php echo esc_attr( $row->direccion_de_hotel ); ?>
 					</td>
 					<td>
-						<?php echo esc_attr( $row->link_de_google_maps_de_hotel ); ?>
+						<a href="<?php echo esc_attr( $row->link_de_google_maps_de_hotel ); ?>" target="_blank">
+							<?php echo esc_attr( $row->link_de_google_maps_de_hotel ); ?>
+						</a>
+						
 					</td>
 					<td>
 						<?php echo esc_attr( $row->codigo_de_descuento_de_hotel ); ?>
