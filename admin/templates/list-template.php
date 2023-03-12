@@ -136,18 +136,6 @@ $query = ( isset( $_GET['q'] ) ) ? $_GET['q'] : '';
 					<?php echo esc_attr( __( 'Dirección de ceremonia religiosa', 'event-request-form' ) ); ?>
 				</th>
 				<th>
-					<?php echo esc_attr( __( 'Ciudad de ceremonia religiosa', 'event-request-form' ) ); ?>
-				</th>
-				<th>
-					<?php echo esc_attr( __( 'Estado de ceremonia religiosa', 'event-request-form' ) ); ?>
-				</th>
-				<th>
-					<?php echo esc_attr( __( 'Pais de ceremonia religiosa', 'event-request-form' ) ); ?>
-				</th>
-				<th>
-					<?php echo esc_attr( __( 'Codigo postal de ceremonia religiosa', 'event-request-form' ) ); ?>
-				</th>
-				<th>
 					<?php echo esc_attr( __( 'Hora de ceremonia religiosa', 'event-request-form' ) ); ?>
 				</th>
 				<th>
@@ -157,38 +145,13 @@ $query = ( isset( $_GET['q'] ) ) ? $_GET['q'] : '';
 					<?php echo esc_attr( __( 'Direccion de recepción', 'event-request-form' ) ); ?>
 				</th>
 				<th>
-					<?php echo esc_attr( __( 'Ciudad de recepción', 'event-request-form' ) ); ?>
-				</th>
-				<th>
-					<?php echo esc_attr( __( 'Estado de recepción', 'event-request-form' ) ); ?>
-				</th>
-				<th>
-					<?php echo esc_attr( __( 'Pais de recepción', 'event-request-form' ) ); ?>
-				</th>
-				<th>
-					<?php echo esc_attr( __( 'Codigo postal de recepción', 'event-request-form' ) ); ?>
-				</th>
-				<th>
 					<?php echo esc_attr( __( 'Hora de recepción', 'event-request-form' ) ); ?>
 				</th>
 				<th>
 					<?php echo esc_attr( __( 'Link de google maps de recepción', 'event-request-form' ) ); ?>
 				</th>
-
 				<th>
 					<?php echo esc_attr( __( 'Direccion de hotel', 'event-request-form' ) ); ?>
-				</th>
-				<th>
-					<?php echo esc_attr( __( 'Ciudad de hotel', 'event-request-form' ) ); ?>
-				</th>
-				<th>
-					<?php echo esc_attr( __( 'Estado de hotel', 'event-request-form' ) ); ?>
-				</th>
-				<th>
-					<?php echo esc_attr( __( 'Pais de hotel', 'event-request-form' ) ); ?>
-				</th>
-				<th>
-					<?php echo esc_attr( __( 'Codigo postal de hotel', 'event-request-form' ) ); ?>
 				</th>
 				<th>
 					<?php echo esc_attr( __( 'Link de google maps de hotel', 'event-request-form' ) ); ?>
@@ -332,18 +295,6 @@ $query = ( isset( $_GET['q'] ) ) ? $_GET['q'] : '';
 						<?php echo esc_attr( $row->direccion_de_ceremonia_religiosa ); ?>
 					</td>
 					<td>
-						<?php echo esc_attr( $row->ciudad_de_ceremonia_religiosa ); ?>
-					</td>
-					<td>
-						<?php echo esc_attr( $row->estado_de_ceremonia_religiosa ); ?>
-					</td>
-					<td>
-						<?php echo esc_attr( $row->pais_de_ceremonia_religiosa ); ?>
-					</td>
-					<td>
-						<?php echo esc_attr( $row->codigo_postal_de_ceremonia_religiosa ); ?>
-					</td>
-					<td>
 						<?php echo esc_attr( $row->hora_de_ceremonia_religiosa ); ?>
 					</td>
 					<td>
@@ -351,18 +302,6 @@ $query = ( isset( $_GET['q'] ) ) ? $_GET['q'] : '';
 					</td>
 					<td>
 						<?php echo esc_attr( $row->direccion_de_recepcion ); ?>
-					</td>
-					<td>
-						<?php echo esc_attr( $row->ciudad_de_recepcion ); ?>
-					</td>
-					<td>
-						<?php echo esc_attr( $row->estado_de_recepcion ); ?>
-					</td>
-					<td>
-						<?php echo esc_attr( $row->pais_de_recepcion ); ?>
-					</td>
-					<td>
-						<?php echo esc_attr( $row->codigo_postal_de_recepcion ); ?>
 					</td>
 					<td>
 						<?php echo esc_attr( $row->hora_de_recepcion ); ?>
@@ -373,18 +312,6 @@ $query = ( isset( $_GET['q'] ) ) ? $_GET['q'] : '';
 
 					<td>
 						<?php echo esc_attr( $row->direccion_de_hotel ); ?>
-					</td>
-					<td>
-						<?php echo esc_attr( $row->ciudad_de_hotel ); ?>
-					</td>
-					<td>
-						<?php echo esc_attr( $row->estado_de_hotel ); ?>
-					</td>
-					<td>
-						<?php echo esc_attr( $row->pais_de_hotel ); ?>
-					</td>
-					<td>
-						<?php echo esc_attr( $row->codigo_postal_de_hotel ); ?>
 					</td>
 					<td>
 						<?php echo esc_attr( $row->link_de_google_maps_de_hotel ); ?>

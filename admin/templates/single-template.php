@@ -71,46 +71,6 @@ if ( ! $row ) {
 			<tr>
 				<td>
 					<div>
-						<input class="check-box" type="checkbox"   id='tipo_de_evento' data-name="ciudad_de_ceremonia_religiosa" data-id="<?php echo $row->id; ?>" <?php if ( $row->ciudad_de_ceremonia_religiosa_bool ) { echo 'checked'; } ?>>
-						<strong>
-							<?php echo esc_attr( __( 'Ciudad de ceremonia religiosa', 'event-request-form' ) ); ?>
-						</strong>	
-					<?php echo $row->ciudad_de_ceremonia_religiosa; ?>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<div>
-						<input class="check-box" type="checkbox" data-name="estado_de_ceremonia_religiosa" data-id="<?php echo $row->id; ?>" <?php if ( $row->estado_de_ceremonia_religiosa_bool ) { echo 'checked'; } ?>>
-						<strong>
-							<?php echo esc_attr( __( 'Estado de ceremonia religiosa', 'event-request-form' ) ); ?>
-						</strong>	
-					<?php echo $row->estado_de_ceremonia_religiosa; ?>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<div>
-						<input class="check-box" type="checkbox" data-name="pais_de_ceremonia_religiosa" data-id="<?php echo $row->id; ?>" <?php if ( $row->pais_de_ceremonia_religiosa_bool ) { echo 'checked'; } ?>>
-						<strong>
-							<?php echo esc_attr( __( 'Pais de ceremonia religiosa', 'event-request-form' ) ); ?>
-						</strong>	
-					<?php echo $row->pais_de_ceremonia_religiosa; ?>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<div>
-						<input class="check-box" type="checkbox" data-name="codigo_postal_de_ceremonia_religiosa" data-id="<?php echo $row->id; ?>" <?php if ( $row->codigo_postal_de_ceremonia_religiosa_bool ) { echo 'checked'; } ?>>
-						<strong>
-							<?php echo esc_attr( __( 'Código postal de ceremonia religiosa', 'event-request-form' ) ); ?>
-						</strong>	
-					<?php echo $row->codigo_postal_de_ceremonia_religiosa; ?>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<div>
 						<input class="check-box" type="checkbox" data-name="hora_de_ceremonia_religiosa" data-id="<?php echo $row->id; ?>" <?php if ( $row->hora_de_ceremonia_religiosa_bool ) { echo 'checked'; } ?>>
 						<strong>
 							<?php echo esc_attr( __( 'Hora de ceremonia religiosa', 'event-request-form' ) ); ?>
@@ -136,46 +96,6 @@ if ( ! $row ) {
 							<?php echo esc_attr( __( 'Dirección de recepción', 'event-request-form' ) ); ?>
 						</strong>	
 					<?php echo $row->direccion_de_recepcion; ?>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<div>
-						<input class="check-box" type="checkbox" data-name="ciudad_de_recepcion" data-id="<?php echo $row->id; ?>" <?php if ( $row->ciudad_de_recepcion_bool ) { echo 'checked'; } ?>>
-						<strong>
-							<?php echo esc_attr( __( 'Ciudad de recepción', 'event-request-form' ) ); ?>
-						</strong>	
-					<?php echo $row->ciudad_de_recepcion; ?>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<div>
-						<input class="check-box" type="checkbox" data-name="estado_de_recepcion" data-id="<?php echo $row->id; ?>" <?php if ( $row->estado_de_recepcion_bool ) { echo 'checked'; } ?>>
-						<strong>
-							<?php echo esc_attr( __( 'Estado de recepción', 'event-request-form' ) ); ?>
-						</strong>	
-					<?php echo $row->estado_de_recepcion; ?>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<div>
-						<input class="check-box" type="checkbox" data-name="pais_de_recepcion" data-id="<?php echo $row->id; ?>" <?php if ( $row->pais_de_recepcion_bool ) { echo 'checked'; } ?>>
-						<strong>
-							<?php echo esc_attr( __( 'Pais de recepción', 'event-request-form' ) ); ?>
-						</strong>	
-					<?php echo $row->pais_de_recepcion; ?>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<div>
-						<input class="check-box" type="checkbox" data-name="codigo_postal_de_recepcion" data-id="<?php echo $row->id; ?>" <?php if ( $row->codigo_postal_de_recepcion_bool ) { echo 'checked'; } ?>>
-						<strong>
-							<?php echo esc_attr( __( 'Código postal de recepción', 'event-request-form' ) ); ?>
-						</strong>	
-					<?php echo $row->codigo_postal_de_recepcion; ?>
 				</td>
 			</tr>
 			<tr>
@@ -207,46 +127,6 @@ if ( ! $row ) {
 							<?php echo esc_attr( __( 'Dirección de hotel', 'event-request-form' ) ); ?>
 						</strong>	
 					<?php echo $row->direccion_de_hotel; ?>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<div>
-						<input class="check-box" type="checkbox" data-name="ciudad_de_hotel" data-id="<?php echo $row->id; ?>" <?php if ( $row->ciudad_de_hotel_bool ) { echo 'checked'; } ?>>
-						<strong>
-							<?php echo esc_attr( __( 'Ciudad de hotel', 'event-request-form' ) ); ?>
-						</strong>	
-					<?php echo $row->ciudad_de_hotel; ?>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<div>
-						<input class="check-box" type="checkbox" data-name="estado_de_hotel" data-id="<?php echo $row->id; ?>" <?php if ( $row->estado_de_hotel_bool ) { echo 'checked'; } ?>>
-						<strong>
-							<?php echo esc_attr( __( 'Estado de hotel', 'event-request-form' ) ); ?>
-						</strong>	
-					<?php echo $row->estado_de_hotel; ?>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<div>
-						<input class="check-box" type="checkbox" data-name="pais_de_hotel" data-id="<?php echo $row->id; ?>" <?php if ( $row->pais_de_hotel_bool ) { echo 'checked'; } ?>>
-						<strong>
-							<?php echo esc_attr( __( 'Pais de hotel', 'event-request-form' ) ); ?>
-						</strong>	
-					<?php echo $row->pais_de_hotel; ?>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<div>
-						<input class="check-box" type="checkbox" data-name="codigo_postal_de_hotel" data-id="<?php echo $row->id; ?>" <?php if ( $row->codigo_postal_de_hotel_bool ) { echo 'checked'; } ?>>
-						<strong>
-							<?php echo esc_attr( __( 'Código postal de hotel', 'event-request-form' ) ); ?>
-						</strong>	
-					<?php echo $row->codigo_postal_de_hotel; ?>
 				</td>
 			</tr>
 			<tr>

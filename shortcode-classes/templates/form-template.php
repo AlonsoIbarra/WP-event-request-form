@@ -306,13 +306,11 @@ button:hover {
 		<div class="tab">
 			<p>
 				<label class="erf-field-label" for="nombre_de_festejado">
-					<p>
 						Fecha del evento:
 						<br>
 						<small>
 							Obligatorio*
 						</small>
-					</p>
 				</label>
 				<input class="erf-field-required" type="date" oninput="this.className = ''" name="fecha_de_evento" id="fecha_de_evento">
 			</p>
@@ -358,53 +356,41 @@ button:hover {
 				</p>
 				<p class="wedding custom_field">
 					<label for="madre_de_novia">
-						<p>
-							Madre de la novia:
-						</p>
+						Madre de la novia:
 					</label>
 					<input oninput="this.className = ''" name="madre_de_novia" id='madre_de_novia'>
 				</p>
 				<div class="erf-separator"></div>	
 				<p class="wedding custom_field">
 					<label for="padre_de_novia">
-						<p>
-							Padre de la novia:
-						</p>
+						Padre de la novia:
 					</label>
 					<input oninput="this.className = ''" name="padre_de_novia" id='padre_de_novia'>
 				</p>
 				<div class="erf-separator"></div>	
 				<p class="wedding custom_field">
 					<label for="madre_de_novio">
-						<p>
-							Madre del novio:
-						</p>
+						Madre del novio:
 					</label>
 					<input oninput="this.className = ''" name="madre_de_novio" id='madre_de_novio'>
 				</p>
 				<div class="erf-separator"></div>	
 				<p class="wedding custom_field">
 					<label for="padre_de_novio">
-						<p>
-							Padre del novio:
-						</p>
+						Padre del novio:
 					</label>
 					<input oninput="this.className = ''" name="padre_de_novio" id='padre_de_novio'>
 				</p>
 				<p class="baptism_communion event_other custom_field" style="display: none;">
 					<label for="madre_del_festejado">
-						<p>
-							Madre de la/del festejada/o:
-						</p>
+						Madre de la/del festejada/o:
 					</label>
 					<input oninput="this.className = ''" name="madre_del_festejado" id='madre_del_festejado'>
 				</p>
 				<div class="erf-separator"></div>	
 				<p class="baptism_communion event_other custom_field" style="display: none;">
 					<label for="padre_del_festejado">
-						<p>
-							Padre de la/del festejada/o:
-						</p>
+						Padre de la/del festejada/o:
 					</label>
 					<input oninput="this.className = ''" name="padre_del_festejado" id='padre_del_festejado'>
 				</p>
@@ -502,22 +488,6 @@ button:hover {
 				<label for="direccion_de_ceremonia_religiosa">Dirección de ceremonia religiosa:</label>
 				<input oninput="this.className = ''" name="direccion_de_ceremonia_religiosa" id='direccion_de_ceremonia_religiosa'>
 			</p>
-			<p>
-				<label for="ciudad_de_ceremonia_religiosa">Ciudad de ceremonia religiosa:</label>
-				<input oninput="this.className = ''" name="ciudad_de_ceremonia_religiosa" id='ciudad_de_ceremonia_religiosa'>
-			</p>
-			<p>
-				<label for="estado_de_ceremonia_religiosa">Estado de ceremonia religiosa:</label>
-				<input oninput="this.className = ''" name="estado_de_ceremonia_religiosa" id='estado_de_ceremonia_religiosa'>
-			</p>
-			<p>
-				<label for="pais_de_ceremonia_religiosa">Pais de ceremonia religiosa:</label>
-				<input oninput="this.className = ''" name="pais_de_ceremonia_religiosa" id='pais_de_ceremonia_religiosa'>
-			</p>
-			<p>
-				<label for="codigo_postal_de_ceremonia_religiosa">Código postal de ceremonia religiosa:</label>
-				<input oninput="this.className = ''" name="codigo_postal_de_ceremonia_religiosa" id='codigo_postal_de_ceremonia_religiosa'>
-			</p>
 			<div>
 				<a class="find-address button-primary" value="" data-type="church">Ubicar en el mapa</a>
 			</div>
@@ -554,22 +524,6 @@ button:hover {
 			<p>
 				<label for="direccion_de_recepcion">Dirección de recepción:</label>
 				<input class="erf-field-required" oninput="this.className = ''" name="direccion_de_recepcion" id='direccion_de_recepcion'>
-			</p>
-			<p>
-				<label for="ciudad_de_recepcion">Ciudad de recepción:</label>
-				<input class="erf-field-required" oninput="this.className = ''" name="ciudad_de_recepcion" id='ciudad_de_recepcion'>
-			</p>
-			<p>
-				<label for="estado_de_recepcion">Estado de recepción:</label>
-				<input class="erf-field-required" oninput="this.className = ''" name="estado_de_recepcion" id='estado_de_recepcion'>
-			</p>
-			<p>
-				<label for="pais_de_recepcion">Pais de recepción:</label>
-				<input class="erf-field-required" oninput="this.className = ''" name="pais_de_recepcion" id='pais_de_recepcion'>
-			</p>
-			<p>
-				<label for="codigo_postal_de_recepcion">Código postal de recepción:</label>
-				<input class="erf-field-required" oninput="this.className = ''" name="codigo_postal_de_recepcion" id='codigo_postal_de_recepcion'>
 			</p>
 			<div>
 				<a class="find-address button-primary" value="" data-type="reception">Ubicar en el mapa</a>
@@ -613,22 +567,6 @@ button:hover {
 				<p>
 					<label for="direccion_de_hotel">Dirección de hotel:</label>
 					<input oninput="this.className = ''" name="direccion_de_hotel" id='direccion_de_hotel'>
-				</p>
-				<p>
-					<label for="ciudad_de_hotel">Ciudad de hotel:</label>
-					<input oninput="this.className = ''" name="ciudad_de_hotel" id='ciudad_de_hotel'>
-				</p>
-				<p>
-					<label for="estado_de_hotel">Estado de hotel:</label>
-					<input oninput="this.className = ''" name="estado_de_hotel" id='estado_de_hotel'>
-				</p>
-				<p>
-					<label for="pais_de_hotel">Pais de hotel:</label>
-					<input oninput="this.className = ''" name="pais_de_hotel" id='pais_de_hotel'>
-				</p>
-				<p>
-					<label for="codigo_postal_de_hotel">Código postal de hotel:</label>
-					<input oninput="this.className = ''" name="codigo_postal_de_hotel" id='codigo_postal_de_hotel'>
 				</p>
 				<div>
 					<a class="find-address button-primary" value="" data-type="hotel">Ubicar en el mapa</a>
@@ -674,13 +612,11 @@ button:hover {
 			<div class="tab">
 				<p>
 					<label class="erf-field-label" for="intinerario_de_evento">
-						<p>
 							Intinerario de evento:
 							<br>
 							<small>
 								Opcional
 							</small>
-						</p>
 					</label>
 					<textarea oninput="this.className = ''" name="intinerario_de_evento" id='intinerario_de_evento'></textarea>
 				</p>
@@ -695,13 +631,11 @@ button:hover {
 				<?php if ( in_array( $tipo_de_formulario, array( 'silver' ) ) ) : ?>
 					<p>
 						<label class="erf-field-label" for="recomendaciones">
-							<p>
 								Recomendaciones generales:
 								<br>
 								<small>
 									Opcional
 								</small>
-							</p>
 						</label>
 						<textarea oninput="this.className = ''" name="recomendaciones" id='recomendaciones'></textarea>
 						<div class="erf-field-description">
@@ -712,13 +646,11 @@ button:hover {
 				<?php if ( in_array( $tipo_de_formulario, array( 'silver', 'gold' ) ) ) : ?>
 					<p>
 						<label class="erf-field-label" for="hashtag">
-							<p>
 								#Hashtag:
 								<br>
 								<small>
 									Opcional
 								</small>
-							</p>
 						</label>
 						<input oninput="this.className = ''" name="hashtag" id='hashtag'>
 						<div class="erf-field-description">
@@ -850,13 +782,11 @@ button:hover {
 		<div class="tab">
 			<p>
 				<label class="erf-field-label" for="comentarios_y_sugerencias">
-					<p>
 						Información adicional:
 						<br>
 						<small>
 							Opcional
 						</small>
-					</p>
 				</label>
 				<textarea oninput="this.className = ''" name="comentarios_y_sugerencias" id='comentarios_y_sugerencias'></textarea>
 				<div class="erf-field-description">
@@ -995,54 +925,23 @@ button:hover {
 					if (!update_inputs){
 						return false;
 					}
-					var calle         = result.results[0].address_components.filter(function(item) { return item.types.includes("route"); });
-					var numero        = result.results[0].address_components.filter(function(item) { return item.types.includes("street_number"); });
-					var colonia       = result.results[0].address_components.filter(function(item) { return item.types.includes("sublocality"); });
-					var ciudad        = result.results[0].address_components.filter(function(item) { return item.types.includes("locality"); });
-					var estado        = result.results[0].address_components.filter(function(item) { return item.types.includes("administrative_area_level_1"); });
-					var pais          = result.results[0].address_components.filter(function(item) { return item.types.includes("country"); });
-					var codigo_postal = result.results[0].address_components.filter(function(item) { return item.types.includes("postal_code"); });
+					console.log(result.results[0]);
+					console.log(result.results[0].formatted_address);
 					var place_id      = result.results[0].place_id;
 
 					if(jQuery("#direccion_de_ceremonia_religiosa").is(":visible")){
 						try {
 							jQuery('#direccion_de_ceremonia_religiosa').val(
-								[
-									calle[0].long_name,
-									numero[0].long_name,
-									colonia[0].long_name
-								].join(' ')
-							);						
+								result.results[0].formatted_address
+							);
 						} catch (error) {
 							jQuery('#direccion_de_ceremonia_religiosa').val('');
 						}
 
 						try {
-							jQuery('#ciudad_de_ceremonia_religiosa').val( ciudad[0].long_name  );						
-						} catch (error) {
-							jQuery('#ciudad_de_ceremonia_religiosa').val('');						
-						}
-
-						try {
-							jQuery('#estado_de_ceremonia_religiosa').val( estado[0].long_name );						
-						} catch (error) {
-							jQuery('#estado_de_ceremonia_religiosa').val('');
-						}
-
-						try{
-							jQuery('#pais_de_ceremonia_religiosa').val( pais[0].long_name );
-						} catch (error) {
-							jQuery('#pais_de_ceremonia_religiosa').val('');
-						}
-
-						try {
-							jQuery('#codigo_postal_de_ceremonia_religiosa').val( codigo_postal[0].long_name );
-						} catch (error) {
-							jQuery('#codigo_postal_de_ceremonia_religiosa').val('');
-						}
-
-						try {
-							jQuery('#link_de_google_maps_de_ceremonia_religiosa').val( 'https://search.google.com/local/writereview?placeid=' + place_id );
+							jQuery('#link_de_google_maps_de_ceremonia_religiosa').val(
+								'https://search.google.com/local/writereview?placeid=' + place_id
+							);
 						} catch (error) {
 							jQuery('#link_de_google_maps_de_ceremonia_religiosa').val('');
 						}
@@ -1050,38 +949,10 @@ button:hover {
 					if(jQuery("#direccion_de_recepcion").is(":visible")){
 						try {
 							jQuery('#direccion_de_recepcion').val(
-								[
-									calle[0].long_name,
-									numero[0].long_name,
-									colonia[0].long_name
-								].join(' ')
+								result.results[0].formatted_address
 							);
 						} catch (error) {
 							jQuery('#direccion_de_recepcion').val('');
-						}
-
-						try {
-							jQuery('#ciudad_de_recepcion').val( ciudad[0].long_name  );
-						} catch (error) {
-							jQuery('#ciudad_de_recepcion').val('');
-						}
-
-						try {
-							jQuery('#estado_de_recepcion').val( estado[0].long_name );
-						} catch (error) {
-							jQuery('#estado_de_recepcion').val('');
-						}
-
-						try {
-							jQuery('#pais_de_recepcion').val( pais[0].long_name );
-						} catch (error) {
-							jQuery('#pais_de_recepcion').val('');
-						}
-
-						try {
-							jQuery('#codigo_postal_de_recepcion').val( codigo_postal[0].long_name );
-						} catch (error) {
-							jQuery('#codigo_postal_de_recepcion').val('');
 						}
 
 						try {
@@ -1093,38 +964,10 @@ button:hover {
 					if(jQuery("#direccion_de_hotel").is(":visible")){
 						try {
 							jQuery('#direccion_de_hotel').val(
-								[
-									calle[0].long_name,
-									numero[0].long_name,
-									colonia[0].long_name
-								].join(' ')
+								result.results[0].formatted_address
 							);
 						} catch (error) {
 							jQuery('#direccion_de_hotel').val('');
-						}
-
-						try {
-							jQuery('#ciudad_de_hotel').val( ciudad[0].long_name  );
-						} catch (error) {
-							jQuery('#ciudad_de_hotel').val('');
-						}
-
-						try {
-							jQuery('#estado_de_hotel').val( estado[0].long_name );
-						} catch (error) {
-							jQuery('#estado_de_hotel').val('');
-						}
-
-						try {
-							jQuery('#pais_de_hotel').val( pais[0].long_name );
-						} catch (error) {
-							jQuery('#pais_de_hotel').val('');
-						}
-
-						try {
-							jQuery('#codigo_postal_de_hotel').val( codigo_postal[0].long_name );
-						} catch (error) {
-							jQuery('#codigo_postal_de_hotel').val('');
 						}
 
 						try {
@@ -1142,11 +985,7 @@ button:hover {
 		}
 		function mark_on_map(data_type){
 			if (data_type=='church'){
-				var address = jQuery('#direccion_de_ceremonia_religiosa').val()+' '+
-					jQuery('#ciudad_de_ceremonia_religiosa').val()+' '+
-					jQuery('#estado_de_ceremonia_religiosa').val()+' '+
-					jQuery('#pais_de_ceremonia_religiosa').val()+' CP '+
-					jQuery('#codigo_postal_de_ceremonia_religiosa').val();
+				var address = jQuery('#direccion_de_ceremonia_religiosa').val();
 				geocode(
 					{ address: address },
 					map_church,
@@ -1156,11 +995,7 @@ button:hover {
 				);
 			}
 			if (data_type=='reception'){
-				var address = jQuery('#direccion_de_recepcion').val()+' '+
-					jQuery('#ciudad_de_recepcion').val()+' '+
-					jQuery('#estado_de_recepcion').val()+' '+
-					jQuery('#pais_de_recepcion').val()+' CP '+
-					jQuery('#codigo_postal_de_recepcion').val();
+				var address = jQuery('#direccion_de_recepcion').val();
 				geocode(
 					{ address: address },
 					map_reception,
@@ -1170,11 +1005,7 @@ button:hover {
 				);
 			}
 			if (data_type=='hotel'){
-				var address = jQuery('#direccion_de_hotel').val()+' '+
-					jQuery('#ciudad_de_hotel').val()+' '+
-					jQuery('#estado_de_hotel').val()+' '+
-					jQuery('#pais_de_hotel').val()+' CP '+
-					jQuery('#codigo_postal_de_hotel').val();
+				var address = jQuery('#direccion_de_hotel').val();
 				geocode(
 					{ address: address },
 					map_hotel,
@@ -1306,24 +1137,12 @@ button:hover {
 					nombre_de_madrina_de_velacion: jQuery('#nombre_de_madrina_de_velacion').val(),
 					nombre_de_padrino_de_velacion: jQuery('#nombre_de_padrino_de_velacion').val(),
 					direccion_de_ceremonia_religiosa: jQuery('#direccion_de_ceremonia_religiosa').val(),
-					ciudad_de_ceremonia_religiosa: jQuery('#ciudad_de_ceremonia_religiosa').val(),
-					estado_de_ceremonia_religiosa: jQuery('#estado_de_ceremonia_religiosa').val(),
-					pais_de_ceremonia_religiosa: jQuery('#pais_de_ceremonia_religiosa').val(),
-					codigo_postal_de_ceremonia_religiosa: jQuery('#codigo_postal_de_ceremonia_religiosa').val(),
 					hora_de_ceremonia_religiosa: jQuery('#hora_de_ceremonia_religiosa').val(),
 					link_de_google_maps_de_ceremonia_religiosa: jQuery('#link_de_google_maps_de_ceremonia_religiosa').val(),
 					direccion_de_recepcion: jQuery('#direccion_de_recepcion').val(),
-					ciudad_de_recepcion: jQuery('#ciudad_de_recepcion').val(),
-					estado_de_recepcion: jQuery('#estado_de_recepcion').val(),
-					pais_de_recepcion: jQuery('#pais_de_recepcion').val(),
-					codigo_postal_de_recepcion: jQuery('#codigo_postal_de_recepcion').val(),
 					hora_de_recepcion: jQuery('#hora_de_recepcion').val(),
 					link_de_google_maps_de_recepcion: jQuery('#link_de_google_maps_de_recepcion').val(),
 					direccion_de_hotel: jQuery('#direccion_de_hotel').val(),
-					ciudad_de_hotel: jQuery('#ciudad_de_hotel').val(),
-					estado_de_hotel: jQuery('#estado_de_hotel').val(),
-					pais_de_hotel: jQuery('#pais_de_hotel').val(),
-					codigo_postal_de_hotel: jQuery('#codigo_postal_de_hotel').val(),
 					link_de_google_maps_de_hotel: jQuery('#link_de_google_maps_de_hotel').val(),
 					codigo_de_descuento_de_hotel: jQuery('#codigo_de_descuento_de_hotel').val(),
 					mesa_de_regalos: jQuery('#mesa_de_regalos').val(),
