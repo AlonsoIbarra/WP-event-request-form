@@ -201,7 +201,7 @@ button:hover {
 		<br>
 		<h5>Muchas gracias por llenar este formulario! <?php echo $nombre_del_cliente; ?> te contactaré pronto para trabajar juntos!</h5>
 		<br>
-		<p>Si tienes algún inconveniente no dudes en escribirme a: hello@lezlynorman.com.</p>
+		<p>Si tienes algún inconveniente no dudes en escribirme a: hello@floralunar.com.</p>
 	</div>
 <?php else : ?>
 	<form id="erf_request_form">
@@ -541,7 +541,7 @@ button:hover {
 			<div class="tab">
 				<div>
 					<p>
-						<img decoding="async" loading="lazy" alt="" src="https://floralunar.com/wp-content/uploads/2022/12/7532d187d8a17fc549b702ce4a7230d5.jpg" class="size-medium wp-image-3839 aligncenter" width="300" height="230" srcset="https://floralunar.com/wp-content/uploads/2022/12/7532d187d8a17fc549b702ce4a7230d5.jpg 564w, https://floralunar.com/wp-content/uploads/2022/12/7532d187d8a17fc549b702ce4a7230d5-200x300.jpg 200w" sizes="(max-width: 300px) 100vw, 300px">
+						<img decoding="async" loading="lazy" alt="" src="https://floralunar.com/wp-content/uploads/2023/03/336198159_5857644211022962_9042296392620835332_n.png" class="size-medium wp-image-3839 aligncenter" width="300" height="230" srcset="https://floralunar.com/wp-content/uploads/2023/03/336198159_5857644211022962_9042296392620835332_n.png 564w, https://floralunar.com/wp-content/uploads/2023/03/336198159_5857644211022962_9042296392620835332_n.png 200w" sizes="(max-width: 300px) 100vw, 300px">
 					</p>
 				</div>
 				<div>
