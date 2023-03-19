@@ -882,29 +882,30 @@ button:hover {
 				);
 			});
 			clear(marker_reception);
-
-			// *********
-			map_hotel = new google.maps.Map(document.getElementById("erf-map-hotel"), {
-				zoom: 5,
-				center: {
-					lat: 22.775989,
-					lng: -102.571668
-				},
-				mapTypeControl: false,
-			});
-			geocoder_hotel = new google.maps.Geocoder();
-			marker_hotel = new google.maps.Marker({
-				map_hotel,
-			});
-			map_hotel.addListener("click", (e) => {
-				geocode(
-					{ location: e.latLng },
+			<?php if ( in_array( $tipo_de_formulario, array( 'gold' ) ) ) : ?>
+				// *********
+				map_hotel = new google.maps.Map(document.getElementById("erf-map-hotel"), {
+					zoom: 5,
+					center: {
+						lat: 22.775989,
+						lng: -102.571668
+					},
+					mapTypeControl: false,
+				});
+				geocoder_hotel = new google.maps.Geocoder();
+				marker_hotel = new google.maps.Marker({
 					map_hotel,
-					marker_hotel,
-					geocoder_hotel
-				);
-			});
-			clear(marker_hotel);
+				});
+				map_hotel.addListener("click", (e) => {
+					geocode(
+						{ location: e.latLng },
+						map_hotel,
+						marker_hotel,
+						geocoder_hotel
+					);
+				});
+				clear(marker_hotel);
+			<?php endif; ?>
 		}
 
 		function clear(marker_reference) {
