@@ -70,6 +70,9 @@ $query = ( isset( $_GET['q'] ) ) ? $_GET['q'] : '';
 					<?php echo esc_attr( __( 'Tipo de evento', 'event-request-form' ) ); ?>
 				</th>
 				<th>
+					<?php echo esc_attr( __( 'Es evento abierto?', 'event-request-form' ) ); ?>
+				</th>
+				<th>
 					<?php echo esc_attr( __( 'Nombre de la novia', 'event-request-form' ) ); ?>
 				</th>
 				<th>
@@ -227,6 +230,9 @@ $query = ( isset( $_GET['q'] ) ) ? $_GET['q'] : '';
 					</td>
 					<td>
 						<?php echo esc_attr( $row->tipo_de_evento ); ?>
+					</td>
+					<td>
+						<?php echo ( $row->abierto_al_publico )?'Sí':'No'; ?>
 					</td>
 					<td>
 						<?php echo esc_attr( $row->nombre_de_novia ); ?>
