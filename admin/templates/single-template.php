@@ -51,6 +51,17 @@ if ( ! $row ) {
 					</div>
 				</td>
 			</tr>
+			<tr>
+				<td>
+					<div>
+						<input class="check-box" type="checkbox"   id='abierto_al_publico' data-name="abierto_al_publico" data-id="<?php echo $row->id; ?>" <?php if ( $row->abierto_al_publico_bool ) { echo 'checked'; } ?>>
+						<strong>
+							<?php echo esc_attr( __( 'Evento cerrado', 'event-request-form' ) ); ?>
+						</strong>
+						<?php echo ( $row->abierto_al_publico )?'Sí':'No'; ?>
+					</div>
+				</td>
+			</tr>
 			<?php
 			$file_path     = dirname( __FILE__ );
 			$secondary_page_path = $file_path . '/partials/';
