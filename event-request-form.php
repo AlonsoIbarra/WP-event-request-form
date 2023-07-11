@@ -309,13 +309,6 @@ if ( ! function_exists( 'erf_send_form_data' ) ) {
 			return 'Access forbidden. Key does not exists.';
 		}
 
-		$key = sanitize_text_field( wp_unslash( $_POST['key'] ) );
-		if ( ! wp_verify_nonce( $key, 'key' ) ) {
-			wp_send_json_error(
-				__( 'Invalid request, reload and try again.', 'event-request-form' )
-			);
-		}
-
 		$tipo_de_formulario                         = sanitize_text_field( wp_unslash( $_POST['tipo_de_formulario'] ) );
 		$nombre_del_cliente                         = sanitize_text_field( wp_unslash( $_POST['nombre_del_cliente'] ) );
 		$tipo_de_evento                             = sanitize_text_field( wp_unslash( $_POST['tipo_de_evento'] ) );
