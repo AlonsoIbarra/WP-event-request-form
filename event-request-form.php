@@ -319,6 +319,7 @@ if ( ! function_exists( 'erf_send_form_data' ) ) {
 		$tipo_de_formulario                         = sanitize_text_field( wp_unslash( $_POST['tipo_de_formulario'] ) );
 		$nombre_del_cliente                         = sanitize_text_field( wp_unslash( $_POST['nombre_del_cliente'] ) );
 		$tipo_de_evento                             = sanitize_text_field( wp_unslash( $_POST['tipo_de_evento'] ) );
+		$abierto_al_publico                         = sanitize_text_field( wp_unslash( $_POST['abierto_al_publico'] ) );
 		$nombre_de_novia                            = sanitize_text_field( wp_unslash( $_POST['nombre_de_novia'] ) );
 		$nombre_de_novio                            = sanitize_text_field( wp_unslash( $_POST['nombre_de_novio'] ) );
 		$nombre_de_festejado                        = sanitize_text_field( wp_unslash( $_POST['nombre_de_festejado'] ) );
@@ -372,6 +373,7 @@ if ( ! function_exists( 'erf_send_form_data' ) ) {
 					'tipo_de_formulario'                   => $tipo_de_formulario,
 					'nombre_del_cliente'                   => $nombre_del_cliente,
 					'tipo_de_evento'                       => $tipo_de_evento,
+					'abierto_al_publico'                   => $abierto_al_publico,
 					'nombre_de_novia'                      => $nombre_de_novia,
 					'nombre_de_novio'                      => $nombre_de_novio,
 					'nombre_de_festejado'                  => $nombre_de_festejado,
