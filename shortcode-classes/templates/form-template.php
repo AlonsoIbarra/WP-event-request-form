@@ -321,6 +321,19 @@ button:hover {
 					</p>
 				</div>
 			</div>
+			<p>
+				<label class="erf-field-label">
+						Tu evento es abierto al público?
+				</label>
+				<p style='margin-left: 2rem !important;'>
+					<label for="abierto_al_publico_si">Sí</label>
+					<input class="erf-field-required" style='width:5%;' type="radio" name="abierto_al_publico" id="abierto_al_publico_si" value='1' checked>
+				</p>
+				<p style='margin-left: 2rem !important;'>
+					<label for="abierto_al_publico_no">No</label>
+					<input class="erf-field-required" style='width:5%;' type="radio" name="abierto_al_publico" id="abierto_al_publico_no" value='0'>
+				</p>
+			</p>
 		</div>
 		<div class="tab">
 			<div style="display: flex;">
@@ -1121,6 +1134,7 @@ button:hover {
 					tipo_de_formulario: jQuery('#tipo_de_formulario').val(),
 					nombre_del_cliente: jQuery('#nombre_del_cliente').val(),
 					tipo_de_evento: jQuery('input[name=tipo_de_evento]:checked').val(),
+					abierto_al_publico: jQuery('input[name=abierto_al_publico]:checked').val(),
 					nombre_de_novia: jQuery('#nombre_de_novia').val(),
 					nombre_de_novio: jQuery('#nombre_de_novio').val(),
 					nombre_de_festejado: jQuery('#nombre_de_festejado').val(),
