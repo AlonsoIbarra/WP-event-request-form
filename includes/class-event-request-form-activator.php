@@ -86,6 +86,7 @@ class Event_Request_Form_Activator {
 		codigo_postal_de_hotel varchar(10) DEFAULT '' NOT NULL,
 		link_de_google_maps_de_hotel varchar(200) DEFAULT '' NOT NULL,
 		codigo_de_descuento_de_hotel varchar(100) DEFAULT '' NOT NULL,
+		sugerencia_de_transporte varchar(100) DEFAULT '' NOT NULL,
 		mesa_de_regalos varchar(200) DEFAULT '' NOT NULL,
 		intinerario_de_evento TEXT,
 		recomendaciones TEXT,
