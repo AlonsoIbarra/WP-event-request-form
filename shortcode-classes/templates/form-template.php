@@ -620,6 +620,16 @@ button:hover {
 					<input  name="codigo_de_descuento_de_hotel" id='codigo_de_descuento_de_hotel'>
 					<small>Adjunta la liga web, sube tu documento a  https://wetransfer.com/ o escribe a continuación tu convenio de hotel.</small>
 				</p>
+				<p>
+					<label for="">
+						Vuelos o translados:
+					</label>
+					<small>
+						Opcional
+					</small>
+					<input name="sugerencia_de_transporte" id='sugerencia_de_transporte'>
+					<p>Si tu familia viaja, añade a continuación tu sugerencia de vuelos o de transporte:</p>
+				</p>
 			</div>
 		<?php endif;?>
 		<?php if ( in_array( $tipo_de_formulario, array( 'gold', 'silver' ) ) ) : ?>
@@ -1198,6 +1208,7 @@ button:hover {
 					direccion_de_hotel: jQuery('#direccion_de_hotel').val(),
 					link_de_google_maps_de_hotel: jQuery('#link_de_google_maps_de_hotel').val(),
 					codigo_de_descuento_de_hotel: jQuery('#codigo_de_descuento_de_hotel').val(),
+					sugerencia_de_transporte: jQuery('#sugerencia_de_transporte').val(),
 					mesa_de_regalos: jQuery('#mesa_de_regalos').val(),
 					intinerario_de_evento: jQuery('#intinerario_de_evento').val(),
 					recomendaciones: jQuery('#recomendaciones').val(),
