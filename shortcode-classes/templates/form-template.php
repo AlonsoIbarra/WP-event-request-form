@@ -478,6 +478,43 @@ button:hover {
 		<div class="tab">
 			<div>
 				<p>
+					<img decoding="async" loading="lazy" alt="" src="https://fiesta.lezlynorman.com/wp-content/uploads/2022/12/7532d187d8a17fc549b702ce4a7230d5-200x300.jpg" class="size-medium wp-image-3840 aligncenter" width="200" height="300" srcset="https://fiesta.lezlynorman.com/wp-content/uploads/2022/12/7532d187d8a17fc549b702ce4a7230d5-200x300.jpg 200w, https://fiesta.lezlynorman.com/wp-content/uploads/2022/12/7532d187d8a17fc549b702ce4a7230d5.jpg 564w" sizes="(max-width: 200px) 100vw, 200px">
+				</p>
+			</div>
+			<div>
+				<p>
+					<h4>
+						Recepción
+					</h4>
+					<small>
+						Obligatorio*
+					</small>
+				</p>	
+				<p>Selecciona en el mapa la ubicación donde se llevara a cabo la recepción o ingresa los datos manualmente.</p>
+			</div>
+			<div style="text-align: center;">
+				<div id="erf-map-reception" class="erf-googlemap" ></div>
+			</div>
+			<div class="erf-separator"></div>	
+			<p>
+				<label for="direccion_de_recepcion">Dirección de recepción:</label>
+				<input class="erf-field-required"  name="direccion_de_recepcion" id='direccion_de_recepcion'>
+			</p>
+			<div>
+				<a class="find-address button-primary" value="" data-type="reception">Ubicar en el mapa</a>
+			</div>
+			<p>
+				<label for="hora_de_recepcion">Hora de recepción:</label>
+				<input class="erf-field-required" type="time"  name="hora_de_recepcion" id='hora_de_recepcion'>
+			</p>
+			<p>
+				<label for="link_de_google_maps_de_recepcion">Link de google maps de recepción:</label>
+				<input  name="link_de_google_maps_de_recepcion" id='link_de_google_maps_de_recepcion'>
+			</p>
+		</div>
+		<div class="tab">
+			<div>
+				<p>
 					<img decoding="async" loading="lazy" alt="" src="https://fiesta.lezlynorman.com/wp-content/uploads/2022/12/7cc7ba914e5214d0ddefcd661bf6428f-e1671561859483-300x230.jpg" class="size-medium wp-image-3839 aligncenter" width="300" height="230" srcset="https://fiesta.lezlynorman.com/wp-content/uploads/2022/12/7cc7ba914e5214d0ddefcd661bf6428f-e1671561859483-300x230.jpg 300w, https://fiesta.lezlynorman.com/wp-content/uploads/2022/12/7cc7ba914e5214d0ddefcd661bf6428f-e1671561859483.jpg 563w" sizes="(max-width: 300px) 100vw, 300px">
 				</p>
 			</div>
@@ -511,43 +548,6 @@ button:hover {
 			<p>
 				<label for="link_de_google_maps_de_ceremonia_religiosa">Link de google maps de ceremonia religiosa:</label>
 				<input  name="link_de_google_maps_de_ceremonia_religiosa" id='link_de_google_maps_de_ceremonia_religiosa'>
-			</p>
-		</div>
-		<div class="tab">
-			<div>
-				<p>
-					<img decoding="async" loading="lazy" alt="" src="https://fiesta.lezlynorman.com/wp-content/uploads/2022/12/7532d187d8a17fc549b702ce4a7230d5-200x300.jpg" class="size-medium wp-image-3840 aligncenter" width="200" height="300" srcset="https://fiesta.lezlynorman.com/wp-content/uploads/2022/12/7532d187d8a17fc549b702ce4a7230d5-200x300.jpg 200w, https://fiesta.lezlynorman.com/wp-content/uploads/2022/12/7532d187d8a17fc549b702ce4a7230d5.jpg 564w" sizes="(max-width: 200px) 100vw, 200px">
-				</p>
-			</div>
-			<div>
-				<p>
-					<h4>
-						Recepción
-					</h4>
-					<small>
-						Obligatorio*
-					</small>
-				</p>	
-				<p>Selecciona en el mapa la ubicación donde se llevara a cabo la recepción o ingresa los datos manualmente.</p>
-			</div>
-			<div style="text-align: center;">
-				<div id="erf-map-reception" class="erf-googlemap" ></div>
-			</div>
-			<div class="erf-separator"></div>	
-			<p>
-				<label for="direccion_de_recepcion">Dirección de recepción:</label>
-				<input class="erf-field-required"  name="direccion_de_recepcion" id='direccion_de_recepcion'>
-			</p>
-			<div>
-				<a class="find-address button-primary" value="" data-type="reception">Ubicar en el mapa</a>
-			</div>
-			<p>
-				<label for="hora_de_recepcion">Hora de recepción:</label>
-				<input class="erf-field-required" type="time"  name="hora_de_recepcion" id='hora_de_recepcion'>
-			</p>
-			<p>
-				<label for="link_de_google_maps_de_recepcion">Link de google maps de recepción:</label>
-				<input  name="link_de_google_maps_de_recepcion" id='link_de_google_maps_de_recepcion'>
 			</p>
 		</div>
 		<?php if ( in_array( $tipo_de_formulario, array( 'gold' ) ) ) : ?>
