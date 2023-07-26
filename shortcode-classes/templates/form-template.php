@@ -727,29 +727,45 @@ button:hover {
 				Sube las fotos que mas te gusten para que aparezcan en tu invitación (mínimo 4 máximo 15).
 			</div>
 		</div>
-		<div class="tab">
-			<label class="erf-field-label">
+		<?php if ( in_array( $tipo_de_formulario, array( 'gold', 'silver' ) ) ) : ?>
+			<div class="tab">
+				<label class="erf-field-label">
+					<p>
+						Confirmación de invitados
+						<br>
+						<small>
+							Opcional
+						</small>
+					</p>
+				</label>
+				<?php if ( in_array( $tipo_de_formulario, array( 'silver' ) ) ) { ?>
+					<p>
+						¿A que número de whatsapp tus invitados pueden confirmar?<br>
+						Si son pareja puedes agregar mas de uno, si no aplica omitir campo.
+					</p>
+					<p>
+						<label for="whatsapp_I_de_confirmacion">Whatsapp:</label>
+						<input  name="whatsapp_I_de_confirmacion" id='whatsapp_I_de_confirmacion'>
+					</p>
+				<?php } else { ?>
+					<p>
+						Si deseas recibir una notificación cada vez que un invitado confirme su asistencia, agrega los correos electrónicos que recibiran las alertas de registro nuevo.
+					</p>
+					<p>
+						<label for="correo_I_de_confirmacion">Correo electrónico:</label>
+						<input  name="correo_I_de_confirmacion" id='correo_I_de_confirmacion'>
+					</p>
+					<p>
+						<label for="correo_II_de_confirmacion">Correo electrónico 2:</label>
+						<input  name="correo_II_de_confirmacion" id='correo_II_de_confirmacion'>
+					</p>
+				<?php } ?>
+				<br>
 				<p>
-					Confirmación de invitados
-					<br>
-					<small>
-						Opcional
-					</small>
+					Recuerda que tambien puedes ver los registros de tus invitados en nuestro dashboard <a href="https://floralunar.com/descargables">https://floralunar.com/descargables</a> mediante tu clave unica de evento.
 				</p>
-			</label>
-			<p>
-				¿A que número de whatsapp tus invitados pueden confirmar?<br>
-				Si son pareja puedes agregar mas de uno, si no aplica omitir campo.
-			</p>
-			<p>
-				<label for="whatsapp_I_de_confirmacion">Whatsapp:</label>
-				<input  name="whatsapp_I_de_confirmacion" id='whatsapp_I_de_confirmacion'>
-			</p>
-			<p>
-				<label for="whatsapp_II_de_confirmacion">Whatsapp II:</label>
-				<input  name="whatsapp_II_de_confirmacion" id='whatsapp_II_de_confirmacion'>
-			</p>
-		</div>
+			</div>
+		<?php endif; ?>
 		<div class="tab">
 			<p>
 				<h4>
@@ -1163,9 +1179,9 @@ button:hover {
 		// if you have reached the end of the form...
 		if (currentTab >= x.length) {
 			// ... the form gets submitted:
-			jQuery('#loading-gif').fadeIn();
-			jQuery('#prevBtn').fadeOut();
-			jQuery('#nextBtn').fadeOut();
+			// jQuery('#loading-gif').fadeIn();
+			// jQuery('#prevBtn').fadeOut();
+			// jQuery('#nextBtn').fadeOut();
 
 			jQuery.ajax({
 				type: "POST",
@@ -1216,6 +1232,8 @@ button:hover {
 					galeria_de_fotos: jQuery('#galeria_de_fotos').val(),
 					whatsapp_I_de_confirmacion: jQuery('#whatsapp_I_de_confirmacion').val(),
 					whatsapp_II_de_confirmacion: jQuery('#whatsapp_II_de_confirmacion').val(),
+					correo_I_de_confirmacion: jQuery('#correo_I_de_confirmacion').val(),
+					correo_II_de_confirmacion: jQuery('#correo_II_de_confirmacion').val(),
 					personalizacion_escrita: jQuery('#personalizacion_escrita').val(),
 					personalizacion_grafica: jQuery('#personalizacion_grafica').val(),
 					whatsapp_de_contacto: jQuery('#whatsapp_de_contacto').val(),
@@ -1230,7 +1248,7 @@ button:hover {
 					if ( jQuery('#abierto_al_publico_no').is(':checked') ){
 						url.searchParams.set('private', 1);
 					}
-					window.location.href = url.href;
+					// window.location.href = url.href;
 				}
 			});
 			return false;
