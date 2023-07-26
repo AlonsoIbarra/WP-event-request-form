@@ -255,11 +255,20 @@ if ( ! $row ) {
 			<tr>
 				<td>
 					<div>
-						<input class="check-box" type="checkbox" data-name="whatsapp_II_de_confirmacion" data-id="<?php echo $row->id; ?>" <?php if ( $row->whatsapp_II_de_confirmacion_bool ) { echo 'checked'; } ?>>
 						<strong>
-							<?php echo esc_attr( __( 'Whatsapp II de confirmación', 'event-request-form' ) ); ?>
+							<?php echo esc_attr( __( 'Correo electrónico I de confirmación', 'event-request-form' ) ); ?>
 						</strong>	
-						<?php echo $row->whatsapp_II_de_confirmacion; ?>
+						<?php echo $row->correo_I_de_confirmacion; ?>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div>
+						<strong>
+							<?php echo esc_attr( __( 'Correo electrónico II de confirmación', 'event-request-form' ) ); ?>
+						</strong>	
+						<?php echo $row->correo_II_de_confirmacion; ?>
 					</div>
 				</td>
 			</tr>
