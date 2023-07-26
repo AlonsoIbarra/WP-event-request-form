@@ -1179,9 +1179,9 @@ button:hover {
 		// if you have reached the end of the form...
 		if (currentTab >= x.length) {
 			// ... the form gets submitted:
-			// jQuery('#loading-gif').fadeIn();
-			// jQuery('#prevBtn').fadeOut();
-			// jQuery('#nextBtn').fadeOut();
+			jQuery('#loading-gif').fadeIn();
+			jQuery('#prevBtn').fadeOut();
+			jQuery('#nextBtn').fadeOut();
 
 			jQuery.ajax({
 				type: "POST",
@@ -1248,7 +1248,7 @@ button:hover {
 					if ( jQuery('#abierto_al_publico_no').is(':checked') ){
 						url.searchParams.set('private', 1);
 					}
-					// window.location.href = url.href;
+					window.location.href = url.href;
 				}
 			});
 			return false;
