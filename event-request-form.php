@@ -349,6 +349,7 @@ if ( ! function_exists( 'erf_send_form_data' ) ) {
 		$direccion_de_hotel                         = sanitize_text_field( wp_unslash( $_POST['direccion_de_hotel'] ) );
 		$link_de_google_maps_de_hotel               = sanitize_text_field( wp_unslash( $_POST['link_de_google_maps_de_hotel'] ) );
 		$codigo_de_descuento_de_hotel               = sanitize_text_field( wp_unslash( $_POST['codigo_de_descuento_de_hotel'] ) );
+		$sugerencia_de_transporte                   = sanitize_text_field( wp_unslash( $_POST['sugerencia_de_transporte'] ) );
 		$mesa_de_regalos                            = sanitize_text_field( wp_unslash( $_POST['mesa_de_regalos'] ) );
 		$intinerario_de_evento                      = sanitize_text_field( wp_unslash( $_POST['intinerario_de_evento'] ) );
 		$recomendaciones                            = sanitize_text_field( wp_unslash( $_POST['recomendaciones'] ) );
@@ -404,6 +405,7 @@ if ( ! function_exists( 'erf_send_form_data' ) ) {
 					'direccion_de_hotel'                   => $direccion_de_hotel,
 					'link_de_google_maps_de_hotel'         => $link_de_google_maps_de_hotel,
 					'codigo_de_descuento_de_hotel'         => $codigo_de_descuento_de_hotel,
+					'sugerencia_de_transporte'             => $sugerencia_de_transporte,
 					'mesa_de_regalos'                      => $mesa_de_regalos,
 					'intinerario_de_evento'                => $intinerario_de_evento,
 					'recomendaciones'                      => $recomendaciones,
