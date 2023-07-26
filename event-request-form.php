@@ -357,6 +357,8 @@ if ( ! function_exists( 'erf_send_form_data' ) ) {
 		$galeria_de_fotos                           = sanitize_text_field( wp_unslash( $_POST['galeria_de_fotos'] ) );
 		$whatsapp_i_de_confirmacion                 = sanitize_text_field( wp_unslash( $_POST['whatsapp_I_de_confirmacion'] ) );
 		$whatsapp_ii_de_confirmacion                = sanitize_text_field( wp_unslash( $_POST['whatsapp_II_de_confirmacion'] ) );
+		$correo_i_de_confirmacion                   = sanitize_text_field( wp_unslash( $_POST['correo_I_de_confirmacion'] ) );
+		$correo_ii_de_confirmacion                  = sanitize_text_field( wp_unslash( $_POST['correo_II_de_confirmacion'] ) );
 		$personalizacion_escrita                    = sanitize_text_field( wp_unslash( $_POST['personalizacion_escrita'] ) );
 		$personalizacion_grafica                    = sanitize_text_field( wp_unslash( $_POST['personalizacion_grafica'] ) );
 		$whatsapp_de_contacto                       = sanitize_text_field( wp_unslash( $_POST['whatsapp_de_contacto'] ) );
@@ -413,6 +415,8 @@ if ( ! function_exists( 'erf_send_form_data' ) ) {
 					'galeria_de_fotos'                     => $galeria_de_fotos,
 					'whatsapp_I_de_confirmacion'           => $whatsapp_i_de_confirmacion,
 					'whatsapp_II_de_confirmacion'          => $whatsapp_ii_de_confirmacion,
+					'correo_I_de_confirmacion'             => $correo_i_de_confirmacion,
+					'correo_II_de_confirmacion'            => $correo_ii_de_confirmacion,
 					'personalizacion_escrita'              => $personalizacion_escrita,
 					'personalizacion_grafica'              => $personalizacion_grafica,
 					'whatsapp_de_contacto'                 => $whatsapp_de_contacto,
