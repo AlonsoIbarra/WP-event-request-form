@@ -346,6 +346,9 @@ button:hover {
 						<label for="abierto_al_publico_no">No</label>
 						<input class="erf-field-required" style='width:5%;' type="radio" name="abierto_al_publico" id="abierto_al_publico_no" value='0'>
 					</p>
+					<p id="excel_format_link" style='margin-left: 2rem !important; display:none;'>
+						Para crear tu formulario cerrado, descarga la siguiente <a href="<?=EVENT_REQUEST_FORM_GUESTS_TEMPLATE?>" target="_blank" rel="noopener noreferrer">plantilla</a> y llenala con la lista de tus invitados al finalizar enviala por whatsapp a tu proveedor o al correo hola@floralunar.com
+					</p>
 				</p>
 			</div>
 		</div>
@@ -1060,6 +1063,12 @@ button:hover {
 		jQuery(document).ready(function() {
 
 			initMap();
+			jQuery('#abierto_al_publico_si').on('click', function(event){
+				jQuery('#excel_format_link').fadeOut();
+			});
+			jQuery('#abierto_al_publico_no').on('click', function(event){
+				jQuery('#excel_format_link').fadeIn();
+			});
 
 			jQuery('.find-address').on('click', function(event){
 				let data_type = jQuery(this).data('type');
