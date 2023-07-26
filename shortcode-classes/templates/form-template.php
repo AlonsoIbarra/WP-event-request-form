@@ -202,6 +202,14 @@ button:hover {
 		<h5>Muchas gracias por llenar este formulario! <?php echo $nombre_del_cliente; ?> te contactaré pronto para trabajar juntos!</h5>
 		<br>
 		<p>Si tienes algún inconveniente no dudes en escribirme a: hello@floralunar.com.</p>
+		<br>
+		<?php
+			if ( isset( $_GET['private'] ) ) :
+				?>
+				<p>No olvides enviar tu excel lleno a hola@floralunar.com o por whatsapp al 4921225374</p>
+				<?php
+			endif;
+		?>
 	</div>
 <?php else : ?>
 	<form id="erf_request_form">
@@ -1208,6 +1216,9 @@ button:hover {
 					var url = new URL(window.location.href);
 					url.searchParams.set('success','');
 					url.searchParams.set('client',jQuery('#nombre_del_cliente').val());
+					if ( jQuery('#abierto_al_publico_no').is(':checked') ){
+						url.searchParams.set('private', 1);
+					}
 					window.location.href = url.href;
 				}
 			});
