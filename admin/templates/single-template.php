@@ -179,6 +179,16 @@ if ( ! $row ) {
 			<tr>
 				<td>
 					<div>
+						<strong>
+							<?php echo esc_attr( __( 'Sugerencia de transporte', 'event-request-form' ) ); ?>
+						</strong>	
+						<?php echo $row->sugerencia_de_transporte; ?>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div>
 						<input class="check-box" type="checkbox" data-name="mesa_de_regalos" data-id="<?php echo $row->id; ?>" <?php if ( $row->mesa_de_regalos_bool ) { echo 'checked'; } ?>>
 						<strong>
 							<?php echo esc_attr( __( 'Mesa de regalos', 'event-request-form' ) ); ?>

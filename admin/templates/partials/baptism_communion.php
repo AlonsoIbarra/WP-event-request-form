@@ -21,6 +21,15 @@
 <tr>
 	<td>
 		<div>
+			<strong>
+				<?php echo esc_attr( __( 'Fecha de cierre del formulario', 'event-request-form' ) ); ?>
+			</strong>	
+		<?php echo $row->fecha_de_cierre; ?>
+	</td>
+</tr>
+<tr>
+	<td>
+		<div>
 			<input class="check-box" type="checkbox" data-name="frase_de_bienvenida" data-id="<?php echo $row->id; ?>" <?php if ( $row->frase_de_bienvenida_bool ) { echo 'checked'; } ?>>
 			<strong>
 				<?php echo esc_attr( __( 'Frase de bienvenida', 'event-request-form' ) ); ?>
