@@ -42,6 +42,11 @@ define( 'EVENT_REQUEST_FORM_VERSION', '1.0.0' );
 define( 'EVENT_REQUEST_FORM_DATABASE_NAME', 'WP_ERF_TABLE' );
 
 /**
+ * Currently event close excel template url.
+ */
+define( 'EVENT_REQUEST_FORM_GUESTS_TEMPLATE', 'https://docs.google.com/spreadsheets/d/1uUrCGQalnpxQsdc7rs9UWOh3XyZ6V6vzmEcwq0jZaF4/edit?usp=sharing' );
+
+/**
  * The code that runs during plugin activation.
  * This action is documented in includes/class-event-request-form-activator.php
  */
