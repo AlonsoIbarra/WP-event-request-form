@@ -94,6 +94,8 @@ class Event_Request_Form_Activator {
 		galeria_de_fotos varchar(200) DEFAULT '' NOT NULL,
 		whatsapp_I_de_confirmacion varchar(15) DEFAULT '' NOT NULL,
 		whatsapp_II_de_confirmacion varchar(15) DEFAULT '' NOT NULL,
+		correo_I_de_confirmacion varchar(50) DEFAULT '' NOT NULL,
+		correo_II_de_confirmacion varchar(50) DEFAULT '' NOT NULL,
 		personalizacion_escrita TEXT,
 		personalizacion_grafica varchar(200) DEFAULT '' NOT NULL,
 		whatsapp_de_contacto varchar(15) DEFAULT '' NOT NULL,
