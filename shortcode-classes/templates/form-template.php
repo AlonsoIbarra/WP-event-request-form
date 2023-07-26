@@ -305,7 +305,7 @@ button:hover {
 		</div>
 		<div class="tab">
 			<p>
-				<label class="erf-field-label" for="nombre_de_festejado">
+				<label class="erf-field-label" for="fecha_de_evento">
 						Fecha del evento:
 						<br>
 						<small>
@@ -321,19 +321,33 @@ button:hover {
 					</p>
 				</div>
 			</div>
-			<p>
-				<label class="erf-field-label">
+
+			<?php if ( in_array( $tipo_de_formulario, array( 'gold' ) ) ) : ?>
+				<div>
+					<p>
+						<label class="erf-field-label" for="fecha_de_cierre">
+							Cuando quieres que cierre el registro al sitio web para ir a tu evento? (te recomendamos al menos 15 dias antes de tu evento)
+						</label>
+						<input type="date"  name="fecha_de_cierre" id="fecha_de_cierre">
+					</p>
+				</div>
+			<?php endif; ?>
+
+			<div>
+				<p>
+					<label class="erf-field-label">
 						Tu evento es abierto al público?
-				</label>
-				<p style='margin-left: 2rem !important;'>
-					<label for="abierto_al_publico_si">Sí</label>
-					<input class="erf-field-required" style='width:5%;' type="radio" name="abierto_al_publico" id="abierto_al_publico_si" value='1' checked>
+					</label>
+					<p style='margin-left: 2rem !important;'>
+						<label for="abierto_al_publico_si">Sí</label>
+						<input class="erf-field-required" style='width:5%;' type="radio" name="abierto_al_publico" id="abierto_al_publico_si" value='1' checked>
+					</p>
+					<p style='margin-left: 2rem !important;'>
+						<label for="abierto_al_publico_no">No</label>
+						<input class="erf-field-required" style='width:5%;' type="radio" name="abierto_al_publico" id="abierto_al_publico_no" value='0'>
+					</p>
 				</p>
-				<p style='margin-left: 2rem !important;'>
-					<label for="abierto_al_publico_no">No</label>
-					<input class="erf-field-required" style='width:5%;' type="radio" name="abierto_al_publico" id="abierto_al_publico_no" value='0'>
-				</p>
-			</p>
+			</div>
 		</div>
 		<div class="tab">
 			<div style="display: flex;">
@@ -1140,6 +1154,7 @@ button:hover {
 					nombre_de_novio: jQuery('#nombre_de_novio').val(),
 					nombre_de_festejado: jQuery('#nombre_de_festejado').val(),
 					fecha_de_evento: jQuery('#fecha_de_evento').val(),
+					fecha_de_cierre: jQuery('#fecha_de_cierre').val(),
 					frase_de_bienvenida: jQuery('#frase_de_bienvenida').val(),
 					madre_de_novia: jQuery('#madre_de_novia').val(),
 					padre_de_novia: jQuery('#padre_de_novia').val(),
