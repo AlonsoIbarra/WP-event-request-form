@@ -187,7 +187,10 @@ $query = ( isset( $_GET['q'] ) ) ? $_GET['q'] : '';
 					<?php echo esc_attr( __( 'Whatsapp I de confirmación', 'event-request-form' ) ); ?>
 				</th>
 				<th>
-					<?php echo esc_attr( __( 'Whatsapp II de confirmación', 'event-request-form' ) ); ?>
+					<?php echo esc_attr( __( 'Correo I de confirmación', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Correo II de confirmación', 'event-request-form' ) ); ?>
 				</th>
 				<th>
 					<?php echo esc_attr( __( 'Personalizacion escrita', 'event-request-form' ) ); ?>
@@ -362,7 +365,10 @@ $query = ( isset( $_GET['q'] ) ) ? $_GET['q'] : '';
 						<?php echo esc_attr( $row->whatsapp_I_de_confirmacion ); ?>
 					</td>
 					<td>
-						<?php echo esc_attr( $row->whatsapp_II_de_confirmacion ); ?>
+						<?php echo esc_attr( $row->correo_I_de_confirmacion ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->correo_II_de_confirmacion ); ?>
 					</td>
 					<td>
 						<?php echo esc_attr( $row->personalizacion_escrita ); ?>
