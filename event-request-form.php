@@ -317,6 +317,7 @@ if ( ! function_exists( 'erf_send_form_data' ) ) {
 		$nombre_de_novio                            = sanitize_text_field( wp_unslash( $_POST['nombre_de_novio'] ) );
 		$nombre_de_festejado                        = sanitize_text_field( wp_unslash( $_POST['nombre_de_festejado'] ) );
 		$fecha_de_evento                            = sanitize_text_field( wp_unslash( $_POST['fecha_de_evento'] ) );
+		$fecha_de_cierre                            = sanitize_text_field( wp_unslash( $_POST['fecha_de_cierre'] ) );
 		$frase_de_bienvenida                        = sanitize_text_field( wp_unslash( $_POST['frase_de_bienvenida'] ) );
 		$madre_de_novia                             = sanitize_text_field( wp_unslash( $_POST['madre_de_novia'] ) );
 		$padre_de_novia                             = sanitize_text_field( wp_unslash( $_POST['padre_de_novia'] ) );
@@ -371,6 +372,7 @@ if ( ! function_exists( 'erf_send_form_data' ) ) {
 					'nombre_de_novio'                      => $nombre_de_novio,
 					'nombre_de_festejado'                  => $nombre_de_festejado,
 					'fecha_de_evento'                      => $fecha_de_evento,
+					'fecha_de_cierre'                      => $fecha_de_cierre,
 					'frase_de_bienvenida'                  => $frase_de_bienvenida,
 					'madre_de_novia'                       => $madre_de_novia,
 					'padre_de_novia'                       => $padre_de_novia,
