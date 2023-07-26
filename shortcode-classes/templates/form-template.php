@@ -590,9 +590,10 @@ button:hover {
 				</p>
 				<p>
 					<label for="">
-						Ingresa la liga o el codigo de descuento del convenio de tu hospedaje:
+						Convenio del hotel:
 					</label>
 					<input  name="codigo_de_descuento_de_hotel" id='codigo_de_descuento_de_hotel'>
+					<small>Adjunta la liga web, sube tu documento a  https://wetransfer.com/ o escribe a continuación tu convenio de hotel.</small>
 				</p>
 			</div>
 		<?php endif;?>
