@@ -2,7 +2,7 @@
 /**
  * Template for rendering HTML form.
  *
- * @link  https://https://fiesta.lezlynorman.com
+ * @link  https://https://floralunar.com
  * @since 1.0.0
  *
  * @package includes
@@ -215,7 +215,7 @@ button:hover {
 	<form id="erf_request_form">
 		<div id="loading-gif" style="display:none; width:90%; text-align: center; margin: auto;" >
 			<div style="width:15%; margin: 0 43%;">
-				<img src="https://fiesta.lezlynorman.com/wp-content/uploads/2023/02/344-loader-15-flat.gif" alt="">
+				<img src="https://floralunar.com/wp-content/uploads/2023/02/344-loader-15-flat.gif" alt="">
 			</div>
 			<h3>Guardando datos, espera mientras guardamos tu información.</h3>
 		</div>
@@ -231,7 +231,7 @@ button:hover {
 					</small>
 				</p>
 			</label>
-			<p><input class="erf-field-required"  name="nombre_del_cliente" id="nombre_del_cliente"></p>
+			<p><input class="erf-field-required"  name="nombre_del_cliente" id="nombre_del_cliente" maxlength="90" ></p>
 			<div class="erf-field-description">Escribe tu nombre para ánotarlo en mi agenda de pedidos</div>
 		</div>
 		<div class="tab">
@@ -250,7 +250,7 @@ button:hover {
 					<div class="erf-image-choices-item erf-div-selected">
 						<label>
 							<span class="erf-image-choices-image">
-								<img class="checked-choice" decoding="async" src="https://fiesta.lezlynorman.com/wp-content/uploads/2022/05/gallery9.jpg" alt="Boda" title="Boda">
+								<img class="checked-choice" decoding="async" src="https://floralunar.com/wp-content/uploads/2022/05/gallery9.jpg" alt="Boda" title="Boda">
 							</span>
 							<input type="radio" class="tipo_de_evento" name="tipo_de_evento" value="wedding" data-class="wedding" style="display: none;" checked/>
 							<div class="erf-separator"></div>	
@@ -260,7 +260,7 @@ button:hover {
 					<div class="erf-image-choices-item">
 						<label>
 							<span class="erf-image-choices-image">
-								<img decoding="async" src="https://fiesta.lezlynorman.com/wp-content/uploads/2022/12/de23b88e29579e376838c5175655273c-e1671554308852.jpg" alt="XV años - Bautizo - 1ra. Comunión" title="XV años - Bautizo - 1ra. Comunión">
+								<img decoding="async" src="https://floralunar.com/wp-content/uploads/2022/12/de23b88e29579e376838c5175655273c-e1671554308852.jpg" alt="XV años - Bautizo - 1ra. Comunión" title="XV años - Bautizo - 1ra. Comunión">
 							</span>
 							<input type="radio" class="tipo_de_evento" name="tipo_de_evento" value="baptism_communion" data-class="baptism_communion" style="display: none;"/>
 							<div class="erf-separator"></div>	
@@ -272,7 +272,7 @@ button:hover {
 					<div class="erf-image-choices-item">
 						<label>
 							<span class="erf-image-choices-image">
-								<img decoding="async" src="https://fiesta.lezlynorman.com/wp-content/uploads/2022/12/e52eab94bc55444ef7978bae7abfbce4-e1671554182101.jpg" alt="Otro" title="Otro">
+								<img decoding="async" src="https://floralunar.com/wp-content/uploads/2022/12/e52eab94bc55444ef7978bae7abfbce4-e1671554182101.jpg" alt="Otro" title="Otro">
 							</span>
 							<input type="radio" class="tipo_de_evento" name="tipo_de_evento" value="event_other" data-class="event_other" style="display: none;"/>
 							<div class="erf-separator"></div>	
@@ -300,15 +300,15 @@ button:hover {
 			</label>
 			<p class="wedding custom_field">
 				<label for="nombre_de_novia">Nombre de la novia:</label>
-				<input class="erf-field-required"  name="nombre_de_novia" id='nombre_de_novia'>
+				<input class="erf-field-required"  name="nombre_de_novia" id='nombre_de_novia' maxlength="90">
 			</p>
 			<p class="wedding custom_field">
 				<label for="nombre_de_novio">Nombre del novio:</label>
-				<input class="erf-field-required"  name="nombre_de_novio" id='nombre_de_novio'>
+				<input class="erf-field-required"  name="nombre_de_novio" id='nombre_de_novio' maxlength="90">
 			</p>
 			<p class="baptism_communion event_other custom_field" style="display: none;">
 				<label for="nombre_de_festejado">Nombre de la/del festejada/o:</label>
-				<input class="erf-field-required"  name="nombre_de_festejado" id='nombre_de_festejado'>
+				<input class="erf-field-required"  name="nombre_de_festejado" id='nombre_de_festejado' maxlength="90">
 			</p>
 		</div>
 		<div class="tab">
@@ -362,7 +362,7 @@ button:hover {
 		</div>
 		<div class="tab">
 			<div style="display: flex;">
-				<img decoding="async" loading="lazy" alt="" src="https://fiesta.lezlynorman.com/wp-content/uploads/2022/12/8e4b3ca9776edc4879fc500058c72c43-300x300.jpg" class="size-medium wp-image-3841 aligncenter" width="300" height="300" srcset="https://fiesta.lezlynorman.com/wp-content/uploads/2022/12/8e4b3ca9776edc4879fc500058c72c43-300x300.jpg 300w, https://fiesta.lezlynorman.com/wp-content/uploads/2022/12/8e4b3ca9776edc4879fc500058c72c43-150x150.jpg 150w, https://fiesta.lezlynorman.com/wp-content/uploads/2022/12/8e4b3ca9776edc4879fc500058c72c43-100x100.jpg 100w, https://fiesta.lezlynorman.com/wp-content/uploads/2022/12/8e4b3ca9776edc4879fc500058c72c43.jpg 564w" sizes="(max-width: 300px) 100vw, 300px">
+				<img decoding="async" loading="lazy" alt="" src="https://floralunar.com/wp-content/uploads/2022/12/8e4b3ca9776edc4879fc500058c72c43-300x300.jpg" class="size-medium wp-image-3841 aligncenter" width="300" height="300" srcset="https://floralunar.com/wp-content/uploads/2022/12/8e4b3ca9776edc4879fc500058c72c43-300x300.jpg 300w, https://floralunar.com/wp-content/uploads/2022/12/8e4b3ca9776edc4879fc500058c72c43-150x150.jpg 150w, https://floralunar.com/wp-content/uploads/2022/12/8e4b3ca9776edc4879fc500058c72c43-100x100.jpg 100w, https://floralunar.com/wp-content/uploads/2022/12/8e4b3ca9776edc4879fc500058c72c43.jpg 564w" sizes="(max-width: 300px) 100vw, 300px">
 			</div>
 			<div class="erf-separator"></div>	
 			<div>
@@ -396,41 +396,41 @@ button:hover {
 					<label for="madre_de_novia">
 						Madre de la novia:
 					</label>
-					<input  name="madre_de_novia" id='madre_de_novia'>
+					<input  name="madre_de_novia" id='madre_de_novia' maxlength="90">
 				</p>
 				<div class="erf-separator"></div>	
 				<p class="wedding custom_field">
 					<label for="padre_de_novia">
 						Padre de la novia:
 					</label>
-					<input  name="padre_de_novia" id='padre_de_novia'>
+					<input  name="padre_de_novia" id='padre_de_novia' maxlength="90">
 				</p>
 				<div class="erf-separator"></div>	
 				<p class="wedding custom_field">
 					<label for="madre_de_novio">
 						Madre del novio:
 					</label>
-					<input  name="madre_de_novio" id='madre_de_novio'>
+					<input  name="madre_de_novio" id='madre_de_novio' maxlength="90">
 				</p>
 				<div class="erf-separator"></div>	
 				<p class="wedding custom_field">
 					<label for="padre_de_novio">
 						Padre del novio:
 					</label>
-					<input  name="padre_de_novio" id='padre_de_novio'>
+					<input  name="padre_de_novio" id='padre_de_novio' maxlength="90">
 				</p>
 				<p class="baptism_communion event_other custom_field" style="display: none;">
 					<label for="madre_del_festejado">
 						Madre de la/del festejada/o:
 					</label>
-					<input  name="madre_del_festejado" id='madre_del_festejado'>
+					<input  name="madre_del_festejado" id='madre_del_festejado' maxlength="90">
 				</p>
 				<div class="erf-separator"></div>	
 				<p class="baptism_communion event_other custom_field" style="display: none;">
 					<label for="padre_del_festejado">
 						Padre de la/del festejada/o:
 					</label>
-					<input  name="padre_del_festejado" id='padre_del_festejado'>
+					<input  name="padre_del_festejado" id='padre_del_festejado' maxlength="90">
 				</p>
 			</div>
 		<?php endif; ?>
@@ -452,58 +452,58 @@ button:hover {
 				</div>
 				<p class="wedding custom_field">
 					<label for="nombre_de_madrina_de_arras">Nombre de madrina de arras:</label>
-					<input  name="nombre_de_madrina_de_arras" id='nombre_de_madrina_de_arras'>
+					<input  name="nombre_de_madrina_de_arras" id='nombre_de_madrina_de_arras' maxlength="90">
 				</p>
 				<div class="erf-separator"></div>	
 				<p class="wedding custom_field">
 					<label for="nombre_de_padrino_de_arras">Nombre de padrino de arras:</label>
-					<input  name="nombre_de_padrino_de_arras" id='nombre_de_padrino_de_arras'>
+					<input  name="nombre_de_padrino_de_arras" id='nombre_de_padrino_de_arras' maxlength="90">
 				</p>
 				<div class="erf-separator"></div>	
 				<p class="wedding custom_field">
 					<label for="nombre_de_madrina_de_lazo">Nombre de madrina de lazo:</label>
-					<input  name="nombre_de_madrina_de_lazo" id='nombre_de_madrina_de_lazo'>
+					<input  name="nombre_de_madrina_de_lazo" id='nombre_de_madrina_de_lazo' maxlength="90">
 				</p>
 				<div class="erf-separator"></div>	
 				<p class="wedding custom_field">
 					<label for="nombre_de_padrino_de_lazo">Nombre de padrino de lazo:</label>
-					<input  name="nombre_de_padrino_de_lazo" id='nombre_de_padrino_de_lazo'>
+					<input  name="nombre_de_padrino_de_lazo" id='nombre_de_padrino_de_lazo' maxlength="90">
 				</p>
 				<div class="erf-separator"></div>	
 				<p class="wedding custom_field">
 					<label for="nombre_de_madrina_de_anillos">Nombre de madrina de anillos:</label>
-					<input  name="nombre_de_madrina_de_anillos" id='nombre_de_madrina_de_anillos'>
+					<input  name="nombre_de_madrina_de_anillos" id='nombre_de_madrina_de_anillos' maxlength="90">
 				</p>
 				<div class="erf-separator"></div>	
 				<p class="wedding custom_field">
 					<label for="nombre_de_padrino_de_anillos">Nombre de padrino de anillos:</label>
-					<input  name="nombre_de_padrino_de_anillos" id='nombre_de_padrino_de_anillos'>
+					<input  name="nombre_de_padrino_de_anillos" id='nombre_de_padrino_de_anillos' maxlength="90">
 				</p>
 				<div class="erf-separator"></div>	
 				<p class="wedding custom_field">
 					<label for="nombre_de_madrina_de_velacion">Nombre de madrina de velación:</label>
-					<input  name="nombre_de_madrina_de_velacion" id='nombre_de_madrina_de_velacion'>
+					<input  name="nombre_de_madrina_de_velacion" id='nombre_de_madrina_de_velacion' maxlength="90">
 				</p>
 				<div class="erf-separator"></div>	
 				<p class="wedding custom_field">
 					<label for="nombre_de_padrino_de_velacion">Nombre de padrino de velación:</label>
-					<input  name="nombre_de_padrino_de_velacion" id='nombre_de_padrino_de_velacion'>
+					<input  name="nombre_de_padrino_de_velacion" id='nombre_de_padrino_de_velacion' maxlength="90">
 				</p>
 				<p class="baptism_communion event_other custom_field" style="display: none;">
 					<label for="nombre_de_madrina">Nombre de la madrina:</label>
-					<input  name="nombre_de_madrina" id='nombre_de_madrina'>
+					<input  name="nombre_de_madrina" id='nombre_de_madrina' maxlength="90">
 				</p>
 				<div class="erf-separator"></div>	
 				<p class="baptism_communion event_other custom_field" style="display: none;">
 					<label for="nombre_de_padrino">Nombre del padrino:</label>
-					<input  name="nombre_de_padrino" id='nombre_de_padrino'>
+					<input  name="nombre_de_padrino" id='nombre_de_padrino' maxlength="90">
 				</p>
 			</div>
 		<?php endif; ?>
 		<div class="tab">
 			<div>
 				<p>
-					<img decoding="async" loading="lazy" alt="" src="https://fiesta.lezlynorman.com/wp-content/uploads/2022/12/7532d187d8a17fc549b702ce4a7230d5-200x300.jpg" class="size-medium wp-image-3840 aligncenter" width="200" height="300" srcset="https://fiesta.lezlynorman.com/wp-content/uploads/2022/12/7532d187d8a17fc549b702ce4a7230d5-200x300.jpg 200w, https://fiesta.lezlynorman.com/wp-content/uploads/2022/12/7532d187d8a17fc549b702ce4a7230d5.jpg 564w" sizes="(max-width: 200px) 100vw, 200px">
+					<img decoding="async" loading="lazy" alt="" src="https://floralunar.com/wp-content/uploads/2022/12/7532d187d8a17fc549b702ce4a7230d5-200x300.jpg" class="size-medium wp-image-3840 aligncenter" width="200" height="300" srcset="https://floralunar.com/wp-content/uploads/2022/12/7532d187d8a17fc549b702ce4a7230d5-200x300.jpg 200w, https://floralunar.com/wp-content/uploads/2022/12/7532d187d8a17fc549b702ce4a7230d5.jpg 564w" sizes="(max-width: 200px) 100vw, 200px">
 				</p>
 			</div>
 			<div>
@@ -523,7 +523,7 @@ button:hover {
 			<div class="erf-separator"></div>	
 			<p>
 				<label for="direccion_de_recepcion">Dirección de recepción:</label>
-				<input class="erf-field-required"  name="direccion_de_recepcion" id='direccion_de_recepcion'>
+				<input class="erf-field-required"  name="direccion_de_recepcion" id='direccion_de_recepcion' maxlength="190">
 			</p>
 			<div>
 				<a class="find-address button-primary" value="" data-type="reception">Ubicar en el mapa</a>
@@ -534,13 +534,13 @@ button:hover {
 			</p>
 			<p>
 				<label for="link_de_google_maps_de_recepcion">Link de google maps de recepción:</label>
-				<input  name="link_de_google_maps_de_recepcion" id='link_de_google_maps_de_recepcion'>
+				<input  name="link_de_google_maps_de_recepcion" id='link_de_google_maps_de_recepcion' maxlength="190">
 			</p>
 		</div>
 		<div class="tab">
 			<div>
 				<p>
-					<img decoding="async" loading="lazy" alt="" src="https://fiesta.lezlynorman.com/wp-content/uploads/2022/12/7cc7ba914e5214d0ddefcd661bf6428f-e1671561859483-300x230.jpg" class="size-medium wp-image-3839 aligncenter" width="300" height="230" srcset="https://fiesta.lezlynorman.com/wp-content/uploads/2022/12/7cc7ba914e5214d0ddefcd661bf6428f-e1671561859483-300x230.jpg 300w, https://fiesta.lezlynorman.com/wp-content/uploads/2022/12/7cc7ba914e5214d0ddefcd661bf6428f-e1671561859483.jpg 563w" sizes="(max-width: 300px) 100vw, 300px">
+					<img decoding="async" loading="lazy" alt="" src="https://floralunar.com/wp-content/uploads/2022/12/7cc7ba914e5214d0ddefcd661bf6428f-e1671561859483-300x230.jpg" class="size-medium wp-image-3839 aligncenter" width="300" height="230" srcset="https://floralunar.com/wp-content/uploads/2022/12/7cc7ba914e5214d0ddefcd661bf6428f-e1671561859483-300x230.jpg 300w, https://floralunar.com/wp-content/uploads/2022/12/7cc7ba914e5214d0ddefcd661bf6428f-e1671561859483.jpg 563w" sizes="(max-width: 300px) 100vw, 300px">
 				</p>
 			</div>
 			<div>
@@ -561,7 +561,7 @@ button:hover {
 			<div class="erf-separator"></div>	
 			<p>
 				<label for="direccion_de_ceremonia_religiosa">Dirección de ceremonia religiosa:</label>
-				<input  name="direccion_de_ceremonia_religiosa" id='direccion_de_ceremonia_religiosa'>
+				<input  name="direccion_de_ceremonia_religiosa" id='direccion_de_ceremonia_religiosa' maxlength="190">
 			</p>
 			<div>
 				<a class="find-address button-primary" value="" data-type="church">Ubicar en el mapa</a>
@@ -572,7 +572,7 @@ button:hover {
 			</p>
 			<p>
 				<label for="link_de_google_maps_de_ceremonia_religiosa">Link de google maps de ceremonia religiosa:</label>
-				<input  name="link_de_google_maps_de_ceremonia_religiosa" id='link_de_google_maps_de_ceremonia_religiosa'>
+				<input  name="link_de_google_maps_de_ceremonia_religiosa" id='link_de_google_maps_de_ceremonia_religiosa' maxlength="190">
 			</p>
 		</div>
 		<?php if ( in_array( $tipo_de_formulario, array( 'gold' ) ) ) : ?>
@@ -604,20 +604,20 @@ button:hover {
 				<div class="erf-separator"></div>
 				<p>
 					<label for="direccion_de_hotel">Dirección de hotel:</label>
-					<input  name="direccion_de_hotel" id='direccion_de_hotel'>
+					<input  name="direccion_de_hotel" id='direccion_de_hotel' maxlength="190">
 				</p>
 				<div>
 					<a class="find-address button-primary" value="" data-type="hotel">Ubicar en el mapa</a>
 				</div>
 				<p>
 					<label for="link_de_google_maps_de_hotel">Link de google maps de hotel:</label>
-					<input  name="link_de_google_maps_de_hotel" id='link_de_google_maps_de_hotel'>
+					<input  name="link_de_google_maps_de_hotel" id='link_de_google_maps_de_hotel' maxlength="190">
 				</p>
 				<p>
 					<label for="">
 						Convenio del hotel:
 					</label>
-					<input  name="codigo_de_descuento_de_hotel" id='codigo_de_descuento_de_hotel'>
+					<input  name="codigo_de_descuento_de_hotel" id='codigo_de_descuento_de_hotel' maxlength="90">
 					<small>Adjunta la liga web, sube tu documento a  https://wetransfer.com/ o escribe a continuación tu convenio de hotel.</small>
 				</p>
 				<p>
@@ -627,7 +627,7 @@ button:hover {
 					<small>
 						Opcional
 					</small>
-					<input name="sugerencia_de_transporte" id='sugerencia_de_transporte'>
+					<input name="sugerencia_de_transporte" id='sugerencia_de_transporte' maxlength="90">
 					<p>Si tu familia viaja, añade a continuación tu sugerencia de vuelos o de transporte:</p>
 				</p>
 			</div>
@@ -636,7 +636,7 @@ button:hover {
 			<div class="tab">
 				<div>
 					<p>
-					<img decoding="async" loading="lazy" alt="" src="https://fiesta.lezlynorman.com/wp-content/uploads/2022/12/regalo_boda-221x300.jpg" class="size-medium wp-image-3838 aligncenter" width="221" height="300">
+					<img decoding="async" loading="lazy" alt="" src="https://floralunar.com/wp-content/uploads/2022/12/regalo_boda-221x300.jpg" class="size-medium wp-image-3838 aligncenter" width="221" height="300">
 					</p>
 				</div>
 				<div class="erf-field-label">
@@ -700,7 +700,7 @@ button:hover {
 									Opcional
 								</small>
 						</label>
-						<input  name="hashtag" id='hashtag'>
+						<input  name="hashtag" id='hashtag' maxlength="90">
 						<div class="erf-field-description">
 							Si quieres crear una galería en Instagram para tu web, crea un hashtag. Omitir si no aplica.
 						</div>
@@ -722,7 +722,7 @@ button:hover {
 			<p>
 				Subir fotos
 			</p>
-			<input  name="galeria_de_fotos" id='galeria_de_fotos'>
+			<input  name="galeria_de_fotos" id='galeria_de_fotos' maxlength="190">
 			<div class="erf-field-description">
 				Sube las fotos que mas te gusten para que aparezcan en tu invitación (mínimo 4 máximo 15).
 			</div>
@@ -745,7 +745,7 @@ button:hover {
 					</p>
 					<p>
 						<label for="whatsapp_I_de_confirmacion">Whatsapp:</label>
-						<input  name="whatsapp_I_de_confirmacion" id='whatsapp_I_de_confirmacion'>
+						<input  name="whatsapp_I_de_confirmacion" id='whatsapp_I_de_confirmacion' maxlength="15">
 					</p>
 				<?php } else { ?>
 					<p>
@@ -753,11 +753,11 @@ button:hover {
 					</p>
 					<p>
 						<label for="correo_I_de_confirmacion">Correo electrónico:</label>
-						<input  name="correo_I_de_confirmacion" id='correo_I_de_confirmacion'>
+						<input  name="correo_I_de_confirmacion" id='correo_I_de_confirmacion' maxlength="40">
 					</p>
 					<p>
 						<label for="correo_II_de_confirmacion">Correo electrónico 2:</label>
-						<input  name="correo_II_de_confirmacion" id='correo_II_de_confirmacion'>
+						<input  name="correo_II_de_confirmacion" id='correo_II_de_confirmacion' maxlength="40">
 					</p>
 				<?php } ?>
 				<br>
@@ -786,7 +786,7 @@ button:hover {
 			</p>
 			<p>
 				<label for="personalizacion_grafica">Descripción gráfica:</label>
-				<input  name="personalizacion_grafica" id='personalizacion_grafica'>
+				<input  name="personalizacion_grafica" id='personalizacion_grafica' maxlength="190">
 				<div class="erf-field-description">
 					Tienes ejemplos visuales como fotos, diseños o imágenes que quieres usar como referencia? subelas en tu liga de wetransfer.
 				</div>
@@ -806,7 +806,7 @@ button:hover {
 				<div class="erf-image-choices-item erf-contact-choices-option erf-div-selected" data-id="whatsapp-contact-container">
 					<label>
 						<span>
-							<img class="checked-choice" decoding="async" src="https://fiesta.lezlynorman.com/wp-content/uploads/2022/12/124034.png" alt="Whatsapp" title="Whatsapp">
+							<img class="checked-choice" decoding="async" src="https://floralunar.com/wp-content/uploads/2022/12/124034.png" alt="Whatsapp" title="Whatsapp">
 						</span>
 						<div class="erf-separator"></div>	
 						<span>Whatsapp</span>
@@ -815,7 +815,7 @@ button:hover {
 				<div class="erf-image-choices-item erf-contact-choices-option" data-id="email-contact-container">
 					<label>
 						<span>
-							<img decoding="async" src="https://fiesta.lezlynorman.com/wp-content/uploads/2022/12/3158180.png" alt="Correo Eléctronico" title="Correo Eléctronico">
+							<img decoding="async" src="https://floralunar.com/wp-content/uploads/2022/12/3158180.png" alt="Correo Eléctronico" title="Correo Eléctronico">
 						</span>
 						<div class="erf-separator"></div>	
 						<span>
@@ -830,13 +830,13 @@ button:hover {
 					<label>
 						Escribe tu número de Whatsapp
 					</label>
-					<input type="number" class="erf-field-required"  name="whatsapp_de_contacto" id='whatsapp_de_contacto'/>
+					<input type="number" class="erf-field-required"  name="whatsapp_de_contacto" id='whatsapp_de_contacto' maxlength="15"/>
 				</p>
 			</div>
 			<div>
 				<p id='email-contact-container' style="display: none;">
 					<label>Escribre tu correo eléctronico</label>
-					<input type="email" class="erf-field-required"  name="correo_electronico_de_contacto" id='correo_electronico_de_contacto'/>
+					<input type="email" class="erf-field-required"  name="correo_electronico_de_contacto" id='correo_electronico_de_contacto' maxlength="45"/>
 				</p>
 			</div>
 			<div class="erf-field-description">
