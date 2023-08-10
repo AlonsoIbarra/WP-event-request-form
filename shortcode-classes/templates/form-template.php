@@ -339,26 +339,25 @@ button:hover {
 						<input type="date"  name="fecha_de_cierre" id="fecha_de_cierre">
 					</p>
 				</div>
+				<div>
+					<p>
+						<label class="erf-field-label">
+							Tu evento es abierto al público?
+						</label>
+						<p style='margin-left: 2rem !important;'>
+							<label for="abierto_al_publico_si">Sí</label>
+							<input class="erf-field-required" style='width:5%;' type="radio" name="abierto_al_publico" id="abierto_al_publico_si" value='1' checked>
+						</p>
+						<p style='margin-left: 2rem !important;'>
+							<label for="abierto_al_publico_no">No</label>
+							<input class="erf-field-required" style='width:5%;' type="radio" name="abierto_al_publico" id="abierto_al_publico_no" value='0'>
+						</p>
+						<p id="excel_format_link" style='margin-left: 2rem !important; display:none;'>
+							Para crear tu formulario cerrado, descarga la siguiente <a href="<?=EVENT_REQUEST_FORM_GUESTS_TEMPLATE?>" target="_blank" rel="noopener noreferrer">plantilla</a> y llenala con la lista de tus invitados al finalizar enviala por whatsapp a tu proveedor o al correo hola@floralunar.com
+						</p>
+					</p>
+				</div>
 			<?php endif; ?>
-
-			<div>
-				<p>
-					<label class="erf-field-label">
-						Tu evento es abierto al público?
-					</label>
-					<p style='margin-left: 2rem !important;'>
-						<label for="abierto_al_publico_si">Sí</label>
-						<input class="erf-field-required" style='width:5%;' type="radio" name="abierto_al_publico" id="abierto_al_publico_si" value='1' checked>
-					</p>
-					<p style='margin-left: 2rem !important;'>
-						<label for="abierto_al_publico_no">No</label>
-						<input class="erf-field-required" style='width:5%;' type="radio" name="abierto_al_publico" id="abierto_al_publico_no" value='0'>
-					</p>
-					<p id="excel_format_link" style='margin-left: 2rem !important; display:none;'>
-						Para crear tu formulario cerrado, descarga la siguiente <a href="<?=EVENT_REQUEST_FORM_GUESTS_TEMPLATE?>" target="_blank" rel="noopener noreferrer">plantilla</a> y llenala con la lista de tus invitados al finalizar enviala por whatsapp a tu proveedor o al correo hola@floralunar.com
-					</p>
-				</p>
-			</div>
 		</div>
 		<div class="tab">
 			<div style="display: flex;">
