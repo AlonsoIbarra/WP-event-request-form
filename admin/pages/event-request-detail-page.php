@@ -34,17 +34,38 @@ if ( ! class_exists( 'ERFDatabaseService' ) ) {
 }
 $db_service  = new ERFDatabaseService();
 $row         = null;
+$action      = 'see'; 
 $event_types = array(
 	'baptism_communion' => 'Bautismo o primera comunion',
 	'wedding'           => 'Boda',
 	'event_other'       => 'Otro',
 );
-
 if ( isset( $_GET['id'] ) ){
 	$row = $db_service->get_one( $_GET['id'] );
 }
+if ( isset( $_GET['action'] ) ) {
+	$action = $_GET['action'];
+}
 
-$template_path = dirname( __FILE__ ) . '/../templates/single-template.php';
+if ( isset( $_POST['save'] ) ) {
+	print_r($_POST);
+	$db_service->update_field(
+		$row->id,
+		'evl_evento_id',
+		$_POST['evl_evento_id']
+	);
+	$row = $db_service->get_one($row->id);
+}
 set_query_var( 'row', $row );
 set_query_var( 'event_types', $event_types );
+
+if ($action == 'edit') {
+	$url = menu_page_url( 'request-detail-view', false ).'&action=edit&id=' . $row->id;
+	$events = $db_service->get_events();
+	set_query_var( 'events', $events );
+	set_query_var( 'url', $url );
+	$template_path = dirname( __FILE__ ) . '/../templates/edit-single-template.php';
+} else {
+	$template_path = dirname( __FILE__ ) . '/../templates/single-template.php';
+}
 load_template( $template_path );

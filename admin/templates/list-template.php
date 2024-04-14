@@ -139,6 +139,12 @@ $query = ( isset( $_GET['q'] ) ) ? $_GET['q'] : '';
 					<?php echo esc_attr( __( 'Nombre del padrino de velación', 'event-request-form' ) ); ?>
 				</th>
 				<th>
+					<?php echo esc_attr( __( 'Padrinos extra', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Nombre del lugar de recepción', 'event-request-form' ) ); ?>
+				</th>
+				<th>
 					<?php echo esc_attr( __( 'Direccion de recepción', 'event-request-form' ) ); ?>
 				</th>
 				<th>
@@ -146,6 +152,9 @@ $query = ( isset( $_GET['q'] ) ) ? $_GET['q'] : '';
 				</th>
 				<th>
 					<?php echo esc_attr( __( 'Link de google maps de recepción', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Nombre del lugar de ceremonia religiosa', 'event-request-form' ) ); ?>
 				</th>
 				<th>
 					<?php echo esc_attr( __( 'Dirección de ceremonia religiosa', 'event-request-form' ) ); ?>
@@ -164,6 +173,12 @@ $query = ( isset( $_GET['q'] ) ) ? $_GET['q'] : '';
 				</th>
 				<th>
 					<?php echo esc_attr( __( 'Liga o el codigo de descuento del convenio de hospedaje', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Datos de hotel 2', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Datos de hotel 3', 'event-request-form' ) ); ?>
 				</th>
 				<th>
 					<?php echo esc_attr( __( 'Sugerencia de transporte', 'event-request-form' ) ); ?>
@@ -206,6 +221,15 @@ $query = ( isset( $_GET['q'] ) ) ? $_GET['q'] : '';
 				</th>
 				<th>
 					<?php echo esc_attr( __( 'Comentarios y sugerencias', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Ropa formal', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'No niños', 'event-request-form' ) ); ?>
+				</th>
+				<th>
+					<?php echo esc_attr( __( 'Otra recomendación', 'event-request-form' ) ); ?>
 				</th>
 				<th>
 					<?php echo esc_attr( __( 'Options', 'event-request-form' ) ); ?>
@@ -310,6 +334,12 @@ $query = ( isset( $_GET['q'] ) ) ? $_GET['q'] : '';
 						<?php echo esc_attr( $row->nombre_de_padrino_de_velacion ); ?>
 					</td>
 					<td>
+						<?php echo esc_attr( $row->padrinos_extra ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->nombre_de_recepcion ); ?>
+					</td>
+					<td>
 						<?php echo esc_attr( $row->direccion_de_recepcion ); ?>
 					</td>
 					<td>
@@ -319,6 +349,9 @@ $query = ( isset( $_GET['q'] ) ) ? $_GET['q'] : '';
 						<a href="<?php echo esc_attr( $row->link_de_google_maps_de_recepcion ); ?>" target="_blank">
 							<?php echo esc_attr( $row->link_de_google_maps_de_recepcion ); ?>
 						</a>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->nombre_de_ceremonia_religiosa ); ?>
 					</td>
 					<td>
 						<?php echo esc_attr( $row->direccion_de_ceremonia_religiosa ); ?>
@@ -342,6 +375,12 @@ $query = ( isset( $_GET['q'] ) ) ? $_GET['q'] : '';
 					</td>
 					<td>
 						<?php echo esc_attr( $row->codigo_de_descuento_de_hotel ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->datos_de_hotel_2 ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->datos_de_hotel_3 ); ?>
 					</td>
 					<td>
 						<?php echo esc_attr( $row->sugerencia_de_transporte ); ?>
@@ -386,6 +425,15 @@ $query = ( isset( $_GET['q'] ) ) ? $_GET['q'] : '';
 						<?php echo esc_attr( $row->comentarios_y_sugerencias ); ?>
 					</td>
 					<td>
+						<?php echo esc_attr( $row->ropa_formal ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->no_ninos ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->recomendacion_otra ); ?>
+					</td>
+					<td>
 						<div>
 							<ul>
 								<li>
@@ -396,6 +444,11 @@ $query = ( isset( $_GET['q'] ) ) ? $_GET['q'] : '';
 								<li>
 									<a href="#">
 										<span data-name="<?php echo $row->nombre_del_cliente; ?>" data-id="<?php echo $row->id; ?>" class="dashicons dashicons-trash event-request-remove-item"></span>
+									</a>
+								</li>
+								<li>
+									<a href="<?php echo $url . '&action=edit&id=' . $row->id; ?>" target="_blank">
+										<span data-name="<?php echo $row->nombre_del_cliente; ?>" data-id="<?php echo $row->id; ?>" class="dashicons dashicons-edit"></span>
 									</a>
 								</li>
 							</ul>

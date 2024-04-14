@@ -216,6 +216,7 @@ if ( ! function_exists( 'event_requests_plugin_settings_instructions' ) ) {
 	function event_requests_plugin_settings_instructions() {
 		echo sprintf( '<p>%s</p>',  __( 'Here you can update Plug-in settings.', 'event-request-form' ) );
 		echo '<p>Form shortcode: [ERF_FORM type="gold|silver|bronze"]</p>';
+		echo '<p>Shortcode para formulario de edición: [ERF_EDIT_FORM]</p>';
 	}
 }
 
@@ -302,6 +303,25 @@ if ( ! function_exists( 'erf_enqueue_google_maps_api_js' ) ) {
 }
 add_action( 'init', 'erf_enqueue_google_maps_api_js' );
 
+
+if ( ! function_exists( 'custom_plugin_enqueue_bootstrap' ) ) {
+	/**
+	 * Action hook to enqueue Bootstrap CSS and JS.
+	 *
+	 * @since    1.0.0
+	 */
+	function custom_plugin_enqueue_bootstrap() {
+		// Enqueue Bootstrap CSS
+		wp_enqueue_style('bootstrap-css', 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css');
+
+		// Enqueue Bootstrap JS (add popper.js if you need tooltips or popovers)
+		wp_enqueue_script('popper-js', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js', array(), false, true);
+		wp_enqueue_script('bootstrap-js', 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js', array('jquery', 'popper-js'), false, true);
+	}
+
+	add_action('wp_enqueue_scripts', 'custom_plugin_enqueue_bootstrap');
+}
+
 if ( ! function_exists( 'erf_send_form_data' ) ) {
 	/**
 	 * Function to send form row data to drive file.
@@ -314,6 +334,7 @@ if ( ! function_exists( 'erf_send_form_data' ) ) {
 			return 'Access forbidden. Key does not exists.';
 		}
 
+		$id                                         = sanitize_text_field( isset($_POST['id']) ? $_POST['id'] : null );
 		$tipo_de_formulario                         = sanitize_text_field( wp_unslash( $_POST['tipo_de_formulario'] ) );
 		$nombre_del_cliente                         = sanitize_text_field( wp_unslash( $_POST['nombre_del_cliente'] ) );
 		$tipo_de_evento                             = sanitize_text_field( wp_unslash( $_POST['tipo_de_evento'] ) );
@@ -340,15 +361,20 @@ if ( ! function_exists( 'erf_send_form_data' ) ) {
 		$nombre_de_padrino_de_anillos               = sanitize_text_field( wp_unslash( $_POST['nombre_de_padrino_de_anillos'] ) );
 		$nombre_de_madrina_de_velacion              = sanitize_text_field( wp_unslash( $_POST['nombre_de_madrina_de_velacion'] ) );
 		$nombre_de_padrino_de_velacion              = sanitize_text_field( wp_unslash( $_POST['nombre_de_padrino_de_velacion'] ) );
+		$padrinos_extra                             = sanitize_text_field( wp_unslash( $_POST['padrinos_extra'] ) );
+		$nombre_de_ceremonia_religiosa              = sanitize_text_field( wp_unslash( $_POST['nombre_de_ceremonia_religiosa'] ) );
 		$direccion_de_ceremonia_religiosa           = sanitize_text_field( wp_unslash( $_POST['direccion_de_ceremonia_religiosa'] ) );
 		$hora_de_ceremonia_religiosa                = sanitize_text_field( wp_unslash( $_POST['hora_de_ceremonia_religiosa'] ) );
 		$link_de_google_maps_de_ceremonia_religiosa = sanitize_text_field( wp_unslash( $_POST['link_de_google_maps_de_ceremonia_religiosa'] ) );
+		$nombre_de_recepcion                        = sanitize_text_field( wp_unslash( $_POST['nombre_de_recepcion'] ) );
 		$direccion_de_recepcion                     = sanitize_text_field( wp_unslash( $_POST['direccion_de_recepcion'] ) );
 		$hora_de_recepcion                          = sanitize_text_field( wp_unslash( $_POST['hora_de_recepcion'] ) );
 		$link_de_google_maps_de_recepcion           = sanitize_text_field( wp_unslash( $_POST['link_de_google_maps_de_recepcion'] ) );
 		$direccion_de_hotel                         = sanitize_text_field( wp_unslash( $_POST['direccion_de_hotel'] ) );
 		$link_de_google_maps_de_hotel               = sanitize_text_field( wp_unslash( $_POST['link_de_google_maps_de_hotel'] ) );
 		$codigo_de_descuento_de_hotel               = sanitize_text_field( wp_unslash( $_POST['codigo_de_descuento_de_hotel'] ) );
+		$datos_de_hotel_2                           = sanitize_text_field( wp_unslash( $_POST['datos_de_hotel_2'] ) );
+		$datos_de_hotel_3                           = sanitize_text_field( wp_unslash( $_POST['datos_de_hotel_3'] ) );
 		$sugerencia_de_transporte                   = sanitize_text_field( wp_unslash( $_POST['sugerencia_de_transporte'] ) );
 		$mesa_de_regalos                            = sanitize_text_field( wp_unslash( $_POST['mesa_de_regalos'] ) );
 		$intinerario_de_evento                      = sanitize_text_field( wp_unslash( $_POST['intinerario_de_evento'] ) );
@@ -364,6 +390,9 @@ if ( ! function_exists( 'erf_send_form_data' ) ) {
 		$whatsapp_de_contacto                       = sanitize_text_field( wp_unslash( $_POST['whatsapp_de_contacto'] ) );
 		$correo_electronico_de_contacto             = sanitize_text_field( wp_unslash( $_POST['correo_electronico_de_contacto'] ) );
 		$comentarios_y_sugerencias                  = sanitize_text_field( wp_unslash( $_POST['comentarios_y_sugerencias'] ) );
+		$ropa_formal                                = sanitize_text_field( wp_unslash( $_POST['ropa_formal'] ) );
+		$no_ninos                                   = sanitize_text_field( wp_unslash( $_POST['no_ninos'] ) );
+		$recomendacion_otra                         = sanitize_text_field( wp_unslash( $_POST['recomendacion_otra'] ) );
 
 		if ( wp_doing_ajax() ) {
 			try {
@@ -398,15 +427,20 @@ if ( ! function_exists( 'erf_send_form_data' ) ) {
 					'nombre_de_padrino_de_anillos'         => $nombre_de_padrino_de_anillos,
 					'nombre_de_madrina_de_velacion'        => $nombre_de_madrina_de_velacion,
 					'nombre_de_padrino_de_velacion'        => $nombre_de_padrino_de_velacion,
+		            'padrinos_extra'                       => $padrinos_extra,
+		            'nombre_de_ceremonia_religiosa'        => $nombre_de_ceremonia_religiosa,
 					'direccion_de_ceremonia_religiosa'     => $direccion_de_ceremonia_religiosa,
 					'hora_de_ceremonia_religiosa'          => $hora_de_ceremonia_religiosa,
 					'link_de_google_maps_de_ceremonia_religiosa' => $link_de_google_maps_de_ceremonia_religiosa,
+		            'nombre_de_recepcion'                  => $nombre_de_recepcion,
 					'direccion_de_recepcion'               => $direccion_de_recepcion,
 					'hora_de_recepcion'                    => $hora_de_recepcion,
 					'link_de_google_maps_de_recepcion'     => $link_de_google_maps_de_recepcion,
 					'direccion_de_hotel'                   => $direccion_de_hotel,
 					'link_de_google_maps_de_hotel'         => $link_de_google_maps_de_hotel,
 					'codigo_de_descuento_de_hotel'         => $codigo_de_descuento_de_hotel,
+		            'datos_de_hotel_2'                     => $datos_de_hotel_2,
+		            'datos_de_hotel_3'                     => $datos_de_hotel_3,
 					'sugerencia_de_transporte'             => $sugerencia_de_transporte,
 					'mesa_de_regalos'                      => $mesa_de_regalos,
 					'intinerario_de_evento'                => $intinerario_de_evento,
@@ -422,9 +456,26 @@ if ( ! function_exists( 'erf_send_form_data' ) ) {
 					'whatsapp_de_contacto'                 => $whatsapp_de_contacto,
 					'correo_electronico_de_contacto'       => $correo_electronico_de_contacto,
 					'comentarios_y_sugerencias'            => $comentarios_y_sugerencias,
+		            'ropa_formal'                          => $ropa_formal,
+		            'no_ninos'                             => $no_ninos,
+		            'recomendacion_otra'                   => $recomendacion_otra,
 				);
-				$id = $db_service->insert_row( $data );
-				event_request_send_email( $data );
+
+				if ($id) {
+					$params = array(
+						'subject' => 'Se ha editado la entrada de un formulario',
+						'message' => 'Se a actualizado el registro de un formulario. <br><br>',
+					);
+					$db_service->update_row( $id, $data );
+				} else {
+					$params = array(
+						'subject' => 'Nueva entrada de formulario',
+						'message' => 'Se a guardado un nuevo registro del formulario. <br><br>',
+					);
+					$id = $db_service->insert_row( $data );
+				}
+
+				event_request_send_email($params, $data );
 				wp_send_json_success( $id );
 			} catch ( Exception $e ) {
 				wp_send_json_error(
@@ -440,6 +491,129 @@ if ( ! function_exists( 'erf_send_form_data' ) ) {
 }
 add_action( 'wp_ajax_erf_send_form_data', 'erf_send_form_data' );
 add_action( 'wp_ajax_nopriv_erf_send_form_data', 'erf_send_form_data' );
+
+if ( ! function_exists( 'erf_save_new_event_guest' ) ) {
+	/**
+	 * Function to save a new event guest.
+	 *
+	 * @since    1.0.0
+	 */
+	function erf_save_new_event_guest() {
+
+		if ( ! isset( $_POST['key'] ) || '' === $_POST['key'] ) {
+			wp_send_json_error(
+				__( 'Access forbidden. Key does not exists.', 'event-request-form' )
+			);	
+		}
+
+		if (!wp_doing_ajax()) {
+			wp_send_json_error(
+				__( 'This function can not be used without ajax call.', 'event-request-form' )
+			);	
+		}
+
+		try {
+			if ( ! class_exists( 'ERFDatabaseService' ) ) {
+				require_once plugin_dir_path( __FILE__ ) . 'services/class-erfdatabaseservice.php';
+			}
+			$db_service         = new ERFDatabaseService();
+			$eventId            = intval($_POST['eventId']);
+			$guestFirstName     = sanitize_text_field($_POST['guestFirstName']);
+			$guestLastName      = sanitize_text_field($_POST['guestLastName']);
+			$adultCompanions    = sanitize_text_field($_POST['adultCompanions']);
+			$childrenCompanions = sanitize_text_field($_POST['childrenCompanions']);
+
+			if (!is_int($eventId)) {
+				wp_send_json_error(
+					__( 'Hay un error con el id del evento, intente nuevamente.', 'event-request-form' )
+				);	
+			}
+
+			if ('' == $guestFirstName) {
+				wp_send_json_error(
+					__( 'El nombre del invitado no puede estar vacio.', 'event-request-form' )
+				);	
+			}
+
+			$data = array(
+				'id_event'            => $eventId,
+				'first_name'          => $guestFirstName,
+				'last_name'           => $guestLastName ?? '',
+				'adult_companions'    => $adultCompanions ?? '',
+				'children_companions' => $childrenCompanions ?? '',
+				'qr_code'             => generateRandomString(25),
+			);
+
+			$id = $db_service->addGuest($data);
+
+			if (filter_var($id, FILTER_VALIDATE_INT) !== false) {
+				$params = array(
+					'subject' => 'Se ha agregado un nuevo invitado a un evento',
+					'message' => 'Se ha agregado un invitado desde el formulario de edición. <br><br>',
+				);
+				event_request_send_email($params, $data);
+				wp_send_json_success($id);
+			} else {
+				wp_send_json_error(
+					__( 'Hubo un error con el id del evento, no se pudo registrar el invitado.', 'event-request-form' )
+				);
+			}
+			
+		} catch ( Exception $e ) {
+			wp_send_json_error(
+				$e->message
+			);
+		}
+	}
+}
+add_action( 'wp_ajax_erf_save_new_event_guest', 'erf_save_new_event_guest' );
+add_action( 'wp_ajax_nopriv_erf_save_new_event_guest', 'erf_save_new_event_guest' );
+
+if ( ! function_exists( 'generateRandomString' ) ) {
+	/**
+	 * Function to get a random string.
+	 *
+	 * @since    1.0.0
+	 */
+	function generateRandomString($length) {
+		$base='0123456789abcdefghijklmnopqrstuvwxyz';
+
+		return substr(str_shuffle(
+			str_repeat($base, ceil($length/strlen($base)))
+		), 1, $length);
+	}
+}
+
+if ( ! function_exists( 'erf_remove_guest_row' ) ) {
+	/**
+	 * Function to send form row data to drive file.
+	 *
+	 * @since    1.0.0
+	 */
+	function erf_remove_guest_row() {
+
+		if ( ! isset( $_POST['key'] ) || '' === $_POST['key'] ) {
+			return 'Access forbidden. Key does not exists.';
+		}
+		if (!wp_doing_ajax() ) {
+			wp_send_json_error(
+				__( 'This feature can not be used without ajax call.', 'event-request-form' )
+			);
+		}
+		$id = $_POST['id'];
+		$eventId = $_POST['eventId'];
+		$db_service = new ERFDatabaseService();
+
+		$db_service->removeGuest(
+			$id,
+			$eventId
+		);
+		wp_send_json_success(true);
+
+	}
+}
+add_action( 'wp_ajax_erf_remove_guest_row', 'erf_remove_guest_row' );
+add_action( 'wp_ajax_nopriv_erf_remove_guest_row', 'erf_remove_guest_row' );
 
 if ( ! function_exists( 'erf_check_field_row' ) ) {
 	/**
@@ -488,13 +662,16 @@ if ( ! function_exists( 'event_request_send_email' ) ) {
 	 * Send email to notify about new form request row.
 	 *
 	 * @since    1.0.0
+	 * @param    array $params Email sending params.
 	 * @param    array $data Form fields value.
 	 */
-	function event_request_send_email( $data ) {
+	function event_request_send_email( $params, $data ) {
 		$settings = get_option( 'event_requests_plugin_settings_options' );
 		$to = $settings['email'];
-		$subject = 'Nueva entrada de formulario';
-		$message = 'Se a guardado un nuevo registro del formulario. <br><br>';
+		// $subject = 'Nueva entrada de formulario';
+		$subject = $params['subject'];
+		// $message = 'Se a guardado un nuevo registro del formulario. <br><br>';
+		$message = $params['message'];
 
 		$message .=  "<table>";
 		foreach ( $data as $key => $value ) {

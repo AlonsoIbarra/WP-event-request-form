@@ -167,6 +167,14 @@
 		<?php echo $row->nombre_de_padrino_de_velacion; ?>
 	</td>
 </tr>
-
+<tr>
+	<td>
+		<div>
+			<strong>
+				<?php echo esc_attr( __( 'Padrinos extra', 'event-request-form' ) ); ?>
+			</strong>	
+		<?php echo $row->padrinos_extra; ?>
+	</td>
+</tr>
 
 

@@ -497,6 +497,12 @@ button:hover {
 					<label for="nombre_de_padrino">Nombre del padrino:</label>
 					<input  name="nombre_de_padrino" id='nombre_de_padrino' maxlength="90">
 				</p>
+
+				<div class="erf-separator"></div>	
+				<p class="wedding baptism_communion event_other custom_field">
+					<label for="padrinos_extra">¿Tienes más padrinos? Mencionalos aquí:</label>
+					<textarea  name="padrinos_extra" id='padrinos_extra'></textarea>
+				</p>
 			</div>
 		<?php endif; ?>
 		<div class="tab">
@@ -520,6 +526,10 @@ button:hover {
 				<div id="erf-map-reception" class="erf-googlemap" ></div>
 			</div>
 			<div class="erf-separator"></div>	
+			<p>
+				<label for="nombre_de_recepcion">Nombre del lugar:</label>
+				<input class="erf-field-required"  name="nombre_de_recepcion" id='nombre_de_recepcion' maxlength="100">
+			</p>
 			<p>
 				<label for="direccion_de_recepcion">Dirección de recepción:</label>
 				<input class="erf-field-required"  name="direccion_de_recepcion" id='direccion_de_recepcion' maxlength="190">
@@ -557,7 +567,11 @@ button:hover {
 			<div style="text-align: center;">
 				<div id="erf-map-church" class="erf-googlemap" ></div>
 			</div>
-			<div class="erf-separator"></div>	
+			<div class="erf-separator"></div>
+			<p>
+				<label for="nombre_de_ceremonia_religiosa">Nombre del lugar:</label>
+				<input name="nombre_de_ceremonia_religiosa" id='nombre_de_ceremonia_religiosa' maxlength="100">
+			</p>
 			<p>
 				<label for="direccion_de_ceremonia_religiosa">Dirección de ceremonia religiosa:</label>
 				<input  name="direccion_de_ceremonia_religiosa" id='direccion_de_ceremonia_religiosa' maxlength="190">
@@ -620,12 +634,31 @@ button:hover {
 					<small>Adjunta la liga web, sube tu documento a  https://wetransfer.com/ o escribe a continuación tu convenio de hotel.</small>
 				</p>
 				<p>
+					<label for="datos_de_hotel_2">
+						Opción hotel 2:
+						<small>
+							Opcional
+						</small>
+					</label>
+					<textarea  name="datos_de_hotel_2" id='datos_de_hotel_2'></textarea>
+				</p>
+				<p>
+					<label for="datos_de_hotel_3">
+						Opción hotel 3:
+						<small>
+							Opcional
+						</small>
+					</label>
+					<textarea  name="datos_de_hotel_3" id='datos_de_hotel_3'></textarea>
+				</p>
+
+				<p>
 					<label for="">
 						Vuelos o translados:
+						<small>
+							Opcional
+						</small>
 					</label>
-					<small>
-						Opcional
-					</small>
 					<input name="sugerencia_de_transporte" id='sugerencia_de_transporte' maxlength="90">
 					<p>Si tu familia viaja, añade a continuación tu sugerencia de vuelos o de transporte:</p>
 				</p>
@@ -675,21 +708,6 @@ button:hover {
 		<?php endif; ?>
 		<?php if ( in_array( $tipo_de_formulario, array( 'silver', 'gold' ) ) ) : ?>
 			<div class="tab">
-				<?php if ( in_array( $tipo_de_formulario, array( 'silver' ) ) ) : ?>
-					<p>
-						<label class="erf-field-label" for="recomendaciones">
-								Recomendaciones generales:
-								<br>
-								<small>
-									Opcional
-								</small>
-						</label>
-						<textarea  name="recomendaciones" id='recomendaciones'></textarea>
-						<div class="erf-field-description">
-							Añade cualquier indicación que gustas que aparezca en tu invitación(tipo de vestimenta, cuidados de salud etc). Omitir si no aplica
-						</div>
-					</p>
-				<?php endif; ?>
 				<?php if ( in_array( $tipo_de_formulario, array( 'silver', 'gold' ) ) ) : ?>
 					<p>
 						<label class="erf-field-label" for="hashtag">
@@ -702,6 +720,48 @@ button:hover {
 						<input  name="hashtag" id='hashtag' maxlength="90">
 						<div class="erf-field-description">
 							Si quieres crear una galería en Instagram para tu web, crea un hashtag. Omitir si no aplica.
+						</div>
+					</p>
+					<p>
+						<!-- Checkbox para Código de Vestimenta -->
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value="1" name="ropa_formal" id="ropa_formal" >
+							<label class="form-check-label" for="ropa_formal">
+								Ropa formal
+							</label>
+						</div>
+
+						<!-- Checkbox para Mascotas -->
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value="1" name="no_ninos" id="no_ninos" >
+							<label class="form-check-label" for="no_ninos">
+								No niños
+							</label>
+						</div>
+
+						<!-- Otro checkbox -->
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" id="recomendacion_otraCheck" name="recomendacion_otraCheck">
+							<label class="form-check-label" for="recomendacion_otraCheck">
+								Otra
+							</label>
+							<input type="text" name="recomendacion_otra" id="recomendacion_otra" disabled>
+						</div>
+					</p>
+				<?php endif; ?>
+				<?php if ( in_array( $tipo_de_formulario, array( 'silver' ) ) ) : ?>
+
+					<p>
+						<label class="erf-field-label" for="recomendaciones">
+								Recomendaciones generales:
+								<br>
+								<small>
+									Opcional
+								</small>
+						</label>
+						<textarea  name="recomendaciones" id='recomendaciones'></textarea>
+						<div class="erf-field-description">
+							Añade cualquier indicación que gustas que aparezca en tu invitación(tipo de vestimenta, cuidados de salud etc). Omitir si no aplica
 						</div>
 					</p>
 				<?php endif; ?>
@@ -1142,6 +1202,19 @@ button:hover {
 				});
 			});
 		});
+		jQuery('#recomendacion_otraCheck').on('change', function(event){
+			const checked = jQuery(this).prop('checked');
+
+			if (checked) {
+				jQuery('#recomendacion_otra').addClass('erf-field-required');
+				jQuery('#recomendacion_otra').removeAttr('disabled');
+			}else{
+				jQuery('#recomendacion_otra').removeClass('erf-field-required');
+				jQuery('#recomendacion_otra').attr( 'disabled', 'disabled' );
+				jQuery('#recomendacion_otra').val(null);
+			}
+		});
+
 	</script>
 	<script>
 		var currentTab = 0;
@@ -1214,15 +1287,20 @@ button:hover {
 					nombre_de_padrino_de_anillos: jQuery('#nombre_de_padrino_de_anillos').val(),
 					nombre_de_madrina_de_velacion: jQuery('#nombre_de_madrina_de_velacion').val(),
 					nombre_de_padrino_de_velacion: jQuery('#nombre_de_padrino_de_velacion').val(),
+					padrinos_extra: jQuery('#padrinos_extra').val(),
+					nombre_de_ceremonia_religiosa: jQuery('#nombre_de_ceremonia_religiosa').val(),
 					direccion_de_ceremonia_religiosa: jQuery('#direccion_de_ceremonia_religiosa').val(),
 					hora_de_ceremonia_religiosa: jQuery('#hora_de_ceremonia_religiosa').val(),
 					link_de_google_maps_de_ceremonia_religiosa: jQuery('#link_de_google_maps_de_ceremonia_religiosa').val(),
+					nombre_de_recepcion: jQuery('#nombre_de_recepcion').val(),
 					direccion_de_recepcion: jQuery('#direccion_de_recepcion').val(),
 					hora_de_recepcion: jQuery('#hora_de_recepcion').val(),
 					link_de_google_maps_de_recepcion: jQuery('#link_de_google_maps_de_recepcion').val(),
 					direccion_de_hotel: jQuery('#direccion_de_hotel').val(),
 					link_de_google_maps_de_hotel: jQuery('#link_de_google_maps_de_hotel').val(),
 					codigo_de_descuento_de_hotel: jQuery('#codigo_de_descuento_de_hotel').val(),
+					datos_de_hotel_2: jQuery('#datos_de_hotel_2').val(),
+					datos_de_hotel_3: jQuery('#datos_de_hotel_3').val(),
 					sugerencia_de_transporte: jQuery('#sugerencia_de_transporte').val(),
 					mesa_de_regalos: jQuery('#mesa_de_regalos').val(),
 					intinerario_de_evento: jQuery('#intinerario_de_evento').val(),
@@ -1238,6 +1316,9 @@ button:hover {
 					whatsapp_de_contacto: jQuery('#whatsapp_de_contacto').val(),
 					correo_electronico_de_contacto: jQuery('#correo_electronico_de_contacto').val(),
 					comentarios_y_sugerencias: jQuery('#comentarios_y_sugerencias').val(),
+					ropa_formal: jQuery('#ropa_formal').val(),
+					no_ninos: jQuery('#no_ninos').val(),
+					recomendacion_otra: jQuery('#recomendacion_otra').val(),
 				},
 				success: function(response){
 					jQuery('#loading-gif').fadeOut();

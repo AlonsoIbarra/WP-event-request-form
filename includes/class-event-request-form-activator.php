@@ -65,6 +65,8 @@ class Event_Request_Form_Activator {
 		nombre_de_padrino_de_anillos varchar(100) DEFAULT '' NOT NULL,
 		nombre_de_madrina_de_velacion varchar(100) DEFAULT '' NOT NULL,
 		nombre_de_padrino_de_velacion varchar(100) DEFAULT '' NOT NULL,
+		padrinos_extra TEXT,
+		nombre_de_ceremonia_religiosa varchar(200) DEFAULT '' NOT NULL,
 		direccion_de_ceremonia_religiosa varchar(200) DEFAULT '' NOT NULL,
 		ciudad_de_ceremonia_religiosa varchar(50) DEFAULT '' NOT NULL,
 		estado_de_ceremonia_religiosa varchar(50) DEFAULT '' NOT NULL,
@@ -72,6 +74,7 @@ class Event_Request_Form_Activator {
 		codigo_postal_de_ceremonia_religiosa varchar(10) DEFAULT '' NOT NULL,
 		hora_de_ceremonia_religiosa varchar(20) DEFAULT '' NOT NULL,
 		link_de_google_maps_de_ceremonia_religiosa varchar(200) DEFAULT '' NOT NULL,
+		nombre_de_recepcion varchar(200) DEFAULT '' NOT NULL,
 		direccion_de_recepcion varchar(200) DEFAULT '' NOT NULL,
 		ciudad_de_recepcion varchar(50) DEFAULT '' NOT NULL,
 		estado_de_recepcion varchar(50) DEFAULT '' NOT NULL,
@@ -86,6 +89,8 @@ class Event_Request_Form_Activator {
 		codigo_postal_de_hotel varchar(10) DEFAULT '' NOT NULL,
 		link_de_google_maps_de_hotel varchar(200) DEFAULT '' NOT NULL,
 		codigo_de_descuento_de_hotel varchar(100) DEFAULT '' NOT NULL,
+		datos_de_hotel_2 TEXT,
+		datos_de_hotel_3 TEXT,
 		sugerencia_de_transporte varchar(100) DEFAULT '' NOT NULL,
 		mesa_de_regalos varchar(200) DEFAULT '' NOT NULL,
 		intinerario_de_evento TEXT,
@@ -101,6 +106,9 @@ class Event_Request_Form_Activator {
 		whatsapp_de_contacto varchar(15) DEFAULT '' NOT NULL,
 		correo_electronico_de_contacto varchar(50) DEFAULT '' NOT NULL,
 		comentarios_y_sugerencias TEXT,
+		ropa_formal TINYINT DEFAULT 0,
+		no_ninos TINYINT DEFAULT 0,
+		recomendacion_otra varchar(200) DEFAULT '' NOT NULL,
 		nombre_del_cliente_bool TINYINT DEFAULT 0,
 		tipo_de_evento_bool TINYINT DEFAULT 0,
 		abierto_al_publico_bool TINYINT DEFAULT 0,
@@ -159,6 +167,7 @@ class Event_Request_Form_Activator {
 		whatsapp_de_contacto_bool TINYINT DEFAULT 0,
 		correo_electronico_de_contacto_bool TINYINT DEFAULT 0,
 		comentarios_y_sugerencias_bool TINYINT DEFAULT 0,
+		evl_evento_id int DEFAULT NULL,
 		PRIMARY KEY  (id)
 		) $charset_collate;";
 
