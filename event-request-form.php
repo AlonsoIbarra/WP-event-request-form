@@ -830,3 +830,51 @@ if ( ! function_exists( 'erf_woocommerce_checkout_add_custom_attributes' ) ) {
 	}
 	add_filter( 'woocommerce_checkout_fields', 'erf_woocommerce_checkout_add_custom_attributes' );
 }
+
+
+if ( ! function_exists( 'erf_endpoint_get_event_data' ) ) {
+	/**
+	 * Endpoint function to retrieve event data by API endpoint.
+	 *
+	 * @since    1.0.0
+	 */
+	function erf_endpoint_get_event_data() {
+		try {
+			if ( ! class_exists( 'ERFDatabaseService' ) ) {
+				require_once plugin_dir_path( __FILE__ ) . 'services/class-erfdatabaseservice.php';
+			}
+			
+			$token     = base64_decode(esc_attr($_POST['token-code']));
+			$dbService = new ERFDatabaseService();
+			$row       = $dbService->get_by_token($token);
+
+			if (null == $row) {
+				wp_send_json_error(
+					__( 'Hubo un error con la petición, revise los parametros enviados.', 'event-request-form' )
+				);
+			}
+
+			$data['event'] = $row;
+			if (function_exists('getGuestsWithAnswers') && $row->evl_evento_id) {
+				$localDB   = new DBService();
+				$guests    = getGuestsWithAnswers($localDB, $row->evl_evento_id);
+				$questions = $localDB->get_records('questions', [["", ["id_event", "=", $row->evl_evento_id]]] );
+				$data['guests']    = $guests;
+				$data['questions'] = $questions;
+			}
+
+			wp_send_json_success($data);
+			
+		} catch ( Exception $e ) {
+			wp_send_json_error(
+				$e->getMessage()
+			);
+		}
+	}
+	add_action('rest_api_init', function () {
+		register_rest_route('erf/v1', '/get-event', array(
+			'methods' => 'POST',
+			'callback' => 'erf_endpoint_get_event_data',
+		));
+	});
+}
