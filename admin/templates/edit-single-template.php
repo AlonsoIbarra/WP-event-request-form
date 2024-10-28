@@ -12,7 +12,7 @@ if ( ! $row ) {
 	return;
 }
 ?>
-<div id="loading-gif" style="display:none; position: fixed; width:5%; top: 50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%);">
+<div id="loading-gif" style="display:none; width:100%; position:fixed; top:10%; left:0; z-index:9999;">
 	<img src="https://floralunar.com/wp-content/uploads/2023/02/loading-loading-forever.gif" style="width: 50%;">
 </div>
 
@@ -344,6 +344,16 @@ if ( ! $row ) {
 							<?php echo esc_attr( __( 'Comentarios y sugerencias', 'event-request-form' ) ); ?>
 						</strong>	
 						<?php echo $row->comentarios_y_sugerencias; ?>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div>
+						<strong>
+							<?php echo esc_attr( __( 'Agregar Música', 'event-request-form' ) ); ?>
+						</strong>	
+						<?php echo $row->youtube_link; ?>
 					</div>
 				</td>
 			</tr>

@@ -11,7 +11,7 @@
 $url = menu_page_url( 'request-detail-view', false );
 $query = ( isset( $_GET['q'] ) ) ? $_GET['q'] : '';
 ?>
-<div id="loading-gif" style="display:none; position: fixed; width:5%; top: 50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%);">
+<div id="loading-gif" style="display:none; position: fixed; width:5%; top: 10%; left: 0%; transform: translate(-50%, -50%);">
 	<img src="https://floralunar.com/wp-content/uploads/2023/02/loading-loading-forever.gif"  style="width: 50%;">
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
@@ -423,6 +423,9 @@ $query = ( isset( $_GET['q'] ) ) ? $_GET['q'] : '';
 					</td>
 					<td>
 						<?php echo esc_attr( $row->comentarios_y_sugerencias ); ?>
+					</td>
+					<td>
+						<?php echo esc_attr( $row->youtube_link ); ?>
 					</td>
 					<td>
 						<?php echo esc_attr( $row->ropa_formal ); ?>

@@ -411,6 +411,17 @@ use GPBMetadata\Google\Api\Expr\V1Alpha1\Checked;
 					<?php endif; ?>
 					<!-- RECOMENDACIONES -->
 					<p>
+
+						<?php if ( in_array( $form->tipo_de_formulario, array( 'gold' ) ) ) : ?>
+							<!-- Linik de youtube -->
+							<div class="form-check">
+								<label class="form-check-label" for="youtube_link">
+									Agregar música (link de youtube) 
+								</label>
+								<input class="form-check-input" type="text" name="youtube_link" id="youtube_link" value="<?=$form->youtube_link?>">
+							</div>
+						<?php endif; ?>
+
 						<!-- Checkbox para Código de Vestimenta -->
 						<div class="form-check">
 							<input class="form-check-input" type="checkbox" value="1" name="ropa_formal" id="ropa_formal" <?=checked( 1, $form->ropa_formal );?>>
@@ -1306,6 +1317,7 @@ use GPBMetadata\Google\Api\Expr\V1Alpha1\Checked;
 				nombre_de_recepcion: jQuery('#nombre_de_recepcion').val(),
 				datos_de_hotel_2: jQuery('#datos_de_hotel_2').val(),
 				datos_de_hotel_3: jQuery('#datos_de_hotel_3').val(),
+				youtube_link: jQuery('#youtube_link').val(),
 				ropa_formal: jQuery('#ropa_formal').val(),
 				no_ninos: jQuery('#no_ninos').val(),
 				recomendacion_otra: jQuery('#recomendacion_otra').val(),

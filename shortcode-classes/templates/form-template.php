@@ -723,6 +723,15 @@ button:hover {
 						</div>
 					</p>
 					<p>
+						<?php if ( in_array( $form->tipo_de_formulario, array( 'gold' ) ) ) : ?>
+							<!-- Linik de youtube -->
+							<div class="form-check">
+								<label class="form-check-label" for="youtube_link">
+									Agregar música (link de youtube) 
+								</label>
+								<input class="form-check-input" type="text" name="youtube_link" id="youtube_link" value="<?=$form->youtube_link?>">
+							</div>
+						<?php endif; ?>
 						<!-- Checkbox para Código de Vestimenta -->
 						<div class="form-check">
 							<input class="form-check-input" type="checkbox" value="1" name="ropa_formal" id="ropa_formal" >
@@ -1316,6 +1325,7 @@ button:hover {
 					whatsapp_de_contacto: jQuery('#whatsapp_de_contacto').val(),
 					correo_electronico_de_contacto: jQuery('#correo_electronico_de_contacto').val(),
 					comentarios_y_sugerencias: jQuery('#comentarios_y_sugerencias').val(),
+					youtube_link: jQuery('#youtube_link').val(),
 					ropa_formal: jQuery('#ropa_formal').val(),
 					no_ninos: jQuery('#no_ninos').val(),
 					recomendacion_otra: jQuery('#recomendacion_otra').val(),

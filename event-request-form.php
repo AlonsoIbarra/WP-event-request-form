@@ -390,6 +390,7 @@ if ( ! function_exists( 'erf_send_form_data' ) ) {
 		$whatsapp_de_contacto                       = sanitize_text_field( wp_unslash( $_POST['whatsapp_de_contacto'] ) );
 		$correo_electronico_de_contacto             = sanitize_text_field( wp_unslash( $_POST['correo_electronico_de_contacto'] ) );
 		$comentarios_y_sugerencias                  = sanitize_text_field( wp_unslash( $_POST['comentarios_y_sugerencias'] ) );
+		$youtube_link                               = sanitize_text_field( wp_unslash( $_POST['youtube_link'] ) );
 		$ropa_formal                                = sanitize_text_field( wp_unslash( $_POST['ropa_formal'] ) );
 		$no_ninos                                   = sanitize_text_field( wp_unslash( $_POST['no_ninos'] ) );
 		$recomendacion_otra                         = sanitize_text_field( wp_unslash( $_POST['recomendacion_otra'] ) );
@@ -456,6 +457,7 @@ if ( ! function_exists( 'erf_send_form_data' ) ) {
 					'whatsapp_de_contacto'                 => $whatsapp_de_contacto,
 					'correo_electronico_de_contacto'       => $correo_electronico_de_contacto,
 					'comentarios_y_sugerencias'            => $comentarios_y_sugerencias,
+		            'youtube_link'                         => $youtube_link,
 		            'ropa_formal'                          => $ropa_formal,
 		            'no_ninos'                             => $no_ninos,
 		            'recomendacion_otra'                   => $recomendacion_otra,

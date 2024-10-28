@@ -106,6 +106,7 @@ class Event_Request_Form_Activator {
 		whatsapp_de_contacto varchar(15) DEFAULT '' NOT NULL,
 		correo_electronico_de_contacto varchar(50) DEFAULT '' NOT NULL,
 		comentarios_y_sugerencias TEXT,
+		youtube_link varchar(250) DEFAULT NULL,
 		ropa_formal TINYINT DEFAULT 0,
 		no_ninos TINYINT DEFAULT 0,
 		recomendacion_otra varchar(200) DEFAULT '' NOT NULL,

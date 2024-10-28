@@ -372,6 +372,16 @@ if ( ! $row ) {
 				<td>
 					<div>
 						<strong>
+							<?php echo esc_attr( __( 'Agregar música', 'event-request-form' ) ); ?>
+						</strong>	
+						<?php echo $row->youtube_link; ?>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div>
+						<strong>
 							<?php echo esc_attr( __( 'Ropa formal', 'event-request-form' ) ); ?>
 						</strong>	
 						<?php echo ( $row->ropa_formal ) ? 'Sí' : 'No'; ?>
